@@ -1,0 +1,2 @@
+Une commande est passée, le salarié va entrer en BDD et la commande sera lié a plusieurs aliments. 
+Les aliments devront avoir un field réservé (Oui/Non) comme ça le salarié pourra voir quel produit est reservé.
