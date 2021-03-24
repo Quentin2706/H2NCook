@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="gFvilz5vw2jg8gttXXSJ" name="Page-1">
-        <mxGraphModel dx="3984" dy="1255" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="996" dy="-563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="7042oUeI4TsuFsOYYoSd-197" value="bcgClient" style="locked=1;" parent="0"/>
@@ -899,7 +899,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1" value="fenetres" style="" parent="0"/>
+                <mxCell id="1" value="fenetres" style="locked=1;" parent="0"/>
                 <mxCell id="_8B4A2XXD4Aun2ZtMIIq-264" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6220" y="4035" width="120" height="30" as="geometry"/>
                 </mxCell>
@@ -2612,67 +2612,67 @@
                 <mxCell id="SX3RrKBCosF0GH28UiQi-228" value="DELETE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4440" y="3200" width="70" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="ROUTE : index.php?page=accueil" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="4" value="ROUTE : index.php?page=accueil" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="1115" y="2728.5" width="200" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="ROUTE : index.php?page=connexion" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="7" value="ROUTE : index.php?page=connexion" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="1100" y="2117" width="230" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="ROUTE : index.php?page=inscription" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="8" value="ROUTE : index.php?page=inscription" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="2135" y="2123" width="215" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="ROUTE : index.php?page=avis" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="9" value="ROUTE : index.php?page=avis" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="1560" y="2738.5" width="200" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="ROUTE : index.php?page=reservations" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="10" value="ROUTE : index.php?page=reservations" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="1545" y="3338.5" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="ROUTE : index.php?page=detailRecette" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="11" value="ROUTE : index.php?page=detailRecette" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="1055" y="3950" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="ROUTE : index.php?page=listeRecettes" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="12" value="ROUTE : index.php?page=listeRecettes" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="1075" y="3335" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="ROUTE : index.php?page=form&amp;amp;mode=ajout" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="13" value="ROUTE : index.php?page=form&amp;amp;mode=ajout" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="3135" y="3335" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="ROUTE : index.php?page=accueil" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="15" value="ROUTE : index.php?page=accueil" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="5376" y="2738.5" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="ROUTE : index.php?page=avis" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="16" value="ROUTE : index.php?page=avis" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="4330" y="2738.5" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="ROUTE : index.php?page=liste&amp;amp;table=recettes" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="17" value="ROUTE : index.php?page=liste&amp;amp;table=recettes" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="5390" y="2117" width="260" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="ROUTE : index.php?page=reservations" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="19" value="ROUTE : index.php?page=reservations" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="5395" y="3348.5" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="ROUTE : index.php?page=liste&amp;amp;table=commandes" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="20" value="ROUTE : index.php?page=liste&amp;amp;table=commandes" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="6430" y="3363.5" width="290" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="ROUTE : index.php?page=detailCommande&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="21" value="ROUTE : index.php?page=detailCommande&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="6397.5" y="3963.5" width="292.5" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="ROUTE : index.php?page=stock" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="22" value="ROUTE : index.php?page=stock" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="6465" y="2757" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="ROUTE : index.php?page=form&amp;amp;mode=add" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="23" value="ROUTE : index.php?page=form&amp;amp;mode=add" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="6900" y="2088.5" width="245" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="ROUTE : index.php?page=form&amp;amp;mode=update&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="24" value="ROUTE : index.php?page=form&amp;amp;mode=update&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="7860" y="2084" width="305" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="ROUTE : index.php?page=form&amp;amp;mode=delete&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="25" value="ROUTE : index.php?page=form&amp;amp;mode=delete&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="8890" y="2090" width="305" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="ROUTE : index.php?page=detailClient&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="26" value="ROUTE : index.php?page=detailClient&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="7410" y="3972" width="292.5" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="ROUTE : index.php?page=detailProduit&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="27" value="ROUTE : index.php?page=detailProduit&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="8367.5" y="2813.5" width="292.5" height="33" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="ROUTE : index.php?page=reservationClient&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" vertex="1" parent="1">
+                <mxCell id="28" value="ROUTE : index.php?page=reservationClient&amp;amp;id=" style="rounded=0;whiteSpace=wrap;html=1;background-color=yellow;fillColor=#FFF838;" parent="1" vertex="1">
                     <mxGeometry x="5347.5" y="3963.5" width="292.5" height="33" as="geometry"/>
                 </mxCell>
             </root>
