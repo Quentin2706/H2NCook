@@ -159,7 +159,6 @@ CREATE TABLE Compositions
 (
     idComposition int(11) not null auto_increment PRIMARY KEY,
     quantite float not null,
-    uniteDeMesure varchar(30) not null,
     idProduit int(11) not null,
     idRecette  int(11) not null,
     idUniteDeMesure int(11) not null
@@ -223,7 +222,7 @@ CHARSET = UTF8;
 CREATE TABLE UnitesDeMesure
 (
     idUniteDeMesure int(11) not null auto_increment PRIMARY KEY,
-    libelle int(11) not null
+    libelle varchar(20) not null
 )ENGINE = INNODB,
 CHARSET = UTF8;
 

@@ -1,3 +1,55 @@
+USE h2n;
+
+TRUNCATE agendas;
+TRUNCATE categoriesproduits;
+TRUNCATE categoriesrecettes;
+
+TRUNCATE commandes;
+TRUNCATE compositions;
+TRUNCATE conversions;
+TRUNCATE devis;
+TRUNCATE etapes;
+TRUNCATE etapesrecette;
+TRUNCATE factures;
+TRUNCATE fournisseurs;
+TRUNCATE lignesCommande;
+TRUNCATE modesdepaiement;
+TRUNCATE paiements;
+TRUNCATE plats;
+TRUNCATE produits;
+TRUNCATE recettes;
+TRUNCATE reglements;
+TRUNCATE remises;
+TRUNCATE roles;
+TRUNCATE temoignages;
+TRUNCATE unitesdemesure;
+
+TRUNCATE users;
+TRUNCATE roles;
+TRUNCATE etapes;
+TRUNCATE clients;
+TRUNCATE agendas;
+TRUNCATE fournisseurs;
+TRUNCATE categoriesproduits;
+TRUNCATE unitesdemesure;
+TRUNCATE conversions;
+TRUNCATE produits;
+TRUNCATE categoriesrecettes;
+TRUNCATE recettes;
+TRUNCATE etapesrecette
+TRUNCATE plats;
+TRUNCATE compositions;
+TRUNCATE remises;
+TRUNCATE commandes;
+TRUNCATE lignescommande;
+TRUNCATE modesdepaiement;
+TRUNCATE paiements;
+TRUNCATE devis;
+TRUNCATE factures;
+TRUNCATE reglements;
+TRUNCATE temoignages;
+
+
 INSERT INTO `roles`(`idRole`, `libelle`) VALUES (null,'Gerant');
 INSERT INTO `roles`(`idRole`, `libelle`) VALUES (null,'Client');
 
@@ -35,17 +87,17 @@ INSERT INTO `unitesdemesure`(`idUniteDeMesure`, `libelle`) VALUES (null,"KL");
 
 
 
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"muscade","1236451","100",1,3,1,6,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"sel","1236461","100",1,2,1,6,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"poivre","769542","100",1,2,1,6,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"potiron","7496213","1",1,2.50,1,3,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"carotte","564210","1",1,1.50,1,3,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"pomme de terre","164529","1",1,5,1,3,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"ail","548625","10",1,3,1,7,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"oignon","9756241","1",1,2.30,1,3,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"lait","76120","1",3,0.5,1,8,1,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"huile d'olive","856421","1",1,1.5,1,7,1,null,null);
-INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"Persil","856421","100",1,0.5,1,7,1,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"muscade","1236451",100,1,3,1,6,1,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"sel","1236461",100,1,2,1,6,1,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"poivre","769542",100,1,2,1,6,1,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"potiron","7496213",1,1,2.50,1,3,4,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"carotte","564210",1,1,1.50,1,3,4,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"pomme de terre","164529",1,1,5,1,3,4,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"ail","548625",10,1,3,1,7,4,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"oignon","9756241",1,1,2.30,1,3,4,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"lait","76120",1,3,0.5,1,8,1,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"huile d'olive","856421",1,1,1.5,1,7,1,null,null);
+INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`, `dateCreation`, `dateModification`) VALUES (null,"Persil","856421",100,1,0.5,1,7,1,null,null);
 
 
 INSERT INTO `categoriesrecettes`(`idCategorieRecette`, `libelle`) VALUES (null,"hiver");
@@ -57,20 +109,30 @@ INSERT INTO `recettes`(`idRecette`, `libelle`, `nbPortion`, `cheminImage`, `desc
 
 INSERT INTO `plats`(`idPlat`, `libelle`, `idRecette`) VALUES (null,"Soupe aux potirons",1);
 
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,1,1,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,1,2,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,1,3,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,250,4,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,125,5,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,0.1,6,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,0.25,7,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,0.125,8,1);
-INSERT INTO `compositions`(`idComposition`, `quantite`, `uniteDeMesure`, `idProduit`, `idRecette`) VALUES (null,1,250,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,1,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,2,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,3,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,250,4,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,125,5,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,6,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,0.25,7,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,0.125,9,1,1);
+    INSERT INTO `compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,5,10,1,1);
 
 INSERT INTO `remises`(`idRemise`, `taux`) VALUES (null,0);
 INSERT INTO `remises`(`idRemise`, `taux`) VALUES (null,5);
 INSERT INTO `remises`(`idRemise`, `taux`) VALUES (null,7);
 INSERT INTO `remises`(`idRemise`, `taux`) VALUES (null,20);
+
+INSERT INTO `etapes`(`idEtape`, `titre`, `description`) VALUES (null,"fondre","faire fondre du beurre pendant 1 minute au micro-onde.");
+INSERT INTO `etapes`(`idEtape`, `titre`, `description`) VALUES (null,"cuire","faire cuire le potiron");
+INSERT INTO `etapes`(`idEtape`, `titre`, `description`) VALUES (null,"mixer","mixer le potiron avec le beurre et le lait");
+INSERT INTO `etapes`(`idEtape`, `titre`, `description`) VALUES (null,"saler/poivrer","saler et poivrer la préparation");
+
+INSERT INTO `etapesrecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) VALUES (null,1,1,1);
+INSERT INTO `etapesrecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) VALUES (null,2,1,2);
+INSERT INTO `etapesrecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) VALUES (null,3,1,3);
+INSERT INTO `etapesrecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) VALUES (null,4,1,4);
 
 INSERT INTO `commandes`(`idCommande`, `numero`, `idUser`, `idRemise`, `idAgenda`) VALUES (null,"02151357",2,1,1);
 INSERT INTO `commandes`(`idCommande`, `numero`, `idUser`, `idRemise`, `idAgenda`) VALUES (null,"02659892",3,2,2);
