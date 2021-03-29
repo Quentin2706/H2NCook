@@ -1,0 +1,73 @@
+
+:root {
+    --couleurSecondaire : #49111C;
+    --couleurPrincipale : #FFEDDF;
+}
+/****  GENERAL ****/
+html, body {
+	margin : 0;
+	padding : 0;
+    background-color: var(--couleurPrincipale);
+}
+
+div, header, footer, nav, article,h1,h2 {
+	display : flex;
+	flex : 1;
+}
+
+img, video {
+	width : 100%;
+}
+
+.titre {
+    flex : 8;
+    font-size: 3em;
+    font-family: helvetica, Arial, sans-serif;
+    font-weight : 600;
+    color : white;
+}
+
+header {
+    padding : 1em;
+    /* background-color: var(--couleurSecondaire); */
+    background-image: url(./IMAGES/photo_aliment.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.colonne {
+    flex-direction: column;
+}
+
+nav {
+    padding: 1em;
+}
+
+.boutons{
+    background-color: var(--couleurSecondaire);
+    padding: 0.5em;
+    margin: 0 0.5em;
+    color : white;
+    font-size: 1.5em;
+    border-radius: 0.2em;
+}
+
+.main {
+    background-color: white;
+    box-shadow: 5px 5px 15px rgb(128, 128, 128);
+}
+
+.main {
+    margin: 1em 0;
+    flex : 5
+}
+
+.presentationTitre {
+    font-size : 3em;
+    font-weight: bold;
+}
