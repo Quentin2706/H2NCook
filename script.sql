@@ -94,9 +94,9 @@ CREATE TABLE Agendas
 (
     idAgenda int(11) not null auto_increment PRIMARY KEY,
     dateEvent DATETIME NOT NULL, 
-    HoraireDebut DATETIME NOT NULL, 
-    HoraireFin DATETIME NOT NULL, 
-    Motif varchar(100) not null,
+    horaireDebut DATETIME NOT NULL, 
+    horaireFin DATETIME NOT NULL, 
+    motif varchar(100) not null,
     infoComp text
 )ENGINE = INNODB,
 CHARSET = UTF8;
@@ -230,9 +230,9 @@ CHARSET = UTF8;
 CREATE TABLE Conversions 
 (
     idConversion int(11) not null auto_increment PRIMARY KEY,
-    libelle varchar(20) not null,
-    operateur varchar(1) not null,
-    ratio float not null
+    idUniteChoisie int(11) not null,
+    ratio float not null,
+    idUniteConvertie int(11) not null
 )ENGINE = INNODB,
 CHARSET = UTF8;
 
@@ -256,7 +256,8 @@ ALTER TABLE Reglements ADD CONSTRAINT FK_Reglements_paiements FOREIGN KEY (idPai
 ALTER TABLE Paiements ADD CONSTRAINT FK_paiements_modesdepaiement FOREIGN KEY (idModeDePaiement) REFERENCES ModesDePaiement(idModeDePaiement);
 ALTER TABLE Temoignages ADD CONSTRAINT FK_temoignages_clients FOREIGN KEY (idUser) REFERENCES Clients(idUser);
 ALTER TABLE Users ADD CONSTRAINT FK_users_roles FOREIGN KEY (idRole) REFERENCES Roles(idRole);
--- ALTER TABLE Conversions ADD CONSTRAINT FK_conversions_UnitesDeMesure FOREIGN KEY (idUniteDeMesure) REFERENCES UnitesDeMesure(idUniteDeMesure);
+ALTER TABLE Conversions ADD CONSTRAINT FK_conversions_UniteChoisie FOREIGN KEY (idUniteChoisie) REFERENCES UnitesDeMesure(idUniteDeMesure);
+ALTER TABLE Conversions ADD CONSTRAINT FK_conversions_UniteConvertie FOREIGN KEY (idUniteConvertie) REFERENCES UnitesDeMesure(idUniteDeMesure);
 ALTER TABLE EtapesRecette ADD CONSTRAINT FK_etapesRecette_etapes FOREIGN KEY (idEtape) REFERENCES Etapes(idEtape);
 ALTER TABLE EtapesRecette ADD CONSTRAINT FK_etapesRecette_Recettes FOREIGN KEY (idRecette) REFERENCES Recettes(idRecette);
 

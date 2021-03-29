@@ -61,8 +61,8 @@ INSERT INTO `clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale
 INSERT INTO `clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `codePostal`, `ville`) VALUES (3,"F","beauchamp","tutu","1975-09-14 09:34:35","24 rue de l'église","71950","auboutdumonde");
 
 
-INSERT INTO `agendas` (`idAgenda`, `dateEvent`, `HoraireDebut`, `HoraireFin`, `Motif`, `infoComp`) VALUES (NULL, '2021-03-25 09:34:35', '2021-03-24 14:00:00', '2021-03-24 15:00:00', 'Prestation à domicile', "Je n'ai pas de cuisine équipée veuillez venir avec votre matériel svp.");
-INSERT INTO `agendas` (`idAgenda`, `dateEvent`, `HoraireDebut`, `HoraireFin`, `Motif`, `infoComp`) VALUES (NULL, '2021-05-22 09:34:35', '2021-05-22 08:00:00', '2021-05-23 02:00:00', 'prestation pour un mariage', "Vous n'avez surement pas besoin de matériel puisque la salle des fêtes est équipée de 4 bruleurs, un frigo etc .. ");
+INSERT INTO `agendas` (`idAgenda`, `dateEvent`, `horaireDebut`, `horaireFin`, `motif`, `infoComp`) VALUES (NULL, '2021-03-25 09:34:35', '2021-03-24 14:00:00', '2021-03-24 15:00:00', 'Prestation à domicile', "Je n'ai pas de cuisine équipée veuillez venir avec votre matériel svp.");
+INSERT INTO `agendas` (`idAgenda`, `dateEvent`, `horaireDebut`, `horaireFin`, `motif`, `infoComp`) VALUES (NULL, '2021-05-22 09:34:35', '2021-05-22 08:00:00', '2021-05-23 02:00:00', 'prestation pour un mariage', "Vous n'avez surement pas besoin de matériel puisque la salle des fêtes est équipée de 4 bruleurs, un frigo etc .. ");
 
 INSERT INTO `fournisseurs`(`idFournisseur`, `libelle`, `numTel`, `adressePostale`,`adresseMail`, `ville`, `codePostal`) VALUES (null,"fourni1","0645257468", "17 rue de la cloche", "fourni1@fourni1.com", "Saint-Maurice-Pellevoisin", "54620");
 INSERT INTO `fournisseurs`(`idFournisseur`, `libelle`, `numTel`, `adressePostale`,`adresseMail`, `ville`, `codePostal`) VALUES (null,"fourni2","0615457698", "84 rue nationale", "fourni2@fourni2.com", "Armentières", "20150");
@@ -88,6 +88,55 @@ INSERT INTO `unitesdemesure`(`idUniteDeMesure`, `libelle`) VALUES (null,"CL");
 INSERT INTO `unitesdemesure`(`idUniteDeMesure`, `libelle`) VALUES (null,"DL");
 INSERT INTO `unitesdemesure`(`idUniteDeMesure`, `libelle`) VALUES (null,"KL");
 
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,1,0.1,3);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,1,0.01,4);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,1,0.001,2);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,1,0.000001,5);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,3,10,1);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,3,0.1,4);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,3,0.01,2);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,3,0.00001,5);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,4,100,1);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,4,10,3);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,4,0.1,2);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,4,0.0001,5);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,2,1000,1);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,2,100,3);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,2,10,4);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,2,0.001,5);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,5,1000000,1);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,5,100000,3);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,5,10000,4);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,5,1000,2);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,7,0.1,8);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,7,0.01,9);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,7,0.001,6);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,7,0.000001,10);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,8,10,7);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,8,0.1,9);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,8,0.01,6);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,8,0.00001,10);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,9,100,7);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,9,10,8);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,9,0.1,6);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,9,0.0001,10);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,6,1000,7);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,6,100,8);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,6,10,9);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,6,0.001,10);
+
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,10,1000000,7);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,10,1000000,8);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,10,10000,9);
+INSERT INTO `conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,10,1000,6);
 
 
 INSERT INTO `produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`) VALUES (null,"muscade","1236451",100,1,3,1,6,2);
@@ -167,43 +216,3 @@ INSERT INTO `reglements`(`idReglement`, `idPaiement`, `idFacture`) VALUES (null,
 INSERT INTO `reglements`(`idReglement`, `idPaiement`, `idFacture`) VALUES (null,3,1);
 
 INSERT INTO `temoignages`(`idTemoignage`, `titre`, `note`, `appreciation`, `datePublication`, `idUser`) VALUES (null,"Parfait !", 4, "on est bien servi !", "2021-03-25 09:34:35", 2);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MGTOCG","/",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MGTODG","/",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MGTOG","/",1000);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MGTOKG","/",1000000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CGTOMG","*",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CGTODG","/",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CGTOG","/",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CGTOKG","/",100000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DGTOMG","*",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DGTOCG","*",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DGTOG","/",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DGTOKG","/",10000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"GTOMG","*",1000);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"GTOCG","*",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"GTODG","*",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"GTOKG","/",1000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MLTOCL","/",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MLTODL","/",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MLTOL","/",1000);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"MLTOKL","/",1000000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CLTOML","*",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CLTODL","/",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CLTOL","/",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"CLTOKL","/",100000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DLTOML","*",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DLTOCL","*",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DLTOL","/",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"DLTOKL","/",10000);
-
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"LTOML","*",1000);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"LTOCL","*",100);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"LTODL","*",10);
-INSERT INTO `conversions`(`idConversion`, `libelle`, `operateur`, `ratio`) VALUES (NULL,"LTOKL","/",1000);
