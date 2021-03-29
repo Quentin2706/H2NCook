@@ -25,7 +25,7 @@ CREATE TABLE Temoignages
     titre varchar(200) not null, 
     note int(11) not null,
     appreciation text not null,
-    datePublication DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    datePublication  DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
     idUser int(11) not null                                                                              
 )ENGINE = INNODB,
 CHARSET = UTF8;
@@ -76,14 +76,15 @@ CHARSET = UTF8;
 CREATE TABLE Factures
 (
     idFacture int(11) not null auto_increment PRIMARY KEY,
-    idPaiement int(11) not null,
-    idCommande int(11) not null
+    libelle varchar(100) not null,
+    cheminFacture varchar(50) not null
 )ENGINE = INNODB,
 CHARSET = UTF8;
 
 CREATE TABLE Reglements
 (
-    idReglement int(11) not null auto_increment PRIMARY KEY, 
+    idReglement int(11) not null auto_increment PRIMARY KEY,
+    datePaiement DATETIME NULL DEFAULT CURRENT_TIMESTAMP, 
     idPaiement int(11) not null,
     idFacture int(11) not null
 )ENGINE = INNODB,
@@ -131,8 +132,8 @@ CREATE TABLE Produits
     idFournisseur int(11) not null,
     idCategorieProduit int(11) not null,
     idUniteDeMesure int(11) not null,
-    dateCreation DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-    dateModification DATETIME NULL DEFAULT CURRENT_TIMESTAMP
+    dateCreation  DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+    dateModification  DATETIME NULL DEFAULT CURRENT_TIMESTAMP
 )ENGINE = INNODB,
 CHARSET = UTF8;
 
@@ -229,8 +230,9 @@ CHARSET = UTF8;
 CREATE TABLE Conversions 
 (
     idConversion int(11) not null auto_increment PRIMARY KEY,
-    ratio float not null,
-    idUniteDeMesure int(11) not null
+    libelle varchar(20) not null,
+    operateur varchar(1) not null,
+    ratio float not null
 )ENGINE = INNODB,
 CHARSET = UTF8;
 
@@ -249,14 +251,12 @@ ALTER TABLE Recettes ADD CONSTRAINT FK_recettes_CategoriesRecettes FOREIGN KEY (
 ALTER TABLE Produits ADD CONSTRAINT FK_produits_fournisseurs FOREIGN KEY (idFournisseur) REFERENCES Fournisseurs(idFournisseur);
 ALTER TABLE Produits ADD CONSTRAINT FK_produits_categorieProduits FOREIGN KEY (idCategorieProduit) REFERENCES CategoriesProduits(idCategorieProduit);
 ALTER TABLE Produits ADD CONSTRAINT FK_produits_UnitesDeMesure FOREIGN KEY (idUniteDeMesure) REFERENCES UnitesDeMesure(idUniteDeMesure);
-ALTER TABLE Reglements ADD CONSTRAINT FK_reglements_paiements FOREIGN KEY (idPaiement) REFERENCES Paiements(idPaiement);
 ALTER TABLE Reglements ADD CONSTRAINT FK_reglements_factures FOREIGN KEY (idFacture) REFERENCES Factures(idFacture);
-ALTER TABLE Factures ADD CONSTRAINT FK_factures_commandes FOREIGN KEY (idCommande) REFERENCES Commandes(idCommande);
-ALTER TABLE Factures ADD CONSTRAINT FK_factures_paiements FOREIGN KEY (idPaiement) REFERENCES Paiements(idPaiement);
+ALTER TABLE Reglements ADD CONSTRAINT FK_Reglements_paiements FOREIGN KEY (idPaiement) REFERENCES Paiements(idPaiement);
 ALTER TABLE Paiements ADD CONSTRAINT FK_paiements_modesdepaiement FOREIGN KEY (idModeDePaiement) REFERENCES ModesDePaiement(idModeDePaiement);
 ALTER TABLE Temoignages ADD CONSTRAINT FK_temoignages_clients FOREIGN KEY (idUser) REFERENCES Clients(idUser);
 ALTER TABLE Users ADD CONSTRAINT FK_users_roles FOREIGN KEY (idRole) REFERENCES Roles(idRole);
-ALTER TABLE Conversions ADD CONSTRAINT FK_conversions_UnitesDeMesure FOREIGN KEY (idUniteDeMesure) REFERENCES UnitesDeMesure(idUniteDeMesure);
+-- ALTER TABLE Conversions ADD CONSTRAINT FK_conversions_UnitesDeMesure FOREIGN KEY (idUniteDeMesure) REFERENCES UnitesDeMesure(idUniteDeMesure);
 ALTER TABLE EtapesRecette ADD CONSTRAINT FK_etapesRecette_etapes FOREIGN KEY (idEtape) REFERENCES Etapes(idEtape);
 ALTER TABLE EtapesRecette ADD CONSTRAINT FK_etapesRecette_Recettes FOREIGN KEY (idRecette) REFERENCES Recettes(idRecette);
 
