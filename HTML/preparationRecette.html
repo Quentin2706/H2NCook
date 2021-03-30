@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header id="#header">
+    <a href="accueil.html">
+      <div>
+        <img src="./IMAGES/logo.png">
+      </div>
+    </a>
+    <div class="titre center">Accueil</div>
+    <div></div>
+  </header>
+  <nav class="center">
+    <div></div>
+    <a href="presentation.html">
+      <div class="center boutons colonne">Présentation
+        <hr>
+      </div>
+    </a>
+    <a href="presentation.html">
+      <div class="center boutons colonne">Les plats proposés
+        <hr>
+      </div>
+    </a>
+    <a href="presentation.html">
+      <div class="center boutons colonne">Prendre rendez-vous
+        <hr>
+      </div>
+    </a>
+    <a href="presentation.html">
+      <div class="center boutons colonne">Les actualités
+        <hr>
+      </div>
+    </a>
+    <div></div>
+  </nav>
+
+  <div>
+    <div></div>
+    <div class="main">
+        <form class="colonne" method="post" action="TraitementRecette.php" enctype="multipart/form-data">
+          <div>
+            <div></div>
+            <select name="idCategorieRecette">
+              <option>ici les</option>
+              <option>catégorie de </option>
+              <option>recettes </option>
+            </select>
+            <div></div>
+            </div>
+            <label name="libelle">Nom de la recette</label>
+              <input type="text" name="libelle">
+              <label name="libelle">Insérez l'image liée à la recette</label>
+                <input type="file">
+                <label name="nbPortion">Nombre de portion pour la recette</label>
+                <input type="text">
+                <label name="libelle">Ajouter un produit</label>
+                <input type="text" name="idProduit">
+                <button>Ajouter un produit en base de données</button>
+                <label name="libelle">Ajouter un produit</label>
+                <input type="text" name="idProduit">
+                <button>Ajouter un produit en base de données</button>
+                  <button type="submit">Envoyer</button>
+            </form>
+    </div>
+    <div></div>
+  </div>
+  <div class="footer">
+    <div></div>
+    <div class="colonne center">
+      <p>H2nCook</p>
+      <p><a href="tel:+33646709096">06.46.70.90.96</a></p>
+      <p><a href="mailto:h2ncook@gmail.com">Nous contacter</a></p>
+    </div>
+    <div></div>
+    <div class="colonne center">
+      <p><a href="#">Les avis clients</a></p>
+      <p><a href="#">Mentions légales</a></p>
+      <p><a href="#">Politique de confidentialité</a></p>
+    </div>
+    <div></div>
+    <div class="colonne center">
+      <p><a href="#">L'entreprise</a></p>
+      <p><a href="#">Les plats proposés</a></p>
+      <p><a href="#">Réservez dés maintenant</a></p>
+    </div>
+    <div></div>
+    <div class="colonne center">
+      <p>Crée par</p>
+      <p><a href="mailto:quentin.balair2706@gmail.com">Quentin BALAIR</a></p>
+      <p>Stagiaire Developpeur Web</p>
+    </div>
+    <div></div>
+  </div>
+  <footer>
+    <div></div>
+    <div class="colonne center">
+      <p>H2nCook</p>
+      <p><a href="tel:+33646709096">06.46.70.90.96</a></p>
+      <p><a href="mailto:h2ncook@gmail.com">Nous contacter</a></p>
+    </div>
+    <div></div>
+    <div class="colonne center">
+      <p><a href="#">Les avis clients</a></p>
+      <p><a href="#">Mentions légales</a></p>
+      <p><a href="#">Politique de confidentialité</a></p>
+    </div>
+    <div></div>
+    <div class="colonne center">
+      <p><a href="#">L'entreprise</a></p>
+      <p><a href="#">Les plats proposés</a></p>
+      <p><a href="#">Réservez dés maintenant</a></p>
+    </div>
+    <div></div>
+    <div class="colonne center">
+      <p>Crée par</p>
+      <p><a href="mailto:quentin.balair2706@gmail.com">Quentin BALAIR</a></p>
+      <p>Stagiaire Developpeur Web</p>
+    </div>
+    <div></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
