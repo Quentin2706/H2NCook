@@ -5,6 +5,12 @@ class Etapes
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Etapes","idEtape","titre","description"];
+	private static $listeTypeInput = ["","","text","text"];
+	private static $listeClass =["","","",""];
+	private static $listeLabel = ["","","Titre de l'étape","Description"];
+	private static $nbColonne= 4;
+
 	private $_idEtape;
 	private $_titre;
 	private $_description;
@@ -42,6 +48,34 @@ class Etapes
 		$this->_description=$description;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+	
+	public function getLibelle()
+	{
+		return $this->getTitre();
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

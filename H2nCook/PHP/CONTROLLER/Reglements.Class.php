@@ -4,11 +4,19 @@ class Reglements
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Reglements","idReglement","datePaiement","idPaiement","idFacture"];
+	private static $listeTypeInput = ["","","date","select","select"];
+	private static $listeClass =["","","","Paiements","Factures"];
+	private static $listeLabel = ["","","Date du paiement","paiement lié","facture liée"];
+	private static $nbColonne= 5;
 
 	private $_idReglement;
 	private $_datePaiement;
 	private $_idPaiement;
 	private $_idFacture;
+
+	private $_paiement;
+	private $_facture;
 
 	/***************** Accesseurs ***************** */
 
@@ -41,6 +49,7 @@ class Reglements
 	public function setIdPaiement($idPaiement)
 	{
 		$this->_idPaiement=$idPaiement;
+		$this->setPaiement(PaiementsManager::findById($idPaiement));
 	}
 
 	public function getIdFacture()
@@ -51,6 +60,51 @@ class Reglements
 	public function setIdFacture($idFacture)
 	{
 		$this->_idFacture=$idFacture;
+		$this->setFacture(FacturesManager::findById($idFacture));
+	}
+
+	public function getPaiement()
+	{
+		return $this->_paiement;
+	}
+
+	public function setPaiement($paiement)
+	{
+		$this->_paiement=$paiement;
+	}
+
+	public function getFacture()
+	{
+		return $this->_facture;
+	}
+
+	public function setFacture($facture)
+	{
+		$this->_facture=$facture;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */

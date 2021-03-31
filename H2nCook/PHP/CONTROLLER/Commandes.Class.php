@@ -4,12 +4,21 @@ class Commandes
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Commandes","idCommande","numero","idUser","idRemise","idAgenda"];
+	private static $listeTypeInput = ["","","text","select","select","select"];
+	private static $listeClass =["","","","clients","remises","agendas"];
+	private static $listeLabel = ["","","Numéro de commande","Client concerné","Remise liée","Rendez-vous"];
+	private static $nbColonne= 6;
 
 	private $_idCommande;
 	private $_numero;
 	private $_idUser;
 	private $_idRemise;
 	private $_idAgenda;
+
+	private $_user;
+	private $_remise;
+	private $_agenda;
 
 	/***************** Accesseurs ***************** */
 
@@ -42,6 +51,7 @@ class Commandes
 	public function setIdUser($idUser)
 	{
 		$this->_idUser=$idUser;
+		$this->setUser(UsersManager::findById($idUser));
 	}
 
 	public function getIdRemise()
@@ -52,16 +62,77 @@ class Commandes
 	public function setIdRemise($idRemise)
 	{
 		$this->_idRemise=$idRemise;
+		$this->setRemise(RemisesManager::findById($idRemise));
 	}
 
 	public function getIdAgenda()
 	{
 		return $this->_idAgenda;
+		$this->setAgenda(AgendasManager::findById($idAgenda));
 	}
 
 	public function setIdAgenda($idAgenda)
 	{
 		$this->_idAgenda=$idAgenda;
+	}
+
+	public function getUser()
+	{
+		return $this->_user;
+	}
+
+	public function setUser($user)
+	{
+		$this->_user=$user;
+	}
+
+	public function getRemise()
+	{
+		return $this->_remise;
+	}
+
+	public function setRemise($remise)
+	{
+		$this->_remise=$remise;
+	}
+
+	public function getAgenda()
+	{
+		return $this->_agenda;
+	}
+
+	public function setAgenda($agenda)
+	{
+		$this->_agenda=$agenda;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+
+	public function getLibelle()
+	{
+		return $this->getNumero();
 	}
 
 	/*****************Constructeur***************** */

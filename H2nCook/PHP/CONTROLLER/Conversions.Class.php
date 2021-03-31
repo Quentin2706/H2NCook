@@ -5,10 +5,19 @@ class Conversions
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Conversions","idConversion","idUniteChoisie","ratio","idUniteConvertie"];
+	private static $listeTypeInput = ["","","select","text","select"];
+	private static $listeClass =["","","Unitesdemesure","","Unitesdemesure"];
+	private static $listeLabel = ["","","Unité utilisée pour la recette","Ratio de conversion","Unité enregistrée en base de données"];
+	private static $nbColonne= 5;
+
 	private $_idConversion;
 	private $_idUniteChoisie;
 	private $_ratio;
 	private $_idUniteConvertie;
+
+	private $_uniteChoisie;
+	private $_uniteConvertie;
 
 	/***************** Accesseurs ***************** */
 
@@ -31,6 +40,7 @@ class Conversions
 	public function setIdUniteChoisie($idUniteChoisie)
 	{
 		$this->_idUniteChoisie=$idUniteChoisie;
+		$this->setUniteChoisie(UnitesdemesureManager::findById($idUniteChoisie));
 	}
 
 	public function getRatio()
@@ -51,8 +61,52 @@ class Conversions
 	public function setIdUniteConvertie($idUniteConvertie)
 	{
 		$this->_idUniteConvertie=$idUniteConvertie;
+		$this->setUniteConvertie(UnitesdemesureManager::findById($idUniteConvertie));
 	}
 
+	public function getUniteConvertie()
+	{
+		return $this->_uniteConvertie;
+	}
+
+	public function setUniteConvertie($uniteConvertie)
+	{
+		$this->_uniteConvertie=$uniteConvertie;
+	}
+
+	public function getUniteChoisie()
+	{
+		return $this->_uniteChoisie; 
+	}
+
+	public function setUniteChoisie($uniteChoisie)
+	{
+		$this->_uniteChoisie=$uniteChoisie;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

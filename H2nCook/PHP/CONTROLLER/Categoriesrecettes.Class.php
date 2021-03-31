@@ -4,6 +4,11 @@ class Categoriesrecettes
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Categoriesrecettes","IdCategorieRecette","libelle"];
+	private static $listeTypeInput = ["","","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Nom de la catégorie de recette"];
+	private static $nbColonne= 3;
 
 	private $_idCategorieRecette;
 	private $_libelle;
@@ -11,7 +16,7 @@ class Categoriesrecettes
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdCategorieRecette()
+	public function getIdCategoriesRecette()
 	{
 		return $this->_idCategorieRecette;
 	}
@@ -29,6 +34,30 @@ class Categoriesrecettes
 	public function setLibelle($libelle)
 	{
 		$this->_libelle=$libelle;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */

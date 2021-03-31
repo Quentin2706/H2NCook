@@ -5,6 +5,12 @@ class Lignescommande
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Lignescommande","idLigneCommande","quantite","prixVenteHT","idProduit","idRecette","idCommande"];
+	private static $listeTypeInput = ["","","text","text","select","select","select"];
+	private static $listeClass =["","","","","Produits","Recettes","Commandes"];
+	private static $listeLabel = ["","","Quantité commandée","Prix de vente HT","Produit/Recette","Produit/Recette","Commande liée"];
+	private static $nbColonne= 7;
+
 	private $_idLigneCommande;
 	private $_quantite;
 	private $_prixVenteHT;
@@ -12,10 +18,14 @@ class Lignescommande
 	private $_idRecette;
 	private $_idCommande;
 
+	private $_produit;
+	private $_recette;
+	private $_commande;
+
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdLigneCommande()
+	public function getIdLignesCommand()
 	{
 		return $this->_idLigneCommande;
 	}
@@ -53,6 +63,17 @@ class Lignescommande
 	public function setIdProduit($idProduit)
 	{
 		$this->_idProduit=$idProduit;
+		$this->setProduit(ProduitsManager::findById($idProduit));
+	}
+
+	public function getProduit()
+	{
+		return $this->_produit;
+	}
+
+	public function setProduit($produit)
+	{
+		$this->_produit=$produit;
 	}
 
 	public function getIdRecette()
@@ -63,6 +84,17 @@ class Lignescommande
 	public function setIdRecette($idRecette)
 	{
 		$this->_idRecette=$idRecette;
+		$this->setRecette(RecettesManager::findById($idRecette));
+	}
+
+	public function getRecette()
+	{
+		return $this->_recette;
+	}
+
+	public function setRecette($recette)
+	{
+		$this->_recette=$recette;
 	}
 
 	public function getIdCommande()
@@ -73,7 +105,43 @@ class Lignescommande
 	public function setIdCommande($idCommande)
 	{
 		$this->_idCommande=$idCommande;
+		$this->setCommande(CommandesManager::findById($idCommande));
 	}
+
+	public function getCommande()
+	{
+		return $this->_commande;
+	}
+
+	public function setCommande($commande)
+	{
+		$this->_commande=$commande;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+
 
 	/*****************Constructeur***************** */
 

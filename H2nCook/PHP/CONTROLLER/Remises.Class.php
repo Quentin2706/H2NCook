@@ -4,6 +4,11 @@ class Remises
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs  =["Remise","idRemise","taux"];
+	private static $listeTypeInput = ["","","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Taux de remise"];
+	private static $nbColonne= 3;
 
 	private $_idRemise;
 	private $_taux;
@@ -31,6 +36,34 @@ class Remises
 		$this->_taux=$taux;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+
+	public function getLibelle()
+	{
+		return $this->getTaux()." %";
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

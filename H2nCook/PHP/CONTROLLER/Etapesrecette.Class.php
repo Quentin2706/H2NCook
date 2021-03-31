@@ -5,15 +5,24 @@ class Etapesrecette
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["EtapesRecette","idEtapeRecette","ordre","idRecette","idEtape"];
+	private static $listeTypeInput = ["","","text","select","select"];
+	private static $listeClass =["","","","Recettes","Etapes"];
+	private static $listeLabel = ["","","Saisissez l'ordre de l'étape pour la recette","Recette liée à cette étape","sélectionnez l'étape"];
+	private static $nbColonne= 5;
+
 	private $_idEtapeRecette;
 	private $_ordre;
 	private $_idRecette;
 	private $_idEtape;
 
+	private $_recette;
+	private $_etape;
+
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdEtapeRecette()
+	public function getIdEtapesRecett()
 	{
 		return $this->_idEtapeRecette;
 	}
@@ -41,6 +50,7 @@ class Etapesrecette
 	public function setIdRecette($idRecette)
 	{
 		$this->_idRecette=$idRecette;
+		$this->setRecette(RecettesManager::findById($idRecette));
 	}
 
 	public function getIdEtape()
@@ -51,6 +61,51 @@ class Etapesrecette
 	public function setIdEtape($idEtape)
 	{
 		$this->_idEtape=$idEtape;
+		$this->setEtape(EtapesManager::findById($idEtape));
+	}
+
+	public function getRecette()
+	{
+		return $this->_recette;
+	}
+
+	public function setRecette($recette)
+	{
+		$this->_recette=$recette;
+	}
+
+	public function getEtape()
+	{
+		return $this->_etape;
+	}
+
+	public function setEtape($etape)
+	{
+		$this->_etape=$etape;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */

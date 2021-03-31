@@ -4,6 +4,11 @@ class Modesdepaiement
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Modesdepaiement","idModeDePaiement","libelle"];
+	private static $listeTypeInput = ["","","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Libelle du mode de paiement"];
+	private static $nbColonne= 3;
 
 	private $_idModeDePaiement;
 	private $_libelle;
@@ -11,7 +16,7 @@ class Modesdepaiement
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdModeDePaiement()
+	public function getIdModesDePaiemen()
 	{
 		return $this->_idModeDePaiement;
 	}
@@ -31,6 +36,29 @@ class Modesdepaiement
 		$this->_libelle=$libelle;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

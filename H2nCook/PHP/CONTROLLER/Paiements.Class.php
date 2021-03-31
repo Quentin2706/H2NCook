@@ -4,11 +4,18 @@ class Paiements
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Paiements","idPaiement","montant", "numCheque", "idModeDePaiement"];
+	private static $listeTypeInput = ["","","text","text","select"];
+	private static $listeClass =["","","","","Modesdepaiement"];
+	private static $listeLabel = ["","","Montant du paiement", "Numéro du chèque", "Mode de paiement"];
+	private static $nbColonne= 5;
 
 	private $_idPaiement;
 	private $_montant;
 	private $_numCheque;
 	private $_idModeDePaiement;
+
+	private $_modeDePaiement;
 
 	/***************** Accesseurs ***************** */
 
@@ -51,8 +58,47 @@ class Paiements
 	public function setIdModeDePaiement($idModeDePaiement)
 	{
 		$this->_idModeDePaiement=$idModeDePaiement;
+		$this->setModeDePaiement(ModesdepaiementManager::findById($idModeDePaiement));
 	}
 
+	public function getModeDePaiement()
+	{
+		return $this->_modeDePaiement;
+	}
+
+	public function setModeDePaiement($modeDePaiement)
+	{
+		$this->_modeDePaiement=$modeDePaiement;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+	
+	public function getLibelle()
+	{
+		return $this->getMontant();
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

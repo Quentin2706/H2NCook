@@ -5,6 +5,12 @@ class Factures
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Factures","idFacture","libelle","cheminFacture"];
+	private static $listeTypeInput = ["","","text","text"];
+	private static $listeClass =["","","",""];
+	private static $listeLabel = ["","","Numéro de Facture (doit être le même que celui de la commande)","Chemin d'accès du fichier facture"];
+	private static $nbColonne= 4;
+
 	private $_idFacture;
 	private $_libelle;
 	private $_cheminFacture;
@@ -42,6 +48,29 @@ class Factures
 		$this->_cheminFacture=$cheminFacture;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

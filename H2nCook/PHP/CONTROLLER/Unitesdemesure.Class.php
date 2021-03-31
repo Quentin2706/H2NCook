@@ -4,6 +4,11 @@ class Unitesdemesure
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs  =["Unitesdemesure","idUniteDeMesure","libelle"];
+	private static $listeTypeInput = ["","","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Unité de mesure"];
+	private static $nbColonne= 3;
 
 	private $_idUniteDeMesure;
 	private $_libelle;
@@ -11,7 +16,7 @@ class Unitesdemesure
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdUniteDeMesure()
+	public function getIdUnitesDeMesur()
 	{
 		return $this->_idUniteDeMesure;
 	}
@@ -31,6 +36,29 @@ class Unitesdemesure
 		$this->_libelle=$libelle;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

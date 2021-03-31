@@ -4,6 +4,11 @@ class Roles
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs  =["Role","idRole","libelle"];
+	private static $listeTypeInput = ["","","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Role"];
+	private static $nbColonne= 3;
 
 	private $_idRole;
 	private $_libelle;
@@ -31,6 +36,29 @@ class Roles
 		$this->_libelle=$libelle;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

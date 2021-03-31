@@ -4,6 +4,11 @@ class Fournisseurs
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Fournisseurs","idFournisseur","libelle","numTel","adressePostale","adresseMail","ville","codePostal"];
+	private static $listeTypeInput = ["","","text","text","text","text","text","text"];
+	private static $listeClass =["","","",""];
+	private static $listeLabel = ["","","Nom du fournisseur","Numéro de téléphone","Adresse Postale","Adresse mail","ville","Code Postal"];
+	private static $nbColonne= 8;
 
 	private $_idFournisseur;
 	private $_libelle;
@@ -85,6 +90,31 @@ class Fournisseurs
 	{
 		$this->_codePostal=$codePostal;
 	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+
 
 	/*****************Constructeur***************** */
 

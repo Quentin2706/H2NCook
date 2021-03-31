@@ -5,6 +5,12 @@ class Clients
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Clients","idUser","genre","nom","prenom","DDN","adressePostale","codePostal","ville"];
+	private static $listeTypeInput = ["","","text","text","text","date","text","text","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Genre","Nom du client","Prénom","Date de naissance","Adresse postale","Code Postal","ville"];
+	private static $nbColonne= 9;
+
 	private $_idUser;
 	private $_genre;
 	private $_nom;
@@ -97,6 +103,39 @@ class Clients
 		$this->_ville=$ville;
 	}
 
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+
+	public function getLibelle()
+	{
+		return $this->getNom()." ".$this->getPrenom();
+	}
+
+	public function getIdClient()
+	{
+		return $this->getIdUser();
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

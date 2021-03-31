@@ -4,6 +4,11 @@ class Recettes
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Recettes","idRecette","libelle","nbPortion","cheminImage","descriptionClient","idCategorieRecette"];
+	private static $listeTypeInput = ["","","text","text","text","text","select"];
+	private static $listeClass =["","","","","","","Categoriesrecettes"];
+	private static $listeLabel = ["","","Titre de la recette","Nombre de portion","chemin d'accès à l'image","Description de la recette pour le client","Catégorie de la recette"];
+	private static $nbColonne= 7;
 
 	private $_idRecette;
 	private $_libelle;
@@ -11,6 +16,8 @@ class Recettes
 	private $_cheminImage;
 	private $_descriptionClient;
 	private $_idCategorieRecette;
+
+	private $_categorieRecette;
 
 	/***************** Accesseurs ***************** */
 
@@ -73,6 +80,41 @@ class Recettes
 	public function setIdCategorieRecette($idCategorieRecette)
 	{
 		$this->_idCategorieRecette=$idCategorieRecette;
+		$this->setCategorieRecette(CategoriesrecettesManager::findById($idCategorieRecette));
+	}
+
+	public function getCategorieRecette()
+	{
+		return $this->_categorieRecette;
+	}
+
+	public function setCategorieRecette($categorieRecette)
+	{
+		$this->_categorieRecette=$categorieRecette;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */

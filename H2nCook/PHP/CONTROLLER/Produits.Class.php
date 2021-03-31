@@ -4,6 +4,11 @@ class Produits
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Produits","idProduit","libelle", "reference", "poids", "stock", "prixAchatHT", "idFournisseur", "idCategorieProduit", "idUniteDeMesure"];
+	private static $listeTypeInput = ["","","text","text","text","text","text","select","select","select"];
+	private static $listeClass =["","","","","","","","Fournisseurs","CategoriesProduits","Unitesdemesure"];
+	private static $listeLabel = ["","","Libelle du produit","Référence du produit","Poids (ex : 100) pour 100 grammes", "quantité en stock (si vous avez 2 sachets de 100g c'est donc 2)", "Prix d'achat du produit unitaire)", "Fournisseur lié au produit", "Catégorie du produit", "unité de mesure (si vous avez saisis 10 oignons laissez ce champs vide)"];
+	private static $nbColonne= 10;
 
 	private $_idProduit;
 	private $_libelle;
@@ -16,6 +21,10 @@ class Produits
 	private $_idUniteDeMesure;
 	private $_dateCreation;
 	private $_dateModification;
+
+	private $_fournisseur;
+	private $_categorieProduit;
+	private $_uniteDeMesure;
 
 	/***************** Accesseurs ***************** */
 
@@ -88,6 +97,7 @@ class Produits
 	public function setIdFournisseur($idFournisseur)
 	{
 		$this->_idFournisseur=$idFournisseur;
+		$this->setFournisseur(FournisseursManager::findById($idFournisseur));
 	}
 
 	public function getIdCategorieProduit()
@@ -98,6 +108,7 @@ class Produits
 	public function setIdCategorieProduit($idCategorieProduit)
 	{
 		$this->_idCategorieProduit=$idCategorieProduit;
+		$this->setCategorieProduit(CategoriesProduitsManager::findById($idCategorieProduit));
 	}
 
 	public function getIdUniteDeMesure()
@@ -108,6 +119,7 @@ class Produits
 	public function setIdUniteDeMesure($idUniteDeMesure)
 	{
 		$this->_idUniteDeMesure=$idUniteDeMesure;
+		$this->setUniteDeMesure(UnitesdemesureManager::findById($idUniteDeMesure));
 	}
 
 	public function getDateCreation()
@@ -130,6 +142,59 @@ class Produits
 		$this->_dateModification=$dateModification;
 	}
 
+	public function getFournisseur()
+	{
+		return $this->_Fournisseur;
+	}
+
+	public function setFournisseur($fournisseur)
+	{
+		$this->_fournisseur=$fournisseur;
+	}
+
+	public function setCategorieProduit($categorieProduit)
+	{
+		$this->_categorieProduit=$categorieProduit;
+	}
+
+	public function getCategorieProduit()
+	{
+		return $this->_categorieProduit;
+	}
+
+	public function setUniteDeMesure($uniteDeMesure)
+	{
+		$this->_uniteDeMesure=$uniteDeMesure;
+	}
+
+	public function getUniteDeMesure()
+	{
+		return $this->_uniteDeMesure;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

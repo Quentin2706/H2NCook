@@ -5,13 +5,19 @@ class Categoriesproduits
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Categoriesproduits","IdCategorieProduit","libelle"];
+	private static $listeTypeInput = ["","","text"];
+	private static $listeClass =["","",""];
+	private static $listeLabel = ["","","Nom de la catégorie de produit"];
+	private static $nbColonne= 3;
+
 	private $_idCategorieProduit;
 	private $_libelle;
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdCategorieProduit()
+	public function getIdCategoriesproduit()
 	{
 		return $this->_idCategorieProduit;
 	}
@@ -31,6 +37,30 @@ class Categoriesproduits
 		$this->_libelle=$libelle;
 	}
 
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

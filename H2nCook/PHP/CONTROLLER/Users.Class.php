@@ -4,12 +4,19 @@ class Users
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs=["Users","idUser","identifiant","motDePasse","adresseMail", "idRole"];
+	private static $listeTypeInput = ["","","text","password","text", "select"];
+	private static $listeClass =["","","","","","Roles"];
+	private static $listeLabel = ["","","Identifiant","password","Adresse Mail", "Role"];
+	private static $nbColonne= 6;
 
 	private $_idUser;
 	private $_identifiant;
 	private $_motDePasse;
 	private $_adresseMail;
 	private $_idRole;
+
+	private $_Role;
 
 	/***************** Accesseurs ***************** */
 
@@ -62,6 +69,41 @@ class Users
 	public function setIdRole($idRole)
 	{
 		$this->_idRole=$idRole;
+		$this->setRole(RolesManager::findById($idRole));
+	}
+
+	public function getRole()
+	{
+		return $this->_role;
+	}
+
+	public function setRole($role)
+	{
+		$this->_role=$role;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */

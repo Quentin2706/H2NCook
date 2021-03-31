@@ -4,6 +4,11 @@ class Temoignages
 {
 
 	/*****************Attributs***************** */
+	private static $listeAttributs  =["Temoignages","idTemoignage","titre", "note", "appreciation","datePublication","idUser"];
+	private static $listeTypeInput = ["","","text", "text", "text", "date", "select"];
+	private static $listeClass =["","","","","","","Clients"];
+	private static $listeLabel = ["","","Titre de l'appreciation", "note attribuée", "commentaire", "date de publication","Client qui a publié"];
+	private static $nbColonne= 7;
 
 	private $_idTemoignage;
 	private $_titre;
@@ -11,6 +16,8 @@ class Temoignages
 	private $_appreciation;
 	private $_datePublication;
 	private $_idUser;
+
+	private $_user;
 
 	/***************** Accesseurs ***************** */
 
@@ -73,8 +80,42 @@ class Temoignages
 	public function setIdUser($idUser)
 	{
 		$this->_idUser=$idUser;
+		$this->setUser(UsersManager::findById($idUser));
 	}
 
+	public function getUser()
+	{
+		return $this->_user;
+	}
+
+	public function setUser($user)
+	{
+		$this->_user=$user;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

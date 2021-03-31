@@ -5,14 +5,23 @@ class Devis
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Devis","idDevis","cheminDevis","idCommande"];
+	private static $listeTypeInput = ["","","text","select"];
+	private static $listeClass =["","","","Commandes"];
+	private static $listeLabel = ["","","Chemin du fichier du devis","Commande liée"];
+	private static $nbColonne= 4;
+
 	private $_idDevis;
 	private $_cheminDevis;
 	private $_idCommande;
+	
+	private $_commande;
+
 
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdDevis()
+	public function getIdDevi()
 	{
 		return $this->_idDevis;
 	}
@@ -40,6 +49,41 @@ class Devis
 	public function setIdCommande($idCommande)
 	{
 		$this->_idCommande=$idCommande;
+		$this->setCommande(CommandesManager::findById($idCommande));
+	}
+
+	public function getCommande()
+	{
+		return $this->_commande;
+	}
+
+	public function setCommande($commande)
+	{
+		$this->_commande=$commande;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */

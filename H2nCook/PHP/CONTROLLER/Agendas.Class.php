@@ -5,6 +5,12 @@ class Agendas
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Agendas","idAgendas","dateEvent","horaireDebut","horaireFin", "motif", "infoComp"];
+	private static $listeTypeInput = ["","","date","date","date","text","text"];
+	private static $listeClass =["","","","",""];
+	private static $listeLabel = ["","","Date du rendez-vous", "Début du rendez-vous", "Fin du rendez-vous", "Motif du rendez-vous", "Informations complémentaires"];
+	private static $nbColonne= 7;
+
 	private $_idAgenda;
 	private $_dateEvent;
 	private $_horaireDebut;
@@ -75,6 +81,35 @@ class Agendas
 		$this->_infoComp=$infoComp;
 	}
 
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
+	}
+
+	public function getLibelle()
+	{
+		return $this->getDateEvent();
+	}
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

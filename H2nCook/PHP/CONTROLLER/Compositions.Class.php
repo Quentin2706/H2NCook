@@ -5,11 +5,21 @@ class Compositions
 
 	/*****************Attributs***************** */
 
+	private static $listeAttributs=["Compositions","idComposition","quantite","idProduit","idRecette","idUniteDeMesure"];
+	private static $listeTypeInput = ["","","text","select","select","select"];
+	private static $listeClass =["","","","produits","recettes","unitesDeMesure"];
+	private static $listeLabel = ["","","Quantité","Produits","recette","Unité de mesure"];
+	private static $nbColonne= 6;
+
 	private $_idComposition;
 	private $_quantite;
 	private $_idProduit;
 	private $_idRecette;
 	private $_idUniteDeMesure;
+
+	private $_produit;
+	private $_recette;
+	private $_uniteDeMesure;
 
 	/***************** Accesseurs ***************** */
 
@@ -42,6 +52,7 @@ class Compositions
 	public function setIdProduit($idProduit)
 	{
 		$this->_idProduit=$idProduit;
+		$this->setProduit(ProduitsManager::findById($idProduit));
 	}
 
 	public function getIdRecette()
@@ -52,6 +63,7 @@ class Compositions
 	public function setIdRecette($idRecette)
 	{
 		$this->_idRecette=$idRecette;
+		$this->setRecette(RecettesManager::findById($idRecette));
 	}
 
 	public function getIdUniteDeMesure()
@@ -62,6 +74,61 @@ class Compositions
 	public function setIdUniteDeMesure($idUniteDeMesure)
 	{
 		$this->_idUniteDeMesure=$idUniteDeMesure;
+		$this->setUniteDeMesure(UnitesdemesureManager::findById($idUniteDeMesure));
+	}
+
+	public function getProduit()
+	{
+		return $this->_produit;
+	}
+
+	public function setProduit($produit)
+	{
+		$this->_produit=$produit;
+	}
+
+	public function getRecette()
+	{
+		return $this->_recette;
+	}
+
+	public function setRecette($recette)
+	{
+		$this->_recette=$recette;
+	}
+
+	public function getUniteDeMesure()
+	{
+		return $this->_uniteDeMesure;
+	}
+
+	public function setUniteDeMesure($uniteDeMesure)
+	{
+		$this->_uniteDeMesure=$uniteDeMesure;
+	}
+
+	public static function getListeAttributs()
+    {
+        return self::$listeAttributs;
+    }
+
+    public static function getListeTypeInput()
+    {
+        return self::$listeTypeInput;
+    }
+
+    public static function getListeClass()
+    {
+        return self::$listeClass;
+    }
+
+    public static function getListeLabel()
+    {
+        return self::$listeLabel;
+    }
+    public static function getNbColonne()
+	{
+		return self::$nbColonne;
 	}
 
 	/*****************Constructeur***************** */
