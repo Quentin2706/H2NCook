@@ -56,7 +56,7 @@ p {
 header {
     padding : 1em;
     /* background-color: var(--couleurSecondaire); */
-    background-image: url(./IMAGES/photo_aliment.jpg);
+    background-image: url(../IMG/photo_aliment.jpg);
     background-position: center;
     background-size: cover;
 }
