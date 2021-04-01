@@ -25,7 +25,7 @@ class Lignescommande
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdLignesCommand()
+	public function getIdLigneCommande()
 	{
 		return $this->_idLigneCommande;
 	}

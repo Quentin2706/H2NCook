@@ -6,7 +6,7 @@ class Commandes
 	/*****************Attributs***************** */
 	private static $listeAttributs=["Commandes","idCommande","numero","idRemise","idUser","idAgenda"];
 	private static $listeTypeInput = ["","","text","select","select","select"];
-	private static $listeClass =["","","","clients","remises","agendas"];
+	private static $listeClass =["","","","remises","clients","agendas"];
 	private static $listeLabel = ["","","Numéro de commande","Remise liée","Client concerné","Rendez-vous"];
 	private static $nbColonne= 6;
 
@@ -28,9 +28,9 @@ class Commandes
 		return $this->_idCommande;
 	}
 
-	public function setIdCommande($idCommande)
+	public function setIdCommande($idCommandes)
 	{
-		$this->_idCommande=$idCommande;
+		$this->_idCommande=$idCommandes;
 	}
 
 	public function getNumero()

@@ -16,7 +16,7 @@ class Modesdepaiement
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdModesDePaiemen()
+	public function getIdModeDePaiement()
 	{
 		return $this->_idModeDePaiement;
 	}

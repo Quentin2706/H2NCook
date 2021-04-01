@@ -5,7 +5,7 @@ class Agendas
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Agendas","idAgendas", "motif","dateEvent","horaireDebut","horaireFin", "infoComp"];
+	private static $listeAttributs=["Agendas","idAgenda", "motif","dateEvent","horaireDebut","horaireFin", "infoComp"];
 	private static $listeTypeInput = ["","","text","date","date","date","text"];
 	private static $listeClass =["","","","",""];
 	private static $listeLabel = ["","", "Motif du rendez-vous","Date du rendez-vous", "Début du rendez-vous", "Fin du rendez-vous", "Informations complémentaires"];

@@ -21,7 +21,7 @@ class Devis
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdDevi()
+	public function getIdDevis()
 	{
 		return $this->_idDevis;
 	}

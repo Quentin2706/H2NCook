@@ -5,7 +5,7 @@ class Categoriesproduits
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Categoriesproduits","IdCategorieProduit","libelle"];
+	private static $listeAttributs=["Categorieproduit","IdCategorieProduit","libelle"];
 	private static $listeTypeInput = ["","","text"];
 	private static $listeClass =["","",""];
 	private static $listeLabel = ["","","Nom de la catégorie de produit"];
@@ -17,7 +17,7 @@ class Categoriesproduits
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdCategoriesproduit()
+	public function getIdCategorieproduit()
 	{
 		return $this->_idCategorieProduit;
 	}

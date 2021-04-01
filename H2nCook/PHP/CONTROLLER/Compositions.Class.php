@@ -5,9 +5,9 @@ class Compositions
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Compositions","idComposition","quantite","idProduit","idUniteDeMesure","idRecette"];
+	private static $listeAttributs=["Compositions","idCompositions","quantite","idProduit","idUniteDeMesure","idRecette"];
 	private static $listeTypeInput = ["","","text","select","select","select"];
-	private static $listeClass =["","","","produits","recettes","unitesDeMesure"];
+	private static $listeClass =["","","","produits","unitesDeMesure","recettes"];
 	private static $listeLabel = ["","","Quantité","Produits","Unité de mesure","recette"];
 	private static $nbColonne= 6;
 
@@ -24,14 +24,14 @@ class Compositions
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdComposition()
+	public function getIdCompositions()
 	{
 		return $this->_idComposition;
 	}
 
-	public function setIdComposition($idComposition)
+	public function setIdCompositions($idCompositions)
 	{
-		$this->_idComposition=$idComposition;
+		$this->_idComposition=$idCompositions;
 	}
 
 	public function getQuantite()

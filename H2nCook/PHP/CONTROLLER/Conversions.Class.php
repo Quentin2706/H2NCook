@@ -5,7 +5,7 @@ class Conversions
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Conversions","idConversion","idUniteChoisie","ratio","idUniteConvertie"];
+	private static $listeAttributs=["Conversions","idConversion","idUniteDeMesure","ratio","idUniteDeMesure"];
 	private static $listeTypeInput = ["","","select","text","select"];
 	private static $listeClass =["","","Unitesdemesure","","Unitesdemesure"];
 	private static $listeLabel = ["","","Unité utilisée pour la recette","Ratio de conversion","Unité enregistrée en base de données"];
@@ -107,6 +107,7 @@ class Conversions
 	{
 		return self::$nbColonne;
 	}
+
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])

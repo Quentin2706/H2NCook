@@ -16,7 +16,7 @@ class Categoriesrecettes
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdCategoriesRecette()
+	public function getIdCategorieRecette()
 	{
 		return $this->_idCategorieRecette;
 	}

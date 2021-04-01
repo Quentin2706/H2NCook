@@ -53,7 +53,16 @@
         </div>
         <div></div>
     </footer>
-    <script src="script.js"></script>
+    <?php
+    switch ($_GET["page"]) {
+        case 'Reservations':
+            echo'<script type="text/javascript" src="./JS/calendrier.js"></script>';
+            break;
+        
+        default:
+
+            break;
+    }?>
 </body>
 
 </html>

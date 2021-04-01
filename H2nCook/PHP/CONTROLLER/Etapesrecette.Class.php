@@ -22,7 +22,7 @@ class Etapesrecette
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdEtapesRecett()
+	public function getIdEtapeRecette()
 	{
 		return $this->_idEtapeRecette;
 	}

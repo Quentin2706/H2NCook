@@ -39,7 +39,7 @@ if (empty($objets)) {
                     //on vérifie si on doit faire appel à l'objet lié pour afficher le libelle au lieu de la clé secondaire
                     $listeTypeInput = $objets[0]->getListeTypeInput();
                     $listeClasse = $objets[0]->getListeClass();
-                    $id = appelGet($unObjet, "id".substr($table,0,strlen($table)-1));
+                    $id = appelGet($unObjet, $infos[1]);
                     // Affichage des information une par une de l'objet
                     for ($i = 2; $i < $nbColonne; $i++) {
                         if ($listeTypeInput[$i] != "password") {

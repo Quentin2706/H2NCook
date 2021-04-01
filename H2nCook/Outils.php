@@ -82,3 +82,45 @@ function appelFindById($nomTable, $id)
     // $methode = $nomTable."Manager::findById";
     return call_user_func($methode, $id);
 }
+
+/**
+ * fonction qui construit un select en fonction des parametres
+ * @valeur : valeur qui sera selected
+ * @table : table de reference
+ * @nomId : nom de l'id dans la table de reference
+ * @$mode : mode ajout modif, edit ou supprime
+ */
+function optionSelect($valeur, $table, $nomId, $mode)
+{
+    // $nom = ucfirst($nom);
+    // $rId = "getId".$nom;
+    // $id = $obj->$rId();
+    // $listeInfos = $obj->getListeInfos();
+    // $rLib = "getLib".$nom;
+    // $lib = $obj->$rLib();
+    // $ref=["$nom"=>["id"=> $id ,"libelle"=>$lib]];
+    $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
+    if ($mode == "detail" || $mode == "delete") {
+        $select .= " disabled ";
+    }
+    $select .= '>';
+    $liste = appelGetList($table);
+
+    if ($valeur == null) { // si le code est null, on ne mets pas de choix par défaut avec valeur
+        $select .= '<option value="" SELECTED>Choisir une valeur</option>';
+    }
+    foreach ($liste as $elt) {
+        // var_dump($code);
+        // echo $code;
+        // var_dump($elt->$rId());
+
+        if ($valeur == appelGet($elt, $nomId)) //appel de la methode stockée dans $method
+        { // si le code entré en paramètre est égale à l'élément alors c'est celui qui est selectionné
+            $select .= '<option value="' . appelGet($elt, $nomId) . '" SELECTED>' . appelGet($elt, "Libelle") . '</option>';
+        } else {
+            $select .= '<option value="' . appelGet($elt, $nomId) . '">' . appelGet($elt, "Libelle") . '</option>';
+        }
+    }
+    $select .= "</select>";
+    return $select;
+}

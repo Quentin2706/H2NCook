@@ -16,7 +16,7 @@ class Unitesdemesure
 	/***************** Accesseurs ***************** */
 
 
-	public function getIdUnitesDeMesur()
+	public function getIdUniteDeMesure()
 	{
 		return $this->_idUniteDeMesure;
 	}
