@@ -4,10 +4,10 @@ class Reglements
 {
 
 	/*****************Attributs***************** */
-	private static $listeAttributs=["Reglements","idReglement","datePaiement","idPaiement","idFacture"];
-	private static $listeTypeInput = ["","","date","select","select"];
-	private static $listeClass =["","","","Paiements","Factures"];
-	private static $listeLabel = ["","","Date du paiement","paiement lié","facture liée"];
+	private static $listeAttributs=["Reglements","idReglement","idPaiement","datePaiement","idFacture"];
+	private static $listeTypeInput = ["","","select","date","select"];
+	private static $listeClass =["","","Paiements","","Factures"];
+	private static $listeLabel = ["","","Montant en €","Date du paiement","facture liée"];
 	private static $nbColonne= 5;
 
 	private $_idReglement;

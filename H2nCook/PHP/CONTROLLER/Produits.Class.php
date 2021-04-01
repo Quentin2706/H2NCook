@@ -4,10 +4,10 @@ class Produits
 {
 
 	/*****************Attributs***************** */
-	private static $listeAttributs=["Produits","idProduit","libelle", "reference", "poids", "stock", "prixAchatHT", "idFournisseur", "idCategorieProduit", "idUniteDeMesure"];
-	private static $listeTypeInput = ["","","text","text","text","text","text","select","select","select"];
-	private static $listeClass =["","","","","","","","Fournisseurs","CategoriesProduits","Unitesdemesure"];
-	private static $listeLabel = ["","","Libelle du produit","Référence du produit","Poids (ex : 100) pour 100 grammes", "quantité en stock (si vous avez 2 sachets de 100g c'est donc 2)", "Prix d'achat du produit unitaire)", "Fournisseur lié au produit", "Catégorie du produit", "unité de mesure (si vous avez saisis 10 oignons laissez ce champs vide)"];
+	private static $listeAttributs=["Produits","idProduit", "idCategorieProduit","libelle","reference", "poids", "idUniteDeMesure", "stock", "prixAchatHT", "idFournisseur"];
+	private static $listeTypeInput = ["","","select","text","text","text","select","text","text","select"];
+	private static $listeClass =["","","CategoriesProduits","","","","Unitesdemesure","","","Fournisseurs"];
+	private static $listeLabel = ["","", "Catégorie du produit","Libelle du produit","Référence du produit","Poids", "unité de mesure", "quantité en stock", "Prix d'achat unitaire", "Fournisseur lié au produit"];
 	private static $nbColonne= 10;
 
 	private $_idProduit;

@@ -5,10 +5,10 @@ class Devis
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Devis","idDevis","cheminDevis","idCommande"];
-	private static $listeTypeInput = ["","","text","select"];
-	private static $listeClass =["","","","Commandes"];
-	private static $listeLabel = ["","","Chemin du fichier du devis","Commande liée"];
+	private static $listeAttributs=["Devis","idDevis","idCommande","cheminDevis"];
+	private static $listeTypeInput = ["","","select","text"];
+	private static $listeClass =["","","Commandes",""];
+	private static $listeLabel = ["","","Commande liée","Chemin du fichier du devis"];
 	private static $nbColonne= 4;
 
 	private $_idDevis;

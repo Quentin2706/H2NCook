@@ -5,10 +5,10 @@ class Compositions
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Compositions","idComposition","quantite","idProduit","idRecette","idUniteDeMesure"];
+	private static $listeAttributs=["Compositions","idComposition","quantite","idProduit","idUniteDeMesure","idRecette"];
 	private static $listeTypeInput = ["","","text","select","select","select"];
 	private static $listeClass =["","","","produits","recettes","unitesDeMesure"];
-	private static $listeLabel = ["","","Quantité","Produits","recette","Unité de mesure"];
+	private static $listeLabel = ["","","Quantité","Produits","Unité de mesure","recette"];
 	private static $nbColonne= 6;
 
 	private $_idComposition;

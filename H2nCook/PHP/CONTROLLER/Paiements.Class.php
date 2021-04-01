@@ -4,10 +4,10 @@ class Paiements
 {
 
 	/*****************Attributs***************** */
-	private static $listeAttributs=["Paiements","idPaiement","montant", "numCheque", "idModeDePaiement"];
-	private static $listeTypeInput = ["","","text","text","select"];
+	private static $listeAttributs=["Paiements","idPaiement","montant", "idModeDePaiement", "numCheque"];
+	private static $listeTypeInput = ["","","text","select","text"];
 	private static $listeClass =["","","","","Modesdepaiement"];
-	private static $listeLabel = ["","","Montant du paiement", "Numéro du chèque", "Mode de paiement"];
+	private static $listeLabel = ["","","Montant du paiement", "Mode de paiement", "Numéro du chèque"];
 	private static $nbColonne= 5;
 
 	private $_idPaiement;

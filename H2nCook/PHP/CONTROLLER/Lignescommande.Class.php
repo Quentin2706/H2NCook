@@ -5,10 +5,10 @@ class Lignescommande
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Lignescommande","idLigneCommande","quantite","prixVenteHT","idProduit","idRecette","idCommande"];
-	private static $listeTypeInput = ["","","text","text","select","select","select"];
-	private static $listeClass =["","","","","Produits","Recettes","Commandes"];
-	private static $listeLabel = ["","","Quantité commandée","Prix de vente HT","Produit/Recette","Produit/Recette","Commande liée"];
+	private static $listeAttributs=["Lignescommande","idLigneCommande","quantite","idProduit","idRecette","prixVenteHT","idCommande"];
+	private static $listeTypeInput = ["","","text","select","select","text","select"];
+	private static $listeClass =["","","","Produits","Recettes","","Commandes"];
+	private static $listeLabel = ["","","Quantité commandée","Produit/Recette","Produit/Recette","Prix de vente HT","Commande liée"];
 	private static $nbColonne= 7;
 
 	private $_idLigneCommande;

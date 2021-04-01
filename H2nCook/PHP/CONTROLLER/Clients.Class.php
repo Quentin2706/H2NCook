@@ -5,10 +5,10 @@ class Clients
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["Clients","idUser","genre","nom","prenom","DDN","adressePostale","codePostal","ville"];
+	private static $listeAttributs=["Clients","idUser","genre","nom","prenom","DDN","adressePostale","ville","codePostal"];
 	private static $listeTypeInput = ["","","text","text","text","date","text","text","text"];
 	private static $listeClass =["","",""];
-	private static $listeLabel = ["","","Genre","Nom du client","Prénom","Date de naissance","Adresse postale","Code Postal","ville"];
+	private static $listeLabel = ["","","Genre","Nom du client","Prénom","Date de naissance","Adresse postale","ville","Code Postal"];
 	private static $nbColonne= 9;
 
 	private $_idUser;

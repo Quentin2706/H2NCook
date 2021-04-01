@@ -8,7 +8,7 @@ class Factures
 	private static $listeAttributs=["Factures","idFacture","libelle","cheminFacture"];
 	private static $listeTypeInput = ["","","text","text"];
 	private static $listeClass =["","","",""];
-	private static $listeLabel = ["","","Numéro de Facture (doit être le même que celui de la commande)","Chemin d'accès du fichier facture"];
+	private static $listeLabel = ["","","Numéro de Facture","Chemin d'accès du fichier facture"];
 	private static $nbColonne= 4;
 
 	private $_idFacture;

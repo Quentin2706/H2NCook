@@ -4,10 +4,10 @@ class Commandes
 {
 
 	/*****************Attributs***************** */
-	private static $listeAttributs=["Commandes","idCommande","numero","idUser","idRemise","idAgenda"];
+	private static $listeAttributs=["Commandes","idCommande","numero","idRemise","idUser","idAgenda"];
 	private static $listeTypeInput = ["","","text","select","select","select"];
 	private static $listeClass =["","","","clients","remises","agendas"];
-	private static $listeLabel = ["","","Numéro de commande","Client concerné","Remise liée","Rendez-vous"];
+	private static $listeLabel = ["","","Numéro de commande","Remise liée","Client concerné","Rendez-vous"];
 	private static $nbColonne= 6;
 
 	private $_idCommande;

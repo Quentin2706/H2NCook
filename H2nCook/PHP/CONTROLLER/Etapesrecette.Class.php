@@ -5,10 +5,10 @@ class Etapesrecette
 
 	/*****************Attributs***************** */
 
-	private static $listeAttributs=["EtapesRecette","idEtapeRecette","ordre","idRecette","idEtape"];
+	private static $listeAttributs=["EtapesRecette","idEtapeRecette","ordre","idEtape","idRecette"];
 	private static $listeTypeInput = ["","","text","select","select"];
-	private static $listeClass =["","","","Recettes","Etapes"];
-	private static $listeLabel = ["","","Saisissez l'ordre de l'étape pour la recette","Recette liée à cette étape","sélectionnez l'étape"];
+	private static $listeClass =["","","","Etapes","Recettes"];
+	private static $listeLabel = ["","","l'ordre de l'étape pour la recette","sélectionnez l'étape","Recette liée à cette étape"];
 	private static $nbColonne= 5;
 
 	private $_idEtapeRecette;
