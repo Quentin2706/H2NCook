@@ -54,14 +54,17 @@
         <div></div>
     </footer>
     <?php
-    switch ($_GET["page"]) {
-        case 'Reservations':
-            echo'<script type="text/javascript" src="./JS/calendrier.js"></script>';
-            break;
-        
-        default:
+    if (isset($_GET["page"]))
+    {
+        switch ($_GET["page"]) {
+            case 'Reservations':
+                echo'<script type="text/javascript" src="./JS/calendrier.js"></script>';
+                break;
+            
+            default:
 
-            break;
+                break;
+        }
     }?>
 </body>
 

@@ -8,7 +8,7 @@ var_dump($obj);
 echo $obj->toString();
 
 echo "ajout de l'objet". "<br>";
-$newObj = new Clients(["genre" => "([value 1])", "nom" => "([value 2])", "prenom" => "([value 3])", "DDN" => "([value 4])", "adressePostale" => "([value 5])", "numTel" => "([value 6])", "codePostal" => "([value 7])", "ville" => "([value 8])"]);
+$newObj = new Clients(["genre" => "([value 1])", "nom" => "([value 2])", "prenom" => "([value 3])", "DDN" => "([value 4])", "adressePostale" => "([value 5])", "codePostal" => "([value 6])", "ville" => "([value 7])"]);
 var_dump(ClientsManager::add($newObj));
 
 echo "Liste des objets" . "<br>";

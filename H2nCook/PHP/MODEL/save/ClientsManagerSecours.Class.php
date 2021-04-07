@@ -52,22 +52,6 @@ class ClientsManager
 			return false;
 		}
 	}
-	public static function APIfindById($id)
-	{
- 		$db=DbConnect::getDb();
-		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Clients WHERE idUser =".$id);
-		$results = $q->fetch(PDO::FETCH_ASSOC);
-		if($results != false)
-		{
-			return $results;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
 	public static function getList()
 	{
  		$db=DbConnect::getDb();

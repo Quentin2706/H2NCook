@@ -44,9 +44,17 @@ $routes=[
 	"TesttemoignagesManager"=>["PHP/MODEL/TESTMANAGER/","TesttemoignagesManager","Test de temoignages", false],
 	"TestunitesdemesureManager"=>["PHP/MODEL/TESTMANAGER/","TestunitesdemesureManager","Test de unitesdemesure", false],
 	"TestusersManager"=>["PHP/MODEL/TESTMANAGER/","TestusersManager","Test de users", false],
+
 	"Liste"=>["PHP/VIEW/","Liste","Liste", false],
 	"Form"=>["PHP/VIEW/","Form","Formulaire", false],
 	"Reservations"=>["PHP/VIEW/","Reservations","Reservations", false],
+
+	"FormAgenda"=>["PHP/VIEW/","FormAgenda","Ajouter un rendez-vous", false],
+	"ActionAgenda"=>["PHP/VIEW/","ActionAgenda","Ajouter un rendez-vous", false],
+
+
+
+	"ApiReservations"=>["PHP/MODEL/","ApiReservations","api", true],
 ];
 
 if(isset($_GET["page"]))

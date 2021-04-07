@@ -1,0 +1,112 @@
+[
+    {
+        "idAgenda": "1",
+        "dateEvent": "2021-04-30 09:34:35",
+        "horaireDebut": "2021-04-02 09:30:42",
+        "horaireFin": "2021-04-02 15:00:00",
+        "motif": "Prestation \u00e0 domicile",
+        "infoComp": "Je n'ai pas de cuisine \u00e9quip\u00e9e veuillez venir avec votre mat\u00e9riel svp."
+    },
+    {
+        "idAgenda": "2",
+        "dateEvent": "2021-05-26 09:34:35",
+        "horaireDebut": "2021-04-02 08:00:00",
+        "horaireFin": "2021-04-02 09:00:00",
+        "motif": "prestation pour un mariage",
+        "infoComp": "Vous n'avez surement pas besoin de mat\u00e9riel puisque la salle des f\u00eates est \u00e9quip\u00e9e de 4 bruleurs, un frigo etc .. "
+    }
+]
+
+
+[
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "3",
+        "genre": "F",
+        "nom": "beauchamp",
+        "prenom": "tutu",
+        "DDN": "1975-09-14 09:34:35",
+        "adressePostale": "24 rue de l'\u00e9glise",
+        "codePostal": "71950",
+        "ville": "auboutdumonde"
+    },
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "2",
+        "genre": "H",
+        "nom": "dupont",
+        "prenom": "toto",
+        "DDN": "1987-03-25 09:34:35",
+        "adressePostale": "11 bis rue du longchamp",
+        "codePostal": "65421",
+        "ville": "QuelquePart"
+    },
+    {
+        "idUser": "3",
+        "genre": "F",
+        "nom": "beauchamp",
+        "prenom": "tutu",
+        "DDN": "1975-09-14 09:34:35",
+        "adressePostale": "24 rue de l'\u00e9glise",
+        "codePostal": "71950",
+        "ville": "auboutdumonde"
+    }
+]

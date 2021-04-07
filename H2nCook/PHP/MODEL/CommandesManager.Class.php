@@ -58,4 +58,20 @@ class CommandesManager
 		}
 		return $liste;
 	}
+
+	public static function APIFindUserByAgendaInCommandes($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT `idUser` FROM `Commandes` WHERE `idAgenda` =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return $results;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

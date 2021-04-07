@@ -1,0 +1,182 @@
+/* On initialise la date */
+const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const DATE = new Date();
+var auj = DATE.toLocaleDateString('fr-FR', OPTIONS);
+
+/* on récupère l'année courante */
+var annee = DATE.getFullYear();
+
+var selectAnnee = document.getElementsByClassName("selectAnnee")[0];
+selectAnnee.addEventListener("input", function(e){
+    refresh(e);
+})
+
+
+
+/* On rend les mois clickable */
+var selectMois = document.getElementsByClassName("mois");
+
+for (let i = 0; i < selectMois.length; i++) {
+    selectMois[i].addEventListener("click", function (e) {
+        refresh(e);
+    });
+}
+
+/* On initialise le tableau du  nombre de jours qui ne changera jamais sauf au moment dans années bissextiles */
+var jours = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+
+var calendrier = document.getElementsByClassName("calendrier")[0];
+
+
+/* Voici la fonction qui permettra de changer le calendrier en fonction du mois qu'on a choisit*/
+function refresh(e) {
+    annee = parseInt(selectAnnee.value);
+    // Ici on réinitialise la class active qui permet de mettre la couleur rouge sur le mois actif
+    for (let i = 0; i < selectMois.length; i++) {
+        selectMois[i].classList.remove("active");
+    }
+
+    var caseCalendrier = document.getElementsByClassName("case");
+    /* On grise les cases qui ne seront pas utilisées */ 
+    for (k = 0; k < caseCalendrier.length; k++) {
+        caseCalendrier[k].innerHTML = "";
+        caseCalendrier[k].classList.remove("jourActif");
+    }
+    // Je mets en couleur le mois actif je vérifie également si ma cible est est bien les mois et pas le select année
+    if (e.target.classList.contains("mois"))
+    {
+        mois = parseInt(e.target.getAttribute("nb"));
+    } else {
+        mois = DATE.getMonth();
+    }
+    /* Je fais appela  la fonction pour récuperer les données*/
+    refreshAPI(annee,mois+1);
+        // je vérifie que le e.target c'est bien un mois 
+        if(e.target.classList.contains("mois")){
+            e.target.classList.add("active"); 
+         } else {
+            selectMois[mois].classList.add("active");
+         }
+    var dateDemandee = new Date(annee, mois, 1);
+    if ((parseInt(annee) % 4 === 0 && parseInt(annee) % 100 > 0) || (parseInt(annee) % 400 === 0)) {
+        // si c'est février et que l'année est bissextile alors le mois prend 29 jours
+        console.log("année bissextile");
+        if (parseInt(mois) == 1) {
+            jours[1] = 29;
+        }
+    } else {
+        jours[1] = 28;
+    }
+    var firstDay = parseInt(dateDemandee.getDay());
+    /* Comme les cases du calendrier commencent a 0 je fais -1*/
+    if (firstDay > 0) {
+        firstDay -= 1;
+    }
+
+    var compteur = 1;
+    for (i = 0; i < 6; i++) {
+        let ligne = calendrier.children[i];
+        for (j = firstDay; j < 7; j++) {
+            if (compteur <= jours[mois]) {
+                caseLigne = ligne.children[j];
+                caseLigne.innerHTML = compteur;
+                caseLigne.classList.add("jourActif");
+                compteur++;
+                // trucs a faire ici
+            }
+        }
+        firstDay = 0;
+    }
+}
+
+
+
+var mois = DATE.getMonth()+1;
+selectMois[parseInt(mois-1)].classList.add("active");
+if ((parseInt(annee) % 4 === 0 && parseInt(annee) % 100 > 0) || (parseInt(annee) % 400 === 0)) {
+    // si c'est février et que l'année est bissextile alors le mois prend 29 jours
+    if (parseInt(mois) == 1) {
+        jours[1] = 29;
+    } else {
+        jours[1] = 28;
+    }
+}
+var firstDay = parseInt(DATE.getDay())+1;
+
+var caseCalendrier = document.getElementsByClassName("case");
+/* On grise les cases qui ne seront pas utilisées */ 
+for (k = 0; k < caseCalendrier.length; k++) {
+    caseCalendrier[k].innerHTML = "";
+    caseCalendrier[k].classList.remove("jourActif");
+}
+
+
+var compteur = 1;
+for (i = 0; i < 6; i++) {
+    let ligne = calendrier.children[i];
+    for (j = firstDay; j < 7; j++) {
+        if (compteur <= jours[mois]) {
+            caseLigne = ligne.children[j];
+            caseLigne.innerHTML = compteur;
+            compteur++;
+            caseLigne.classList.add("jourActif");
+            // Il faut ajoute plus de trucs ici
+
+        }
+    }
+    firstDay = 0;
+    caseLigne = ligne.children[firstDay];
+}
+
+function afficherDetail()
+{
+    alert("gg");
+}
+
+/* ================ API ====================== */
+
+function refreshAPI(annee,mois)
+{
+if (mois < 10)
+{
+    mois = "0"+mois;
+}
+
+requ1.open('POST', './index.php?page=ApiReservations', true);
+requ1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+requ1.send("date="+annee+"-"+mois);
+}
+
+const requ1 = new XMLHttpRequest();
+requ1.onreadystatechange = function (e) {
+    if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+            reponse = JSON.parse(this.responseText);
+            console.log(reponse);
+
+            for (let i = 0 ; i < reponse.length; i++)
+            {
+                if (reponse[i].horaireDebut.substring(8,reponse[i].horaireDebut.length-9).startsWith("0")) {
+                    var nbJour = parseInt(reponse[i].horaireDebut.substring(9,reponse[i].horaireDebut.length-9));
+                } else {
+                    var nbJour = parseInt(reponse[i].horaireDebut.substring(8,reponse[i].horaireDebut.length-9));
+                }
+                var div = document.createElement("div");
+                div.setAttribute("class", "rond");
+                jours[nbJour].appendChild(div);
+            
+            }
+        }
+    }
+}
+
+/* je lance la requête à L'API au chargement de la page */
+refreshAPI(annee,mois);
+
+var jours = document.getElementsByClassName("jourActif");
+
+for (let i = 0; i < jours.length; i++)
+{
+    jours[i].addEventListener("click", afficherDetail);
+}

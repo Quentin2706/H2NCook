@@ -57,8 +57,8 @@ INSERT INTO `users`(`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRol
 INSERT INTO `users`(`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRole`) VALUES (null,"dupont.toto","dupont.toto","dupont.toto@gmail.com",2);
 INSERT INTO `users`(`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRole`) VALUES (null,"beauchamp.tutu","beauchamp.tutu","beauchamp.tutu@gmail.com",2);
 
-INSERT INTO `clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `codePostal`, `ville`) VALUES (2,"H","dupont","toto","1987-03-25 09:34:35","11 bis rue du longchamp","65421","QuelquePart");
-INSERT INTO `clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `codePostal`, `ville`) VALUES (3,"F","beauchamp","tutu","1975-09-14 09:34:35","24 rue de l'église","71950","auboutdumonde");
+INSERT INTO `clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (2,"H","dupont","toto","1987-03-25 09:34:35","11 bis rue du longchamp","0618802737","65421","QuelquePart");
+INSERT INTO `clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (3,"F","beauchamp","tutu","1975-09-14 09:34:35","24 rue de l'église","0646219514","71950","auboutdumonde");
 
 
 INSERT INTO `agendas` (`idAgenda`, `dateEvent`, `horaireDebut`, `horaireFin`, `motif`, `infoComp`) VALUES (NULL, '2021-03-25 09:34:35', '2021-03-24 14:00:00', '2021-03-24 15:00:00', 'Prestation à domicile', "Je n'ai pas de cuisine équipée veuillez venir avec votre matériel svp.");

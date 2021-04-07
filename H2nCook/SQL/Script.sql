@@ -38,8 +38,9 @@ CREATE TABLE Clients
     prenom varchar(100) not null,
     DDN DATETIME not null,
     adressePostale varchar(250) not null,
+    numTel varchar(20) not null,
     codePostal varchar(5) not null, 
-    ville varchar(100) not null                                                                             
+    ville varchar(100) not null                                                                           
 )ENGINE = INNODB,
 CHARSET = UTF8;
 

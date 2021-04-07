@@ -17,7 +17,10 @@ echo'</select>
 <div class="titre"></div>
 </div>';
 
-echo'<div class="ligne">';
+
+
+echo'
+<div class="ligne">';
 echo'<div class="entete mois" nb="0">Jan</div>';
 echo'<div class="entete mois" nb="1">Fev</div>';
 echo'<div class="entete mois" nb="2">Mars</div>';
@@ -101,8 +104,18 @@ echo'<div class="ligne">
 <div class="case"></div>
 <div class="case"></div>
 <div class="case"></div>
-</div></div>';
+</div>
+</div>
+
+
+
+<div class="informations colonne">
+    
+</div>
+';
 
 echo '</div>
 <div></div>
-</div>';
+</div>
+
+';

@@ -4,11 +4,12 @@ class Clients
 {
 
 	/*****************Attributs***************** */
-	private static $listeAttributs=["Clients","idUser","genre","nom","prenom","DDN","adressePostale","numTel","ville","codePostal"];
+
+	private static $listeAttributs=["Clients","idUser","genre","nom","prenom","DDN","adressePostale","ville","codePostal"];
 	private static $listeTypeInput = ["","","text","text","text","date","text","text","text"];
 	private static $listeClass =["","",""];
 	private static $listeLabel = ["","","Genre","Nom du client","Prénom","Date de naissance","Adresse postale","ville", "Code postal"];
-	private static $nbColonne= 10;
+	private static $nbColonne= 9;
 
 	private $_idUser;
 	private $_genre;
@@ -16,7 +17,6 @@ class Clients
 	private $_prenom;
 	private $_DDN;
 	private $_adressePostale;
-	private $_numTel;
 	private $_codePostal;
 	private $_ville;
 
@@ -83,16 +83,6 @@ class Clients
 		$this->_adressePostale=$adressePostale;
 	}
 
-	public function getNumTel()
-	{
-		return $this->_numTel;
-	}
-
-	public function setNumTel($numTel)
-	{
-		$this->_numTel=$numTel;
-	}
-
 	public function getCodePostal()
 	{
 		return $this->_codePostal;
@@ -146,7 +136,6 @@ class Clients
 	{
 		return $this->getIdUser();
 	}
-
 	/*****************Constructeur***************** */
 
 	public function __construct(array $options = [])
@@ -177,7 +166,7 @@ class Clients
 	*/
 	public function toString()
 	{
-		return "IdUser : ".$this->getIdUser()."Genre : ".$this->getGenre()."Nom : ".$this->getNom()."Prenom : ".$this->getPrenom()."DDN : ".$this->getDDN()."AdressePostale : ".$this->getAdressePostale()."NumTel : ".$this->getNumTel()."CodePostal : ".$this->getCodePostal()."Ville : ".$this->getVille()."\n";
+		return "IdUser : ".$this->getIdUser()."Genre : ".$this->getGenre()."Nom : ".$this->getNom()."Prenom : ".$this->getPrenom()."DDN : ".$this->getDDN()."AdressePostale : ".$this->getAdressePostale()."CodePostal : ".$this->getCodePostal()."Ville : ".$this->getVille()."\n";
 	}
 
 

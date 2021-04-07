@@ -60,4 +60,19 @@ class AgendasManager
 		}
 		return $liste;
 	}
+
+	public static function APIgetByDate($date)
+	{
+ 		$db=DbConnect::getDb();
+		$json = [];
+		$q = $db->query('SELECT * FROM agendas WHERE horaireDebut LIKE "%'.$date.'%" AND horaireFin LIKE "%'.$date.'%"');
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$json[] = $donnees;
+			}
+		}
+		return $json;
+	}
 }

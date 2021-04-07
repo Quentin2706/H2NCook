@@ -3,11 +3,14 @@ const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric
 const DATE = new Date();
 var auj = DATE.toLocaleDateString('fr-FR', OPTIONS);
 
+var reponse = "";
+var reponse2 = "";
+
 /* on récupère l'année courante */
 var annee = DATE.getFullYear();
 
 var selectAnnee = document.getElementsByClassName("selectAnnee")[0];
-selectAnnee.addEventListener("input", function(e){
+selectAnnee.addEventListener("input", function (e) {
     refresh(e);
 })
 
@@ -25,6 +28,10 @@ for (let i = 0; i < selectMois.length; i++) {
 /* On initialise le tableau du  nombre de jours qui ne changera jamais sauf au moment dans années bissextiles */
 var jours = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+
+var calendrier = document.getElementsByClassName("calendrier")[0];
+
+
 /* Voici la fonction qui permettra de changer le calendrier en fonction du mois qu'on a choisit*/
 function refresh(e) {
     annee = parseInt(selectAnnee.value);
@@ -32,37 +39,42 @@ function refresh(e) {
     for (let i = 0; i < selectMois.length; i++) {
         selectMois[i].classList.remove("active");
     }
-    // je vérifie que le e.target c'est bien un mois 
-    if(e.target.classList.contains("mois")) e.target.classList.add("active");
 
     var caseCalendrier = document.getElementsByClassName("case");
-
+    /* On grise les cases qui ne seront pas utilisées et pour réinitialiser */
     for (k = 0; k < caseCalendrier.length; k++) {
         caseCalendrier[k].innerHTML = "";
-        caseCalendrier[k].style.backgroundColor = "gray";
-
+        caseCalendrier[k].classList.remove("jourActif");
+        caseCalendrier[k].removeEventListener("click", function (e) {
+            afficherDetail(e)
+        });
     }
-    if (e.target.classList.contains("mois"))
-    {
+    // Je mets en couleur le mois actif je vérifie également si ma cible est est bien les mois et pas le select année
+    if (e.target.classList.contains("mois")) {
         mois = parseInt(e.target.getAttribute("nb"));
     } else {
         mois = DATE.getMonth();
     }
+    /* Je fais appel a la fonction pour récuperer les données*/
+    refreshAPI(annee, mois + 1);
+    // je vérifie que le e.target c'est bien un mois 
+    if (e.target.classList.contains("mois")) {
+        e.target.classList.add("active");
+    } else {
+        selectMois[mois].classList.add("active");
+    }
     var dateDemandee = new Date(annee, mois, 1);
     if ((parseInt(annee) % 4 === 0 && parseInt(annee) % 100 > 0) || (parseInt(annee) % 400 === 0)) {
         // si c'est février et que l'année est bissextile alors le mois prend 29 jours
-        console.log("année bissextile");
-        if (parseInt(mois) == 1) {
-            jours[1] = 29;
-        }
+        jours[1] = 29;
     } else {
         jours[1] = 28;
     }
     var firstDay = parseInt(dateDemandee.getDay());
+    /* Comme les cases du calendrier commencent a 0 je fais -1*/
     if (firstDay > 0) {
         firstDay -= 1;
     }
-    var calendrier = document.getElementsByClassName("calendrier")[0];
 
     var compteur = 1;
     for (i = 0; i < 6; i++) {
@@ -70,14 +82,120 @@ function refresh(e) {
         for (j = firstDay; j < 7; j++) {
             if (compteur <= jours[mois]) {
                 caseLigne = ligne.children[j];
-                caseLigne.style.backgroundColor = "white";
                 caseLigne.innerHTML = compteur;
+                caseLigne.classList.add("jourActif");
+                caseLigne.addEventListener("click", function (e) {
+                    afficherDetail(e)
+                });
                 compteur++;
+
+                // trucs a faire ici
             }
         }
         firstDay = 0;
     }
 }
+
+
+function afficherDetail(e) {
+    let informations = document.getElementsByClassName("informations")[0];
+    informations.innerHTML = "";
+    let divMois = document.getElementsByClassName("active")[0];
+    let annee = selectAnnee.value;
+
+    if (divMois.hasAttribute("nb")) {
+        let mois = divMois.getAttribute("nb");
+        var moisNB = parseInt(mois) + 1;
+        if (moisNB < 10) {
+            moisNB = "0" + moisNB;
+        }
+    }
+
+    if (e.target.innerHTML.indexOf("<") != -1) {
+        var rdv = e.target.innerHTML.substring(0, e.target.innerHTML.indexOf("<"));
+    } else {
+        var rdv = e.target.innerHTML;
+    }
+
+    if (rdv.length < 2) {
+        rdv = "0" + rdv;
+    }
+    
+    if (e.target.children[0] != undefined) {
+        var tab = [];
+        for (let i = 0; i < reponse.length; i++) {
+            tab.push(reponse[i].idAgenda);
+        }
+
+        tabIdAgenda = JSON.stringify(tab);
+        requ2.open('POST', './index.php?page=ApiReservations', true);
+        requ2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        requ2.send("tabIdAgenda=" + tabIdAgenda);
+
+        for (let i = 0; i < reponse.length; i++) {
+            if (reponse[i].horaireDebut.startsWith(annee + "-" + moisNB + "-" + rdv)) {
+
+                let divRDV = document.createElement("div")
+                divRDV.setAttribute("class", "divRDV colonne");
+                informations.appendChild(divRDV);
+
+                let divClient = document.createElement("div")
+                divRDV.appendChild(divClient);
+
+                let divDDN = document.createElement("div")
+                divRDV.appendChild(divDDN);
+
+                let divNum = document.createElement("div")
+                divRDV.appendChild(divNum);
+
+                let divAddress = document.createElement("div")
+                divRDV.appendChild(divAddress);
+
+                let divVille = document.createElement("div")
+                divRDV.appendChild(divVille);
+
+                let divCP = document.createElement("div")
+                divRDV.appendChild(divCP);
+
+
+                let div = document.createElement("div")
+                div.innerHTML = "Date de l'évènement : " + reponse[i].dateEvent;
+                divRDV.appendChild(div);
+
+                let div2 = document.createElement("div")
+                div2.innerHTML = "Devrait commencer à : " + reponse[i].horaireDebut;
+                divRDV.appendChild(div2);
+
+                let div3 = document.createElement("div")
+                div3.innerHTML = "Devrait se terminer à : " + reponse[i].horaireFin;
+                divRDV.appendChild(div3);
+
+                let div4 = document.createElement("div")
+                div4.innerHTML = "Motif du rendez-vous : " + reponse[i].motif;
+                divRDV.appendChild(div4);
+
+                if (reponse[i].infoComp != null) {
+                    let div5 = document.createElement("div")
+                    div5.innerHTML = "infos complémentaires : " + reponse[i].infoComp;
+                    divRDV.appendChild(div5);
+                }
+            }
+        }
+    } else {
+        let informations = document.getElementsByClassName("informations")[0];
+        informations.innerHTML="";
+    }
+    let ahref = document.createElement("a");
+        ahref.setAttribute("href","index.php?page=FormAgenda&mode=ajout&date="+annee+"-"+moisNB+"-"+rdv)
+        informations.appendChild(ahref);
+
+
+        let boutonAjout = document.createElement("button");
+        boutonAjout.setAttribute("class","boutonForm");
+        boutonAjout.innerHTML="Ajouter un RDV";
+        ahref.appendChild(boutonAjout);
+}
+
 
 var mois = DATE.getMonth();
 selectMois[parseInt(mois)].classList.add("active");
@@ -89,23 +207,103 @@ if ((parseInt(annee) % 4 === 0 && parseInt(annee) % 100 > 0) || (parseInt(annee)
         jours[1] = 28;
     }
 }
+/* Les cases se décalent en fonction du jour j'ai l'impression qque c'est du au coté impair et pair*/
 var firstDay = parseInt(DATE.getDay());
-if (firstDay > 0) {
-    firstDay -= 1;
+if (firstDay % 2 == 0) {
+    firstDay += 1
 }
 
-var calendrier = document.getElementsByClassName("calendrier")[0];
+var caseCalendrier = document.getElementsByClassName("case");
+/* On grise les cases qui ne seront pas utilisées */
+for (k = 0; k < caseCalendrier.length; k++) {
+    caseCalendrier[k].innerHTML = "";
+    caseCalendrier[k].classList.remove("jourActif");
+}
+
 
 var compteur = 1;
 for (i = 0; i < 6; i++) {
     let ligne = calendrier.children[i];
     for (j = firstDay; j < 7; j++) {
+
         if (compteur <= jours[mois]) {
             caseLigne = ligne.children[j];
-            caseLigne.style.backgroundColor = "white";
             caseLigne.innerHTML = compteur;
             compteur++;
+            caseLigne.classList.add("jourActif");
+            caseLigne.addEventListener("click", function (e) {
+                afficherDetail(e);
+            });
+            // Il faut ajoute plus de trucs ici
         }
     }
     firstDay = 0;
 }
+
+
+
+/* ================ API ====================== */
+
+function refreshAPI(annee, mois) {
+    if (mois < 10) {
+        mois = "0" + mois;
+    }
+
+    requ1.open('POST', './index.php?page=ApiReservations', true);
+    requ1.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    requ1.send("date=" + annee + "-" + mois);
+}
+
+const requ1 = new XMLHttpRequest();
+requ1.onreadystatechange = function (e) {
+    if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+            reponse = JSON.parse(this.responseText);
+            var joursCal = document.getElementsByClassName("jourActif");
+            for (let i = 0; i < reponse.length; i++) {
+                if (reponse[i].horaireDebut.substring(8, reponse[i].horaireDebut.length - 9).startsWith("0")) {
+                    var nbJour = parseInt(reponse[i].horaireDebut.substring(9, reponse[i].horaireDebut.length - 9));
+                } else {
+                    var nbJour = parseInt(reponse[i].horaireDebut.substring(8, reponse[i].horaireDebut.length - 9));
+                }
+                if (joursCal[nbJour - 1].children[0] === undefined) {
+                    var div = document.createElement("div");
+                    div.setAttribute("class", "rond");
+                    joursCal[nbJour - 1].appendChild(div);
+                }
+            }
+        }
+    }
+}
+
+/* je lance la requête à L'API au chargement de la page */
+refreshAPI(annee, mois + 1);
+
+
+const requ2 = new XMLHttpRequest();
+requ2.onreadystatechange = function (e) {
+    if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+            reponse2 = JSON.parse(this.responseText);
+            var informations = document.getElementsByClassName("informations")[0];
+            for (let i = 0; i < informations.childElementCount; i++) {
+                let divRDV = informations.children[i];
+
+                console.log(divRDV);
+                if (reponse2[i].genre = "H") {
+                    divRDV.children[0].innerHTML = " Monsieur :" + reponse2[i].nom + " " + reponse2[i].prenom;
+                } else {
+                    divRDV.children[0].innerHTML = " Madame :" + reponse2[i].nom + " " + reponse2[i].prenom;
+                }
+
+                divRDV.children[1].innerHTML = " Date de naissance :" + reponse2[i].DDN;
+                divRDV.children[2].innerHTML = " Adresse Postale :" + reponse2[i].adressePostale;
+                divRDV.children[3].innerHTML = " Numéro de téléphone :" + reponse2[i].numTel;
+                divRDV.children[4].innerHTML = " Ville :" + reponse2[i].ville;
+                divRDV.children[5].innerHTML = " Code Postal :" + reponse2[i].codePostal;
+            }
+
+        }
+    }
+}
+

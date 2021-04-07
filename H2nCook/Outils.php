@@ -42,14 +42,14 @@ function afficherPage($page)
     $nom = $page[1];
     $titre = $page[2];
 
-    if ($page[3] == false) {
+    if ($page[3]) {
+        include $chemin . $nom . '.php';
+    }else {
         include 'PHP/VIEW/Head.php';
         include 'PHP/VIEW/Header.php';
         include 'PHP/VIEW/Nav.php';
         include $chemin . $nom . '.php';
         include 'PHP/VIEW/Footer.php';
-    } else {
-        include $chemin . $nom . '.php';
     }
 }
 
