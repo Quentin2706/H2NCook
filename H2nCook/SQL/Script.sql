@@ -1,6 +1,26 @@
-DROP DATABASE IF EXISTS H2N;
-CREATE DATABASE H2N;
-USE H2N;
+DROP TABLE IF EXISTS Users;
+Drop TABLE IF EXISTS Temoignages;
+Drop TABLE IF EXISTS Roles;
+Drop TABLE IF EXISTS Reglements;
+Drop TABLE IF EXISTS Conversions;
+Drop TABLE IF EXISTS Devis;
+Drop TABLE IF EXISTS LignesCommande;
+Drop TABLE IF EXISTS Commandes;
+Drop TABLE IF EXISTS Paiements;
+Drop TABLE IF EXISTS ModesDePaiement;
+Drop TABLE IF EXISTS Remises;
+Drop TABLE IF EXISTS Clients;
+Drop TABLE IF EXISTS Compositions;
+Drop TABLE IF EXISTS EtapesRecette;
+Drop TABLE IF EXISTS Etapes;
+Drop TABLE IF EXISTS Recettes;
+Drop TABLE IF EXISTS CategoriesRecettes;
+Drop TABLE IF EXISTS Produits;
+Drop TABLE IF EXISTS CategoriesProduits;
+Drop TABLE IF EXISTS Agendas;
+Drop TABLE IF EXISTS Fournisseurs;
+Drop TABLE IF EXISTS Factures;
+Drop TABLE IF EXISTS UnitesDeMesure;
 
 CREATE TABLE Users
 (
@@ -176,7 +196,7 @@ CHARSET = UTF8;
 -- )ENGINE = INNODB,
 -- CHARSET = UTF8;
 
-CREATE TABLE lignesCommande
+CREATE TABLE LignesCommande
 (
     idLigneCommande int(11) not null auto_increment PRIMARY KEY,
     quantite int(11) not null,
@@ -242,9 +262,9 @@ ALTER TABLE Commandes ADD CONSTRAINT FK_commandes_clients FOREIGN KEY (idUser) R
 ALTER TABLE Commandes ADD CONSTRAINT FK_commandes_remises FOREIGN KEY (idRemise) REFERENCES Remises(idRemise);
 ALTER TABLE Commandes ADD CONSTRAINT FK_commandes_agendas FOREIGN KEY (idAgenda) REFERENCES Agendas(idAgenda);
 ALTER TABLE Devis ADD CONSTRAINT FK_devis_commandes FOREIGN KEY (idCommande) REFERENCES Commandes(idCommande);
-ALTER TABLE lignesCommande ADD CONSTRAINT FK_lignesCommande_produits FOREIGN KEY (idProduit) REFERENCES Produits(idProduit);
-ALTER TABLE lignesCommande ADD CONSTRAINT FK_lignesCommande_recettes FOREIGN KEY (idRecette) REFERENCES Recettes(idRecette);
-ALTER TABLE lignesCommande ADD CONSTRAINT FK_lignesCommande_commandes FOREIGN KEY (idCommande) REFERENCES Commandes(idCommande);
+ALTER TABLE LignesCommande ADD CONSTRAINT FK_lignesCommande_produits FOREIGN KEY (idProduit) REFERENCES Produits(idProduit);
+ALTER TABLE LignesCommande ADD CONSTRAINT FK_lignesCommande_recettes FOREIGN KEY (idRecette) REFERENCES Recettes(idRecette);
+ALTER TABLE LignesCommande ADD CONSTRAINT FK_lignesCommande_commandes FOREIGN KEY (idCommande) REFERENCES Commandes(idCommande);
 -- ALTER TABLE plats ADD CONSTRAINT FK_plats_recettes FOREIGN KEY (idRecette) REFERENCES Recettes(idRecette);
 ALTER TABLE Compositions ADD CONSTRAINT FK_compositions_produits FOREIGN KEY (idProduit) REFERENCES Produits(idProduit);
 ALTER TABLE Compositions ADD CONSTRAINT FK_compositions_Recettes FOREIGN KEY (idRecette) REFERENCES Recettes(idRecette);

@@ -1,4 +1,7 @@
 <?php
+if(isset($_SESSION["utilisateur"]))
+{
+
 $date = new DateTime('now');
 $annee = $date->format('Y');
 
@@ -110,7 +113,6 @@ echo'<div class="ligne">
 
 
 <div class="informations colonne">
-    
 </div>
 ';
 
@@ -119,3 +121,7 @@ echo '</div>
 </div>
 
 ';
+} else {
+    echo ' Vous devez vous connecter avant d\'accèder a cette inferface !';
+    header("refresh:3;url=index.php?page=FormConnexion");
+}

@@ -17,7 +17,7 @@ a {
     text-decoration : none;
 }
 
-div, header, footer, nav, article,h1,h2,a,form,input,select {
+div, header, footer, nav, article,h1,h2,a,form,input,select, a {
 	display : flex;
 	flex : 1;
 }
@@ -141,6 +141,7 @@ footer a {
     text-decoration: underline;
 }
 
+
 /* ========= LE TABLEAU DES LISTES  ======== */
 
 .contenu, .contenuIMG {
@@ -244,8 +245,9 @@ form label {
     border: none;
     font-weight: 600;
     padding: 0.5em;
-    margin-top: 1em;
     font-size: 1.1em;
+    cursor : pointer;
+    min-width: 10vw;
 }
 
 .boutonForm a {
@@ -261,8 +263,20 @@ form label {
 
 .spacearnd {
     justify-content: space-around;
+    margin-top: 1em;
 }
 
+#ajoutClient {
+    margin: 1em 0;
+}
+
+.spacearnd a{
+    justify-content: end;
+}
+
+.form a {
+    justify-content: center;
+}
 
 /* =================  CALENDRIER =================== */ 
 
@@ -276,6 +290,7 @@ form label {
 .jourActif {
     background-color: white;
     display: inline-block;
+    cursor : pointer;
 }
 
 
@@ -319,6 +334,10 @@ form label {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+.divRDV {
+    cursor: pointer;
 }
 
 .selectAnnee {

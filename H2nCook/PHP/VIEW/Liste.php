@@ -1,5 +1,10 @@
 <?php 
-
+$date = "";
+$mois = "";
+$jour = "";
+$dateFinale = "";
+if(isset($_SESSION["utilisateur"]) && ($_SESSION["utilisateur"]->getIdRole() == 1))
+{
 $table = $_GET['table'];
 
 $objets = appelGetList($table);
@@ -18,7 +23,6 @@ if (empty($objets)) {
     $listeLabel = $objets[0]->getListeLabel();
     $nbColonne = $table::getNbColonne();
     for ($i = 2; $i < $nbColonne; $i++) {
-        
         if($listeLabel[$i] == "Produit/Recette" && $listeLabel[$i+1] == "Produit/Recette")
         {
             $i++;
@@ -51,7 +55,22 @@ if (empty($objets)) {
                                     echo '<div class="contenu">' . $obj->getLibelle() . '</div>';
                                 }
                             } else {
-                                echo '<div class="contenu">' . appelGet($unObjet, $infos[$i]) . '</div>';
+                                if ($table != "Agendas")
+                                {
+                                    if ($listeTypeInput[$i] == "date")
+                                    {
+                                        $date = substr(appelGet($unObjet, $infos[$i]),0,10);
+                                        $annee =  substr($date,0,4);
+                                        $mois =  substr($date,5,2);
+                                        $jour = substr($date,8,2);
+                                        $dateFinale = $jour.'/'.$mois.'/'.$annee;
+                                        echo '<div class="contenu">' . $dateFinale . '</div>';
+                                    } else {
+                                        echo '<div class="contenu">' . appelGet($unObjet, $infos[$i]) . '</div>';
+                                    }
+                                } else {
+                                    echo '<div class="contenu">' . appelGet($unObjet, $infos[$i]) . '</div>';
+                                }
                             }
                         }
                     }
@@ -69,3 +88,6 @@ echo'
 <div></div>
 </div>
 </div>';
+} else {
+    header("location:index.php?page=default");
+}

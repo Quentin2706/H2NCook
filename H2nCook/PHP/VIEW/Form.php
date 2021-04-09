@@ -1,4 +1,7 @@
 <?php
+if(isset($_SESSION["utilisateur"]))
+{
+
 $table = $_GET["table"];
 $mode = $_GET["mode"];
 
@@ -15,7 +18,7 @@ $labels = $table::getListeLabel();
 $infos = $table::getListeAttributs();
 $listeClass = $table::getListeClass();
 $input = $table::getListeTypeInput();
-echo'<div>
+echo '<div>
 <div></div>
 <div class="main">
 <div>
@@ -42,7 +45,7 @@ for ($i = 2; $i < count($labels); $i++) { //on commmence à 2 car l'id est déja
         } else {
             echo optionSelect(appelGet($objet, $infos[$i]), $listeClass[$i], $infos[$i], $mode);
         }
-    }// Input simple
+    } // Input simple
     else {
         echo '<input name="' . $infos[$i] . '" type="' . $input[$i] . '" required';
         if ($mode != "ajout") {
@@ -62,17 +65,23 @@ for ($i = 2; $i < count($labels); $i++) { //on commmence à 2 car l'id est déja
     echo '</div>';
 }
 switch ($mode) {
-    case "ajout":echo '<button class="bouton centrer" type="submit" >Ajouter</button>';
+    case "ajout":echo '<div class="row spacearnd"><button class="boutonForm centrer" type="submit" >Ajouter</button>';
         break;
-    case "modif":echo '<button class="bouton centrer" type="submit">Modifier</button>';
+    case "modif":echo '<div class="row spacearnd"><button class="boutonForm centrer" type="submit">Modifier</button>';
         break;
-    case "delete":echo '<button class="bouton centrer" type="submit">Supprimer</button>';
+    case "delete":echo '<div class="row spacearnd"><button class="boutonForm centrer" type="submit">Supprimer</button>';
         break;
 }
 
-echo '</form>
+echo '<a href="index.php?page=default"><button class="boutonForm centrer" type="submit">Annuler</button></a>
+</div>
+
+</form>
 <div></div>
 </div>';
-echo'</div>
+echo '</div>
 <div></div>
 </div>';
+} else {
+    header("location:index.php?page=default");
+}

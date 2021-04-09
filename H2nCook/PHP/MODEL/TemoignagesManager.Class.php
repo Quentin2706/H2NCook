@@ -60,4 +60,20 @@ class TemoignagesManager
 		}
 		return $liste;
 	}
+
+	public static function findByClient($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$liste = [];
+		$q = $db->query("SELECT * FROM Temoignages WHERE idUser=".$id);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Temoignages($donnees);
+			}
+		}
+		return $liste;
+	}
 }

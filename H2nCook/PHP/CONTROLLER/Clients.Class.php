@@ -8,7 +8,7 @@ class Clients
 	private static $listeTypeInput = ["","","text","text","text","date","text","text","text"];
 	private static $listeClass =["","",""];
 	private static $listeLabel = ["","","Genre","Nom du client","Prénom","Date de naissance","Adresse postale","ville", "Code postal"];
-	private static $nbColonne= 10;
+	private static $nbColonne= 9;
 
 	private $_idUser;
 	private $_genre;
@@ -17,8 +17,8 @@ class Clients
 	private $_DDN;
 	private $_adressePostale;
 	private $_numTel;
-	private $_codePostal;
 	private $_ville;
+	private $_codePostal;
 
 	/***************** Accesseurs ***************** */
 

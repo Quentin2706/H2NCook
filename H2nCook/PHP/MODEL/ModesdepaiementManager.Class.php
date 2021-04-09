@@ -2,36 +2,36 @@
 
 class ModesdepaiementManager 
 {
-	public static function add(Modesdepaiement $obj)
+	public static function add(ModesDePaiement $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Modesdepaiement (libelle) VALUES (:libelle)");
+		$q=$db->prepare("INSERT INTO ModesDePaiement (libelle) VALUES (:libelle)");
 		$q->bindValue(":libelle", $obj->getLibelle());
 		$q->execute();
 	}
 
-	public static function update(Modesdepaiement $obj)
+	public static function update(ModesDePaiement $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Modesdepaiement SET idModeDePaiement=:idModeDePaiement,libelle=:libelle WHERE idModeDePaiement=:idModeDePaiement");
+		$q=$db->prepare("UPDATE ModesDePaiement SET idModeDePaiement=:idModeDePaiement,libelle=:libelle WHERE idModeDePaiement=:idModeDePaiement");
 		$q->bindValue(":idModeDePaiement", $obj->getIdModeDePaiement());
 		$q->bindValue(":libelle", $obj->getLibelle());
 		$q->execute();
 	}
-	public static function delete(Modesdepaiement $obj)
+	public static function delete(ModesDePaiement $obj)
 	{
  		$db=DbConnect::getDb();
-		$db->exec("DELETE FROM Modesdepaiement WHERE idModeDePaiement=" .$obj->getIdModeDePaiement());
+		$db->exec("DELETE FROM ModesDePaiement WHERE idModeDePaiement=" .$obj->getIdModeDePaiement());
 	}
 	public static function findById($id)
 	{
  		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$q=$db->query("SELECT * FROM Modesdepaiement WHERE idModeDePaiement =".$id);
+		$q=$db->query("SELECT * FROM ModesDePaiement WHERE idModeDePaiement =".$id);
 		$results = $q->fetch(PDO::FETCH_ASSOC);
 		if($results != false)
 		{
-			return new Modesdepaiement($results);
+			return new ModesDePaiement($results);
 		}
 		else
 		{
@@ -42,12 +42,12 @@ class ModesdepaiementManager
 	{
  		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM Modesdepaiement");
+		$q = $db->query("SELECT * FROM ModesDePaiement");
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
 			{
-				$liste[] = new Modesdepaiement($donnees);
+				$liste[] = new ModesDePaiement($donnees);
 			}
 		}
 		return $liste;

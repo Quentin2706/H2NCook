@@ -58,4 +58,49 @@ class UsersManager
 		}
 		return $liste;
 	}
+
+	public static function findLast()
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM `Users` ORDER BY `idUser` DESC LIMIT 1");
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Users($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public static function findByadresseMail($adresseMail)
+	{
+		if (!in_array(";", str_split($adresseMail))) // s'il n'y a pas de ; , je lance la requete
+        {
+			$db = DbConnect::getDb();
+            $q = $db->query("SELECT * FROM Users WHERE adresseMail='" . $adresseMail . "'");
+            $results = $q->fetch(PDO::FETCH_ASSOC);
+            if ($results != false) {
+                return new Users($results);
+            } else {
+                return false;
+            }
+        }
+	}
+
+	public static function findByPseudo($pseudo)
+	{
+		if (!in_array(";", str_split($pseudo))) // s'il n'y a pas de ; , je lance la requete
+        {
+			$db = DbConnect::getDb();
+            $q = $db->query("SELECT * FROM Users WHERE identifiant='" . $pseudo . "'");
+            $results = $q->fetch(PDO::FETCH_ASSOC);
+            if ($results != false) {
+                return new Users($results);
+            } else {
+                return false;
+            }
+        }
+	}
 }

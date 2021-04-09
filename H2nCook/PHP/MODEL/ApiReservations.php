@@ -1,7 +1,11 @@
 <?php
 if (isset($_POST["date"]))
 {
-echo utf8_decode(json_encode(AgendasManager::APIgetByDate($_POST["date"])));
+    $agendas = AgendasManager::APIgetByDate($_POST["date"]);
+    $horaireDebut = array_column($agendas, 'horaireDebut');
+
+    array_multisort($horaireDebut, SORT_ASC, $agendas);
+    echo utf8_decode(json_encode($agendas));
 }
 
 if (isset($_POST["tabIdAgenda"]))
@@ -13,5 +17,6 @@ if (isset($_POST["tabIdAgenda"]))
 
         $tabRetour[] = ClientsManager::APIfindById($commande["idUser"]);
     }
+    
     echo utf8_decode(json_encode($tabRetour));
 }

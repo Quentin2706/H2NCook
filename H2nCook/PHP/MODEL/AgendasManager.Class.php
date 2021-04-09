@@ -75,4 +75,19 @@ class AgendasManager
 		}
 		return $json;
 	}
+
+	public static function findLast()
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM `Agendas` ORDER BY `idAgenda` DESC LIMIT 1");
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Agendas($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

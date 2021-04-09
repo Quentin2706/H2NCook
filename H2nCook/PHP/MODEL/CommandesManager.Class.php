@@ -74,4 +74,52 @@ class CommandesManager
 			return false;
 		}
 	}
+
+	public static function findUserByAgendaInCommandes($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT `idUser` FROM `Commandes` WHERE `idAgenda` =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Commandes($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public static function findByAgenda($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT * FROM Commandes WHERE idAgenda =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Commandes($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public static function findByClient($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$liste = [];
+		$q = $db->query("SELECT * FROM Commandes WHERE idUser=".$id);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Commandes($donnees);
+			}
+		}
+		return $liste;
+	}
 }

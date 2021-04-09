@@ -5,7 +5,8 @@ class ClientsManager
 	public static function add(Clients $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Clients (genre,nom,prenom,DDN,adressePostale,numTel,codePostal,ville) VALUES (:genre,:nom,:prenom,:DDN,:adressePostale,:numTel,:codePostal,:ville)");
+		$q=$db->prepare("INSERT INTO Clients (idUser,genre,nom,prenom,DDN,adressePostale,numTel,codePostal,ville) VALUES (:idUser,:genre,:nom,:prenom,:DDN,:adressePostale,:numTel,:codePostal,:ville)");
+		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":genre", $obj->getGenre());
 		$q->bindValue(":nom", $obj->getNom());
 		$q->bindValue(":prenom", $obj->getPrenom());

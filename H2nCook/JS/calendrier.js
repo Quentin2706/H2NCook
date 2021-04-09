@@ -3,8 +3,8 @@ const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric
 const DATE = new Date();
 var auj = DATE.toLocaleDateString('fr-FR', OPTIONS);
 
-var reponse = "";
-var reponse2 = "";
+var reponse = [];
+
 
 /* on récupère l'année courante */
 var annee = DATE.getFullYear();
@@ -120,7 +120,7 @@ function afficherDetail(e) {
     if (rdv.length < 2) {
         rdv = "0" + rdv;
     }
-    
+
     if (e.target.children[0] != undefined) {
         var tab = [];
         for (let i = 0; i < reponse.length; i++) {
@@ -138,6 +138,9 @@ function afficherDetail(e) {
                 let divRDV = document.createElement("div")
                 divRDV.setAttribute("class", "divRDV colonne");
                 informations.appendChild(divRDV);
+                divRDV.addEventListener("click", function () {
+                    afficheFormDetail(reponse[i].idAgenda)
+                });
 
                 let divClient = document.createElement("div")
                 divRDV.appendChild(divClient);
@@ -157,17 +160,40 @@ function afficherDetail(e) {
                 let divCP = document.createElement("div")
                 divRDV.appendChild(divCP);
 
+                let divSep = document.createElement("div")
+                divRDV.appendChild(divSep);
+
+
+                let dateN = reponse[i].dateEvent.substring(0, reponse[i].dateEvent.length - 9);
+                let jour = dateN.substring(8, 10);
+                let mois = dateN.substring(5, 7);
+                let annee = dateN.substring(0, 4);
+                let dateEvent = jour + "/" + mois + "/" + annee;
 
                 let div = document.createElement("div")
-                div.innerHTML = "Date de l'évènement : " + reponse[i].dateEvent;
+                div.innerHTML = "Date de l'évènement : " + dateEvent;
                 divRDV.appendChild(div);
 
+                let dateH1 = reponse[i].horaireDebut.substring(0, reponse[i].horaireDebut.length - 9);
+                let heure1 = reponse[i].horaireDebut.substring(10);
+                let jour1 = dateH1.substring(8, 10);
+                let mois1 = dateH1.substring(5, 7);
+                let annee1 = dateH1.substring(0, 4);
+                let dateDebut = jour1 + "/" + mois1 + "/" + annee1 + " " + heure1;
+
                 let div2 = document.createElement("div")
-                div2.innerHTML = "Devrait commencer à : " + reponse[i].horaireDebut;
+                div2.innerHTML = "Devrait commencer à : " + dateDebut;
                 divRDV.appendChild(div2);
 
+                let dateH2 = reponse[i].horaireFin.substring(0, reponse[i].horaireFin.length - 9);
+                let heure2 = reponse[i].horaireFin.substring(10);
+                let jour2 = dateH2.substring(8, 10);
+                let mois2 = dateH2.substring(5, 7);
+                let annee2 = dateH2.substring(0, 4);
+                let dateFin = jour2 + "/" + mois2 + "/" + annee2 + " " + heure2;
+
                 let div3 = document.createElement("div")
-                div3.innerHTML = "Devrait se terminer à : " + reponse[i].horaireFin;
+                div3.innerHTML = "Devrait se terminer à : " + dateFin;
                 divRDV.appendChild(div3);
 
                 let div4 = document.createElement("div")
@@ -183,17 +209,21 @@ function afficherDetail(e) {
         }
     } else {
         let informations = document.getElementsByClassName("informations")[0];
-        informations.innerHTML="";
+        informations.innerHTML = "";
     }
     let ahref = document.createElement("a");
-        ahref.setAttribute("href","index.php?page=FormAgenda&mode=ajout&date="+annee+"-"+moisNB+"-"+rdv)
-        informations.appendChild(ahref);
+    ahref.setAttribute("href", "index.php?page=FormAgenda&mode=ajout&date=" + annee + "-" + moisNB + "-" + rdv)
+    informations.appendChild(ahref);
 
 
-        let boutonAjout = document.createElement("button");
-        boutonAjout.setAttribute("class","boutonForm");
-        boutonAjout.innerHTML="Ajouter un RDV";
-        ahref.appendChild(boutonAjout);
+    let boutonAjout = document.createElement("button");
+    boutonAjout.setAttribute("class", "boutonForm");
+    boutonAjout.innerHTML = "Ajouter un RDV";
+    ahref.appendChild(boutonAjout);
+}
+
+function afficheFormDetail(id) {
+    window.location = "index.php?page=FormAgenda&mode=modif&id=" + id;
 }
 
 
@@ -207,11 +237,15 @@ if ((parseInt(annee) % 4 === 0 && parseInt(annee) % 100 > 0) || (parseInt(annee)
         jours[1] = 28;
     }
 }
-/* Les cases se décalent en fonction du jour j'ai l'impression qque c'est du au coté impair et pair*/
-var firstDay = parseInt(DATE.getDay());
-if (firstDay % 2 == 0) {
-    firstDay += 1
+
+
+const DATE2 = new Date(annee, mois, 1);
+var firstDay = parseInt(DATE2.getDay());
+/* Comme les cases du calendrier commencent a 0 je fais -1*/
+if (firstDay > 0) {
+    firstDay -= 1;
 }
+
 
 var caseCalendrier = document.getElementsByClassName("case");
 /* On grise les cases qui ne seront pas utilisées */
@@ -259,6 +293,7 @@ requ1.onreadystatechange = function (e) {
     if (this.readyState === XMLHttpRequest.DONE) {
         if (this.status === 200) {
             reponse = JSON.parse(this.responseText);
+
             var joursCal = document.getElementsByClassName("jourActif");
             for (let i = 0; i < reponse.length; i++) {
                 if (reponse[i].horaireDebut.substring(8, reponse[i].horaireDebut.length - 9).startsWith("0")) {
@@ -286,24 +321,52 @@ requ2.onreadystatechange = function (e) {
         if (this.status === 200) {
             reponse2 = JSON.parse(this.responseText);
             var informations = document.getElementsByClassName("informations")[0];
+
+            var divRDV = [];
+
             for (let i = 0; i < informations.childElementCount; i++) {
-                let divRDV = informations.children[i];
-
-                console.log(divRDV);
-                if (reponse2[i].genre = "H") {
-                    divRDV.children[0].innerHTML = " Monsieur :" + reponse2[i].nom + " " + reponse2[i].prenom;
-                } else {
-                    divRDV.children[0].innerHTML = " Madame :" + reponse2[i].nom + " " + reponse2[i].prenom;
+                if (informations.children[i].classList.contains("divRDV")) {
+                    divRDV.push(informations.children[i]);
                 }
+            }   
 
-                divRDV.children[1].innerHTML = " Date de naissance :" + reponse2[i].DDN;
-                divRDV.children[2].innerHTML = " Adresse Postale :" + reponse2[i].adressePostale;
-                divRDV.children[3].innerHTML = " Numéro de téléphone :" + reponse2[i].numTel;
-                divRDV.children[4].innerHTML = " Ville :" + reponse2[i].ville;
-                divRDV.children[5].innerHTML = " Code Postal :" + reponse2[i].codePostal;
+            
+            var reponsedivRDV = [];
+
+                let dateN2 = divRDV[0].children[7].innerHTML.substring(divRDV[0].children[7].innerHTML.length - 10);
+                let jour2 = dateN2.substring(0, 2);
+                let mois2 = dateN2.substring(3, 5);
+                let annee2 = dateN2.substring(6);
+                let dateEvent = annee2 + "-" + mois2 + "-" + jour2;
+
+            for (let h = 0; h < reponse.length; h++) {
+
+                if (reponse[h].dateEvent.startsWith(dateEvent)) {
+                    reponsedivRDV.push(h)
+                }
             }
 
+
+            for (j = 0; j < divRDV.length; j++) {
+                if (reponse2[reponsedivRDV[j]].genre = "H") {
+                    divRDV[j].children[0].innerHTML = " Monsieur : " + reponse2[reponsedivRDV[j]].nom + " " + reponse2[reponsedivRDV[j]].prenom;
+                } else {
+                    divRDV[j].children[0].innerHTML = " Madame : " + reponse2[reponsedivRDV[j]].nom + " " + reponse2[reponsedivRDV[j]].prenom;
+                }
+
+                let dateN = reponse2[reponsedivRDV[j]].DDN.substring(0, reponse2[reponsedivRDV[j]].DDN.length - 9);
+                let jour = dateN.substring(8, 10);
+                let mois = dateN.substring(5, 7);
+                let annee = dateN.substring(0, 4);
+                let dateNaissance = jour + "/" + mois + "/" + annee;
+
+                divRDV[j].children[1].innerHTML = " Date de naissance : " + dateNaissance;
+                divRDV[j].children[2].innerHTML = " Adresse Postale : " + reponse2[reponsedivRDV[j]].adressePostale;
+                divRDV[j].children[3].innerHTML = " Numéro de téléphone : " + reponse2[reponsedivRDV[j]].numTel;
+                divRDV[j].children[4].innerHTML = " Ville : " + reponse2[reponsedivRDV[j]].ville;
+                divRDV[j].children[5].innerHTML = " Code Postal : " + reponse2[reponsedivRDV[j]].codePostal;
+                divRDV[j].children[6].innerHTML = "====================";
+            }
         }
     }
 }
-
