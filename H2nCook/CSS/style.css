@@ -352,6 +352,16 @@ form label {
     padding: 0.5em;
 }
 
+/* ==============    FORM RECETTE ================ */
+
+.tabIngredient div {
+    margin: 0;
+}
+
+
+
+
+
 /* ==========   MEDIA QUERY   ========== */
 
 @media(max-width : 1500px)

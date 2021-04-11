@@ -24,4 +24,12 @@ if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']->getIdRole() == 
         }
 
     }
-header("location:index.php?page=Liste&table=" . $_GET["table"]);
+    if (isset($_GET["trace"]))
+    {
+        if(isset($_GET["trace"]) == "FR")
+        {
+            header("location:index.php?page=FormRecette&mode=ajout&trace=FR");
+        }
+    } else {
+        header("location:index.php?page=Liste&table=" . $_GET["table"]);
+    }

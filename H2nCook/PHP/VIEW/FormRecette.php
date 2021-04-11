@@ -78,7 +78,7 @@ for ($i = 1; $i < count($listeCategRecettes);$i++) {
 echo '</select>
 </div>
 
-    <a href="index.php?page=Form&table=CategoriesRecettes&mode=ajout&trace=R"><button id="ajoutClient" type="button" class="boutonForm centrer">Ajouter une catégorie de recette</button></a>
+    <a href="index.php?page=Form&table=CategoriesRecettes&mode=ajout&trace=FR"><button id="ajoutClient" type="button" class="boutonForm centrer">Ajouter une catégorie de recette</button></a>
 </div>';
 
 
@@ -102,6 +102,44 @@ if ($mode == "edit" || $mode == "suppr") {
     echo '" disabled';
 }
 echo'></div>';
+
+
+echo'<div class="colonne tabIngredient">
+    <div class="enteteLigne row">
+        <div class="entete">Quantité</div>
+        <div class="entete">Produit</div>
+        <div class="entete">Unité de mesure</div>
+    </div>
+    <div class="ligne row">
+        <div class="contenu">
+            <input type="text">
+        </div>
+        <div class="contenu">
+        <select name="idProduit"';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}echo'>';
+    
+    for ($i = 1; $i < count($listeProduits);$i++) {
+         $sel = "";
+         if ($mode != "ajout") {
+            if ($listeProduits[$i]->getIdProduit() == $id) {
+                $sel = "selected";
+            }
+        }
+        echo '<option value="' . $listeProduits[$i]->getIdProduit() . '" ' . $sel . ' >' . $listeProduits[$i]->getLibelle() . ' </option>';
+    }
+    
+    echo '</select>
+        </div>;
+        <div class="contenu">';
+            
+        '</div>
+        </div>
+    
+
+    </div>
+
+</div>';
+
+
 
 // en fonction du mode, on affiche les boutons utiles
 switch ($mode) {
