@@ -5,7 +5,7 @@ INSERT INTO `Roles`(`idRole`, `libelle`) VALUES (null,'Client');
 INSERT INTO `Users`(`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRole`) VALUES (null,"utilisateur","supprimé","fzefzfezfzf@gmail.com",2);
 INSERT INTO `Users`(`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRole`) VALUES (null,"dupont.toto","dupont.toto","dupont.toto@gmail.com",2);
 INSERT INTO `Users`(`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRole`) VALUES (null,"beauchamp.tutu","beauchamp.tutu","beauchamp.tutu@gmail.com",2);
-
+INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRole`) VALUES (NULL, 'Quentin', '47af6d0dd154cc76762cd1f12660466f', 'quentin.balair2706@gmail.com', '1');
 
 INSERT INTO `Clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (1,"H","client","supprimé","1987-03-25 09:34:35","11 bis rue du longchamp","0618802737","65421","QuelquePart");
 INSERT INTO `Clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (2,"H","dupont","toto","1987-03-25 09:34:35","11 bis rue du longchamp","0618802737","65421","QuelquePart");

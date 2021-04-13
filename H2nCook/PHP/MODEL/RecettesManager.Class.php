@@ -60,4 +60,19 @@ class RecettesManager
 		}
 		return $liste;
 	}
+
+	public static function findLast()
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM `Recettes` ORDER BY `idRecette` DESC LIMIT 1");
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Recettes($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

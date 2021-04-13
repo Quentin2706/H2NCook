@@ -54,4 +54,26 @@ class EtapesManager
 		}
 		return $liste;
 	}
+
+	public static function findLast()
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM `Etapes` ORDER BY `idEtape` DESC LIMIT 1");
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Etapes($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public static function deleteByRecette($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$db->exec("DELETE FROM Compositions WHERE idRecette=" .$id);
+	}
 }

@@ -58,4 +58,11 @@ class CompositionsManager
 		}
 		return $liste;
 	}
+
+	public static function deleteByRecette($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$db->exec("DELETE FROM Compositions WHERE idRecette=" .$id);
+	}
 }

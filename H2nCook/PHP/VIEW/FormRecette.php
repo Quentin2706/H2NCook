@@ -105,17 +105,30 @@ if ($mode == "edit" || $mode == "suppr") {
 }
 echo'></div>';
 
+echo '<div>
+    <label for="descriptionClient"> Informations complémentaires : </label>
+    <textarea name="descriptionClient" type="richtext"';
+if ($mode == "edit" || $mode == "suppr") {
+    echo '" disabled';
+}
+
+echo '>';if ($mode != "ajout") {
+    echo $recette->getDescriptionClient();
+}echo'</textarea>
+    </div>';
+
+
 
 echo'<div class="colonne tabIngredient">
     <h3>Compositions de la recette</h3>
-    <div class="enteteLigne row">
+    <div class="enteteLigne row" entete="oui">
         <div class="entete">Quantité</div>
         <div class="entete">Produit</div>
         <div class="entete">Unité de mesure</div>
         <div class="enteteAdd"><img src="./IMG/add.png" alt="Ajouter " class="hidden"></div>
 
     </div>
-    <div class="ligne row" id="ing1">
+    <div class="ligne row" id="ing2">
         <div class="contenu">
             <input type="text">
         </div>
@@ -153,24 +166,24 @@ echo'<div class="colonne tabIngredient">
             <div class="enteteAdd supprLigne">
                 <img src="./IMG/suppr_blanc.png" alt="supprimer ">
             </div>
-
+    <input class="inputing2" type="hidden" name="quantite2" value="">
+    <input class="inputing2" type="hidden" name="idProduit2" value="">
+    <input class="inputing2" type="hidden" name="idUniteDeMesure2" value="">
     </div>
-    <input class="inputing1" type="hidden"  value="">
-    <input class="inputing1" type="hidden" value="">
-    <input class="inputing1" type="hidden" value="">
+
 </div>';
 
 
 echo'<div class="colonne tabEtapes">
         <h3>Les différentes étapes de préparation</h3>
-    <div class="enteteLigne row">
+    <div class="enteteLigne row" entete="oui">
         <div class="entete">Ordre</div>
         <div class="entete">Titre</div>
         <div class="entete">description de l\'étape</div>
         <div class="enteteAdd"><img  src="./IMG/add.png" alt="Ajouter " class="hidden"></div>
 
     </div>
-    <div class="ligne row" id="etape1">
+    <div class="ligne row" id="etape2">
         <div class="contenu">
             <input type="text">
         </div>
@@ -187,9 +200,9 @@ echo'<div class="colonne tabEtapes">
             </div>
 
     </div>
-    <input class="inputetape1" type="hidden"  name="ordre1" value="">
-    <input class="inputetape1" type="hidden" name="titre1" value="">
-    <input class="inputetape1" type="hidden" name="description1" value="">
+    <input class="inputetape2" type="hidden"  name="ordre2" value="">
+    <input class="inputetape2" type="hidden" name="titre2" value="">
+    <input class="inputetape2" type="hidden" name="description2" value="">
 </div>';
 
 
