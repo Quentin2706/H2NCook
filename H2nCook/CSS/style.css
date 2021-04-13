@@ -44,6 +44,10 @@ p {
     flex-direction: column;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 /* ======= HEADER ======= */
 .titre {
     flex : 8;
@@ -96,6 +100,7 @@ nav a:hover hr {
     transition: 0.5s;
     width: 0%;
     opacity : 0;
+    background-color: white;
 }
 
 /* ===== LE TITRE DE LA PAGE DE PRESENTATION ===== */
@@ -354,8 +359,12 @@ form label {
 
 /* ==============    FORM RECETTE ================ */
 
-.tabIngredient div {
+.tabIngredient div, .tabEtapes div {
     margin: 0;
+}
+
+.tabIngredient .contenu, .tabEtapes .contenu{
+    flex:4;
 }
 
 

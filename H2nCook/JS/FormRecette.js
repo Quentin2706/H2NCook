@@ -31,14 +31,6 @@ firstSupprLigne.addEventListener("click", function (e) {
 var tableau2 = document.getElementsByClassName("tabEtapes")[0];
 var ligne2 = tableau2.children[2].innerHTML;
 
-var ajouterLigneVar = function (e) {
-    ajouterLigne(e);
-}
-
-var modifInput = function (e) {
-    modifInputFunction(e);
-}
-
 var firstInputLigne2 = tableau2.children[2].children[0].children[0];
 var firstInputProduitLigne2 = tableau2.children[2].children[1].children[0];
 var firstUniteDeMesureLigne2 = tableau2.children[2].children[2].children[0];
@@ -70,7 +62,14 @@ function ajouterLigne(e) {
         var ligneTab = e;
         tableau = ligneTab.parentNode;
     } else {
-        e.target.removeEventListener("input", ajouterLigneVar);
+        if (e.target === firstInputLigne)
+        {
+            firstInputLigne.removeEventListener("input", ajouterLigneVar);
+        } else if (e.target === firstInputLigne2) {
+            firstInputLigne2.removeEventListener("input", ajouterLigneVar);
+        } else {
+            e.target.removeEventListener("input", ajouterLigneVar);
+        }
         var ligneTab = e.target.parentNode.parentNode;
         tableau = ligneTab.parentNode;
     }

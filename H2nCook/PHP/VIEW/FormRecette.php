@@ -6,6 +6,8 @@ if (isset($_SESSION["utilisateur"]) && ($_SESSION["utilisateur"]->getIdRole() ==
 $mode = $_GET["mode"];
 $listeCategRecettes = CategoriesRecettesManager::getList();
 $listeProduits = ProduitsManager::getList();
+$listeUnitesDeMesure = UnitesdemesureManager::getList();
+
 if ($mode != "ajout") {
     $id = $_GET['id'];
     // En fonction de la surchage on fait l'action appropriée
@@ -105,17 +107,20 @@ echo'></div>';
 
 
 echo'<div class="colonne tabIngredient">
+    <h3>Compositions de la recette</h3>
     <div class="enteteLigne row">
         <div class="entete">Quantité</div>
         <div class="entete">Produit</div>
         <div class="entete">Unité de mesure</div>
+        <div class="enteteAdd"><img src="./IMG/add.png" alt="Ajouter " class="hidden"></div>
+
     </div>
-    <div class="ligne row">
+    <div class="ligne row" id="ing1">
         <div class="contenu">
             <input type="text">
         </div>
         <div class="contenu">
-        <select name="idProduit"';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}echo'>';
+        <select ';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}echo'>';
     
     for ($i = 1; $i < count($listeProduits);$i++) {
          $sel = "";
@@ -128,16 +133,65 @@ echo'<div class="colonne tabIngredient">
     }
     
     echo '</select>
-        </div>;
-        <div class="contenu">';
-            
-        '</div>
         </div>
+        <div class="contenu">
+        <select ';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}echo'>';
     
+        for ($i = 1; $i < count($listeUnitesDeMesure);$i++) {
+             $sel = "";
+             if ($mode != "ajout") {
+                if ($listeUnitesDeMesure[$i]->getIdUniteDeMesure() == $id) {
+                    $sel = "selected";
+                }
+            }
+            echo '<option value="' . $listeUnitesDeMesure[$i]->getIdUniteDeMesure() . '" ' . $sel . ' >' . $listeUnitesDeMesure[$i]->getLibelle() . ' </option>';
+        }
+        
+        echo '</select>
+            </div>
+
+            <div class="enteteAdd supprLigne">
+                <img src="./IMG/suppr_blanc.png" alt="supprimer ">
+            </div>
 
     </div>
-
+    <input class="inputing1" type="hidden"  value="">
+    <input class="inputing1" type="hidden" value="">
+    <input class="inputing1" type="hidden" value="">
 </div>';
+
+
+echo'<div class="colonne tabEtapes">
+        <h3>Les différentes étapes de préparation</h3>
+    <div class="enteteLigne row">
+        <div class="entete">Ordre</div>
+        <div class="entete">Titre</div>
+        <div class="entete">description de l\'étape</div>
+        <div class="enteteAdd"><img  src="./IMG/add.png" alt="Ajouter " class="hidden"></div>
+
+    </div>
+    <div class="ligne row" id="etape1">
+        <div class="contenu">
+            <input type="text">
+        </div>
+        <div class="contenu">
+        <input type="text">
+        </div>
+        <div class="contenu">
+            <input type="text">
+
+            </div>
+
+            <div class="enteteAdd supprLigne">
+                <img src="./IMG/suppr_blanc.png" alt="supprimer ">
+            </div>
+
+    </div>
+    <input class="inputetape1" type="hidden"  name="ordre1" value="">
+    <input class="inputetape1" type="hidden" name="titre1" value="">
+    <input class="inputetape1" type="hidden" name="description1" value="">
+</div>';
+
 
 
 
@@ -145,7 +199,7 @@ echo'<div class="colonne tabIngredient">
 switch ($mode) {
     case "ajout":
         {
-            echo '<div class="row spacearnd"><button type="submit" class="boutonForm">Ajouter</button>';
+            echo '<div class="row spacearnd" id="ajouterRecette"><button type="submit" class="boutonForm">Ajouter</button>';
             break;
         }
     case "modif":

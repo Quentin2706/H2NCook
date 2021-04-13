@@ -61,6 +61,11 @@
                 echo'<script type="text/javascript" src="./JS/calendrier.js"></script>';
                 break;
             
+                case 'FormRecette':
+                    echo'<script type="text/javascript" src="./JS/formRecette.js"></script>';
+                    break;    
+
+
             default:
 
                 break;
