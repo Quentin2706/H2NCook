@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION["utilisateur"]) && ($_SESSION["utilisateur"] == 1))
+if(isset($_SESSION["utilisateur"]) && ($_SESSION["utilisateur"]->getIdRole() == 1))
 {
 
 $mode = $_GET["mode"];

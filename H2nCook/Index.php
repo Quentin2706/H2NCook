@@ -64,6 +64,13 @@
 
 
         "ApiReservations" => ["PHP/MODEL/", "ApiReservations", "api", true],
+        "ApiFormRecette" => ["PHP/MODEL/", "ApiFormRecette", "api", true],
+        "ApiAvisClients" => ["PHP/MODEL/", "ApiAvisClients", "api", true],
+        "ApiFormTemoignage" => ["PHP/MODEL/", "ApiFormTemoignage", "api", true],
+
+        "PDFGenerator" => ["PHP/VIEW/", "PDFGenerator", "", false],
+
+        "AvisClients" => ["PHP/VIEW/", "AvisClients", "Avis des clients", false],
     ];
 
     if (isset($_GET["page"])) {

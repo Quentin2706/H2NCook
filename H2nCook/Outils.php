@@ -44,7 +44,7 @@ function afficherPage($page)
 
     if ($page[3]) {
         include $chemin . $nom . '.php';
-    }else {
+    } else {
         include 'PHP/VIEW/Head.php';
         include 'PHP/VIEW/Header.php';
         include 'PHP/VIEW/Nav.php';
@@ -123,4 +123,99 @@ function optionSelect($valeur, $table, $nomId, $mode)
     }
     $select .= "</select>";
     return $select;
+}
+
+function creerPDFRecette($idRecette)
+{
+    $recette = RecettesManager::findById($idRecette);
+    $compositions = CompositionsManager::getListByRecette($idRecette);
+    $etapesRecette = EtapesRecetteManager::getListByRecette($idRecette);
+    foreach ($etapesRecette as $value) {
+        $etapes[] = EtapesManager::findById($value->getIdEtape());
+    }
+    $pdf = new FPDF("P", "mm", "A4");
+    $pdf->AddPage();
+    $pdf->SetFont("Helvetica", "B", 20);
+
+    $pdf->Write(6, utf8_decode($recette->getLibelle()));
+    $pdf->Image($recette->getCheminImage(), 135, 4, 70, 50);
+
+    $pdf->Ln(8);
+    $coutRevient = 0;
+    $pdf->SetFont("Helvetica", "B", 11);
+    foreach ($compositions as $elt) {
+
+        $idDemande = $elt->getUniteDeMesure()->getIdUniteDeMesure();
+        $produit = ProduitsManager::findById($elt->getProduit()->getIdProduit());
+
+
+        $idBDD = $produit->getUniteDeMesure()->getIdUniteDeMesure();
+
+        if ($idDemande != $idBDD) {
+            $conversion = ConversionsManager::findByConversionUniteDeMesure($idDemande, $idBDD);
+            $ratio = $conversion->getRatio();
+        } else {
+            $ratio = 1;
+        }
+
+        $UniteBDDConvertie = $elt->getQuantite() * $ratio;
+        $fin = $UniteBDDConvertie / $produit->getPoids();
+
+        $coutRevient += $elt->getProduit()->getPrixAchatHT() * $fin;
+
+    }
+
+    $pdf->Write(6, "Cout de revient de la recette : " . $coutRevient . " " . chr(128) . " HT");
+    $pdf->Ln(6);
+    $ligne = 40;
+
+    $pdf->SetFont("Helvetica", "B", 15);
+    $pdf->Text(10, $ligne - 4, "Composition de la recette");
+    $pdf->SetFont("Helvetica", "B", 11);
+    $pdf->Text(20, $ligne + 6, "Produit");
+    $pdf->Text(54, $ligne + 6, utf8_decode("quantité"));
+
+    $pdf->rect(10, $ligne, 70, 10);
+    $cpt = 0;
+
+    foreach ($compositions as $uneComposition) {
+        $cpt += 10;
+        $ligne += 10;
+        $pdf->rect(10, $ligne, 70, 10);
+        $pdf->Text(12, $ligne + 6, utf8_decode($uneComposition->getProduit()->getLibelle()));
+        $pdf->Text(58, $ligne + 6, utf8_decode($uneComposition->getQuantite()) . " " . $uneComposition->getUniteDeMesure()->getLibelle());
+    }
+    $pdf->Ln($ligne);
+    $ligne = 30;
+
+    $pdf->rect(10, $ligne + 10, 35, $cpt + 10);
+    $pdf->rect(45, $ligne + 10, 35, $cpt + 10);
+    $pdf->SetFont("Helvetica", "B", 15);
+    $pdf->write(10, "Etapes de la recette");
+    $pdf->SetFont("Helvetica", "B", 11);
+    $pdf->Ln(10);
+    for ($i = 0; $i < count($etapesRecette); $i++) {
+        $string = utf8_decode($etapesRecette[$i]->getOrdre()) . " - " . utf8_decode($etapes[$i]->getTitre()) . " : " . utf8_decode($etapes[$i]->getDescription());
+
+        if (strlen($string) > 100) {
+            $string1 = substr($string, 0, 101);
+
+            if ($string1[100] == " ") {
+                $string2 = substr($string, 100);
+            } else {
+                $pos = strrpos($string1, " ");
+                $string1 = substr($string, 0, $pos);
+                $string2 = substr($string, $pos + 1);
+            }
+            $pdf->Cell(null, 10, $string1, "LTR");
+            $pdf->Ln();
+            $pdf->Cell(null, 10, $string2, "LBR");
+        } else {
+            $pdf->Cell(null, 10, utf8_decode($etapesRecette[$i]->getOrdre()) . " - " . utf8_decode($etapes[$i]->getTitre()) . " : " . utf8_decode($etapes[$i]->getDescription()), 1);
+        }
+        $pdf->Ln();
+    }
+    $pdf->Output("F", "./RECETTES/" . str_replace(" ","_",$recette->getLibelle()) . "_" . $idRecette . ".pdf");
+    $route = './RECETTES/' . str_replace(" ","_",$recette->getLibelle()) . "_" . $idRecette . '.pdf';
+    header("location:".$route);
 }

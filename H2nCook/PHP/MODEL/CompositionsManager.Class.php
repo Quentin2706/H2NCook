@@ -65,4 +65,36 @@ class CompositionsManager
 		$id = (int) $id;
 		$db->exec("DELETE FROM Compositions WHERE idRecette=" .$id);
 	}
+
+	public static function APIgetListByRecette($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$json = [];
+		$q = $db->query("SELECT * FROM Compositions WHERE idRecette=".$id);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$json[] = $donnees;
+			}
+		}
+		return $json;
+	}
+
+	public static function getListByRecette($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$liste = [];
+		$q = $db->query("SELECT * FROM Compositions WHERE idRecette=".$id);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Compositions($donnees);
+			}
+		}
+		return $liste;
+	}
 }

@@ -18,6 +18,8 @@ INSERT INTO `Agendas` (`idAgenda`, `dateEvent`, `horaireDebut`, `horaireFin`, `m
 INSERT INTO `Fournisseurs`(`idFournisseur`, `libelle`, `numTel`, `adressePostale`,`adresseMail`, `ville`, `codePostal`) VALUES (null,"fourni1","0645257468", "17 rue de la cloche", "fourni1@fourni1.com", "Saint-Maurice-Pellevoisin", "54620");
 INSERT INTO `Fournisseurs`(`idFournisseur`, `libelle`, `numTel`, `adressePostale`,`adresseMail`, `ville`, `codePostal`) VALUES (null,"fourni2","0615457698", "84 rue nationale", "fourni2@fourni2.com", "Armentières", "20150");
 
+
+INSERT INTO `CategoriesProduits`(`idCategorieProduit`, `libelle`) VALUES (null,"Non renseignée");
 INSERT INTO `CategoriesProduits`(`idCategorieProduit`, `libelle`) VALUES (null,"fruit");
 INSERT INTO `CategoriesProduits`(`idCategorieProduit`, `libelle`) VALUES (null,"poisson");
 INSERT INTO `CategoriesProduits`(`idCategorieProduit`, `libelle`) VALUES (null,"légume");
@@ -89,7 +91,7 @@ INSERT INTO `Conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteCon
 INSERT INTO `Conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,10,10000,9);
 INSERT INTO `Conversions`(`idConversion`, `idUniteChoisie`, `ratio`, `idUniteConvertie`) VALUES (null,10,1000,6);
 
-
+INSERT INTO `Produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`) VALUES (null,"non renseignée","1236451",100,1,3,1,6,2);
 INSERT INTO `Produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`) VALUES (null,"muscade","1236451",100,1,3,1,6,2);
 INSERT INTO `Produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`) VALUES (null,"sel","1236461",100,1,2,1,6,2);
 INSERT INTO `Produits`(`idProduit`, `libelle`, `reference`, `poids`, `stock`, `prixAchatHT`, `idFournisseur`, `idCategorieProduit`, `idUniteDeMesure`) VALUES (null,"poivre","769542",100,1,2,1,6,2);

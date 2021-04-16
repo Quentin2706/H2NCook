@@ -8,7 +8,7 @@ echo '<div>
 echo '<form action="index.php?page=ActionConnexion&mode=Connexion" method="POST" class="colonne">';
 
 echo '<div>
-<label for="identifiant">Identifiant : </label>
+<label for="identifiant">Pseudo : </label>
 <input name="identifiant"  placeholder = "Entrez votre identifiant" required >';
 echo '</div>';
 
@@ -17,7 +17,11 @@ echo '<div>
 <input name="motDePasse" type="password" placeholder ="Entrez votre mdp" required >';
 echo '</div>';
 
-echo '<div><button type="submit">Se connecter</button></div>
+echo '<div>
+<div></div>
+<div><button type="submit" class="boutonForm">Se connecter</button></div>
+<div></div>
+</div>
 
 </form>
 <div></div>

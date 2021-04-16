@@ -70,10 +70,19 @@ class EtapesManager
 		}
 	}
 
-	public static function deleteByRecette($id)
+	public static function APIfindById($id)
 	{
-		$db=DbConnect::getDb();
+ 		$db=DbConnect::getDb();
 		$id = (int) $id;
-		$db->exec("DELETE FROM Compositions WHERE idRecette=" .$id);
+		$q=$db->query("SELECT * FROM Etapes WHERE idEtape =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return $results;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

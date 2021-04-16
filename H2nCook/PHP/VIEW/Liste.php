@@ -74,10 +74,16 @@ if (empty($objets)) {
                             }
                         }
                     }
-                    echo'<div class="contenuIMG">
-                    <a class="modif" href="index.php?page=Form&table=' . $table . '&mode=modif&id=' . $id . '"><div><img src="./IMG/modif.png" alt="modifier"></div></a>
-                    <a class="suppr" href="index.php?page=Form&table=' . $table . '&mode=delete&id=' . $id . '"><div><img src="./IMG/suppr.png" alt="supprimer"></div></a>
-                </div>';
+                    echo'<div class="contenuIMG">';
+                    if ($table == "Recettes")
+                    { echo'
+                    <a class="modif" href="index.php?page=FormRecette&mode=modif&id=' . $id . '"><div><img src="./IMG/modif.png" alt="modifier"></div></a>
+                    <a class="suppr" href="index.php?page=FormRecette=' . $table . '&mode=delete&id=' . $id . '"><div><img src="./IMG/suppr.png" alt="supprimer"></div></a>';
+                    } else {
+                        echo'<a class="modif" href="index.php?page=Form&table=' . $table . '&mode=modif&id=' . $id . '"><div><img src="./IMG/modif.png" alt="modifier"></div></a>
+                        <a class="suppr" href="index.php?page=Form&table=' . $table . '&mode=delete&id=' . $id . '"><div><img src="./IMG/suppr.png" alt="supprimer"></div></a>';
+                    }
+                echo'</div>';
                     echo'</div>';
                 }
  }

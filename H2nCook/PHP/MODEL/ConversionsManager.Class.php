@@ -56,4 +56,21 @@ class ConversionsManager
 		}
 		return $liste;
 	}
+
+	public static function findByConversionUniteDeMesure($idDemande, $idBDD)
+	{
+		$db=DbConnect::getDb();
+		$idDemande = (int) $idDemande;
+		$idBDD = (int) $idBDD;
+		$q = $db->query("SELECT * FROM conversions WHERE idUniteChoisie=".$idDemande." AND idUniteConvertie=".$idBDD);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Conversions($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

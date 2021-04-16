@@ -76,4 +76,20 @@ class TemoignagesManager
 		}
 		return $liste;
 	}
+
+	public static function APIgetFiveLast()
+	{
+ 		$db=DbConnect::getDb();
+		$json = [];
+		$q=$db->query("SELECT * FROM `Temoignages` ORDER BY `idTemoignage` DESC LIMIT 5");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$json[] = $donnees;
+			}
+		}
+		return $json;
+	}
+
 }

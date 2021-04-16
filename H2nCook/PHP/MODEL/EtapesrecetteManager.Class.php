@@ -56,4 +56,36 @@ class EtapesrecetteManager
 		}
 		return $liste;
 	}
+
+	public static function APIgetListByRecette($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$json = [];
+		$q = $db->query("SELECT * FROM EtapesRecette WHERE idRecette=".$id." ORDER BY ordre ASC");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$json[] = $donnees;
+			}
+		}
+		return $json;
+	}
+
+	public static function getListByRecette($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$liste = [];
+		$q = $db->query("SELECT * FROM EtapesRecette WHERE idRecette=".$id." ORDER BY ordre ASC");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new EtapesRecette ($donnees);
+			}
+		}
+		return $liste;
+	}
 }

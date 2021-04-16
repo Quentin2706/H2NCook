@@ -1,5 +1,5 @@
 
-<div class="footer">    
+<div class="footer">
         <div></div>
         <div class="colonne center">
             <p>H2nCook</p>
@@ -54,23 +54,24 @@
         <div></div>
     </footer>
     <?php
-    if (isset($_GET["page"]))
-    {
-        switch ($_GET["page"]) {
-            case 'Reservations':
-                echo'<script type="text/javascript" src="./JS/calendrier.js"></script>';
-                break;
-            
-                case 'FormRecette':
-                    echo'<script type="text/javascript" src="./JS/formRecette.js"></script>';
-                    break;    
+if (isset($_GET["page"])) {
+    switch ($_GET["page"]) {
+        case 'Reservations':
+            echo '<script type="text/javascript" src="./JS/Calendrier.js"></script>';
+            break;
 
+        case 'FormRecette':
+            echo '<script type="text/javascript" src="./JS/FormRecette.js"></script>';
+            break;
+        case 'AvisClients':
+            echo '<script type="text/javascript" src="./JS/AvisClients.js"></script>';
+            break;
 
-            default:
+        default:
 
-                break;
-        }
-    }?>
+            break;
+    }
+}?>
 </body>
 
 </html>

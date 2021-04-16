@@ -94,12 +94,9 @@ if ($mode == "edit" || $mode == "suppr") {
 }
 echo'></div>';
 
-
 echo '<div>
     <label for="cheminImage"> Insérez l\'image : </label>
-    <input name="cheminImage" type="file"';if ($mode != "ajout") {
-    echo 'value= "' .$recette->getCheminImage() . '"';
-}
+    <input name="cheminImage" type="file"';
 if ($mode == "edit" || $mode == "suppr") {
     echo '" disabled';
 }
@@ -198,11 +195,10 @@ echo'<div class="colonne tabEtapes">
             <div class="enteteAdd supprLigne">
                 <img src="./IMG/suppr_blanc.png" alt="supprimer ">
             </div>
-
+            <input class="inputetape2" type="hidden"  name="ordre2" value="">
+            <input class="inputetape2" type="hidden" name="titre2" value="">
+            <input class="inputetape2" type="hidden" name="description2" value="">
     </div>
-    <input class="inputetape2" type="hidden"  name="ordre2" value="">
-    <input class="inputetape2" type="hidden" name="titre2" value="">
-    <input class="inputetape2" type="hidden" name="description2" value="">
 </div>';
 
 
@@ -232,8 +228,12 @@ switch ($mode) {
         }
 }
 // dans tous les cas, on met le bouton annuler
-echo '<a href="index.php?page=Reservations"><button type="button" class="boutonForm">Annuler</button></a>
-</div>';
+echo '<a href="index.php?page=Liste&table=Recettes"><button type="button" class="boutonForm">Annuler</button></a>';
+if ($_GET["mode"] != "ajout")
+{
+    echo'<a href="index.php?page=PDFGenerator&idRecette='.$id.'"><button type="button" class="boutonForm">Afficher la recette</button></a>';
+}
+echo'</div>';
 
 echo '</form>
 <div></div>

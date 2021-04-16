@@ -3,33 +3,33 @@ if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']->getIdRole() == 
         $table = $_GET["table"];
         $manager = $table . 'Manager';
         $p = new $table($_POST);
-        switch ($_GET['mode']) {
-            case "ajout":
-                {
-                    $manager::add($p);        
-                    break;
-                }
-            case "modif":
-                {
-                    $manager::update($p); 
-                    break;
-                }
-            case "delete":
-                {
+    //     switch ($_GET['mode']) {
+    //         case "ajout":
+    //             {
+    //                 $manager::add($p);        
+    //                 break;
+    //             }
+    //         case "modif":
+    //             {
+    //                 $manager::update($p); 
+    //                 break;
+    //             }
+    //         case "delete":
+    //             {
 
-                    $manager::delete($p); 
-                    break;
+    //                 $manager::delete($p); 
+    //                 break;
                     
-                }
-        }
+    //             }
+    //     }
 
-    }
-    if (isset($_GET["trace"]))
-    {
-        if(isset($_GET["trace"]) == "FR")
-        {
-            header("location:index.php?page=FormRecette&mode=ajout&trace=FR");
-        }
-    } else {
-        header("location:index.php?page=Liste&table=" . $_GET["table"]);
+    // }
+    // if (isset($_GET["trace"]))
+    // {
+    //     if(isset($_GET["trace"]) == "FR")
+    //     {
+    //         header("location:index.php?page=FormRecette&mode=ajout&trace=FR");
+    //     }
+    // } else {
+    //     header("location:index.php?page=Liste&table=" . $_GET["table"]);
     }

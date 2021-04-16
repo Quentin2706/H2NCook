@@ -171,6 +171,7 @@ function supprLigne(e) {
     }
     tableau = caseSuppr.parentNode;
 
+    console.log(caseSuppr.previousElementSibling);
     if (caseSuppr.previousElementSibling.hasAttribute("entete")) {
         ajouterLigne(caseSuppr);
         caseSuppr.remove();
@@ -186,14 +187,61 @@ function supprLigne(e) {
 
 
 function modifInputFunction(e) {
+    if (e.target != undefined) {
+        var ligneB = e.target.parentNode.parentNode;
+    } else {
+        var ligneB = e;
+    }
 
-    let ligne = e.target.parentNode.parentNode;
-    console.log(ligne);
-    let idLigne = ligne.getAttribute("id");
-    console.log(idLigne);
+    let idLigne = ligneB.getAttribute("id");
+
     let tabInput = document.getElementsByClassName("input" + idLigne);
-    console.log(tabInput);
     for (let i = 0; i < tabInput.length; i++) {
-        tabInput[i].value = ligne.children[i].children[0].value;
+        tabInput[i].value = ligneB.children[i].children[0].value;
+    }
+}
+
+const requ = new XMLHttpRequest();
+var parametres = new URLSearchParams(window.location.search);
+if (parametres.get("mode") != "ajout") {
+    requ.open('POST', './index.php?page=ApiFormRecette', true);
+    requ.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    requ.send("idRecette=" + parametres.get("id"));
+}
+
+requ.onreadystatechange = function (e) {
+    if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+            reponse = JSON.parse(this.responseText);
+            console.log(reponse);
+            for (let i = 0; i < reponse[0].length; i++) {
+                tableau.children[i + 2].children[0].children[0].value = reponse[0][i].quantite;
+                tableau.children[i + 2].children[1].children[0].value = reponse[0][i].idProduit;
+                tableau.children[i + 2].children[2].children[0].value = reponse[0][i].idUniteDeMesure;
+                ajouterLigneVar(tableau.children[i + 2]);
+
+                let idLigne =  tableau.children[i + 2].getAttribute("id");
+
+                let tabInput = document.getElementsByClassName("input" + idLigne);
+                for (let j = 0; j < tabInput.length; j++) {
+                    console.log(tabInput[j]);
+                    tabInput[j].value =  tableau.children[i + 2].children[j].children[0].value;
+                }
+            }
+
+            for (let i = 0; i < reponse[1].length; i++) {
+                tableau2.children[i + 2].children[0].children[0].value = reponse[1][i].ordre;
+                tableau2.children[i + 2].children[1].children[0].value = reponse[2][i].titre;
+                tableau2.children[i + 2].children[2].children[0].value = reponse[2][i].description;
+                ajouterLigneVar(tableau2.children[i + 2]);
+
+                let idLigne =  tableau2.children[i + 2].getAttribute("id");
+
+                let tabInput = document.getElementsByClassName("input" + idLigne);
+                for (let j = 0; j < tabInput.length; j++) {
+                    tabInput[j].value =  tableau2.children[i + 2].children[j].children[0].value;
+                }
+            }
+        }
     }
 }
