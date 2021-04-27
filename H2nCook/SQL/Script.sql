@@ -213,7 +213,8 @@ CREATE TABLE Commandes
     numero int(11) not null,
     idUser int (11) not null,
     idRemise int (11) not null,
-    idAgenda int (11) not null
+    idAgenda int (11) not null,
+    etat text
 )ENGINE = INNODB,
 CHARSET = UTF8;
 

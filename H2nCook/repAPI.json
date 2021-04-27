@@ -280,3 +280,664 @@
         "idUser": "2"
     }
 ]
+
+[
+    [
+        100,
+        96.5,
+        99,
+        97.5,
+        0.88,
+        1,
+        1,
+        1,
+        1,
+        99
+    ],
+    [
+        "non renseign\u00e9e",
+        "muscade",
+        "sel",
+        "poivre",
+        "potiron",
+        "carotte",
+        "pomme de terre",
+        "oignon",
+        "lait",
+        "muscade"
+    ],
+    true
+];
+
+[
+    {
+        "idProduit": "1",
+        "libelle": "non renseign\u00e9e",
+        "reference": "1236451",
+        "poids": "100",
+        "stock": "1",
+        "prixAchatHT": "3",
+        "idFournisseur": "1",
+        "idCategorieProduit": "6",
+        "idUniteDeMesure": "2",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "2",
+        "libelle": "muscade",
+        "reference": "1236451",
+        "poids": "100",
+        "stock": "1",
+        "prixAchatHT": "3",
+        "idFournisseur": "1",
+        "idCategorieProduit": "6",
+        "idUniteDeMesure": "2",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "3",
+        "libelle": "sel",
+        "reference": "1236461",
+        "poids": "100",
+        "stock": "1",
+        "prixAchatHT": "2",
+        "idFournisseur": "1",
+        "idCategorieProduit": "6",
+        "idUniteDeMesure": "2",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "4",
+        "libelle": "poivre",
+        "reference": "769542",
+        "poids": "100",
+        "stock": "1",
+        "prixAchatHT": "2",
+        "idFournisseur": "1",
+        "idCategorieProduit": "6",
+        "idUniteDeMesure": "2",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "5",
+        "libelle": "potiron",
+        "reference": "7496213",
+        "poids": "1",
+        "stock": "1",
+        "prixAchatHT": "2.5",
+        "idFournisseur": "1",
+        "idCategorieProduit": "3",
+        "idUniteDeMesure": "5",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "6",
+        "libelle": "carotte",
+        "reference": "564210",
+        "poids": "1",
+        "stock": "1",
+        "prixAchatHT": "1.5",
+        "idFournisseur": "1",
+        "idCategorieProduit": "3",
+        "idUniteDeMesure": "5",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "7",
+        "libelle": "pomme de terre",
+        "reference": "164529",
+        "poids": "1",
+        "stock": "1",
+        "prixAchatHT": "5",
+        "idFournisseur": "1",
+        "idCategorieProduit": "3",
+        "idUniteDeMesure": "5",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "8",
+        "libelle": "ail",
+        "reference": "548625",
+        "poids": "10",
+        "stock": "1",
+        "prixAchatHT": "3",
+        "idFournisseur": "1",
+        "idCategorieProduit": "7",
+        "idUniteDeMesure": "5",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "9",
+        "libelle": "oignon",
+        "reference": "9756241",
+        "poids": "1",
+        "stock": "1",
+        "prixAchatHT": "2.3",
+        "idFournisseur": "1",
+        "idCategorieProduit": "3",
+        "idUniteDeMesure": "5",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "10",
+        "libelle": "lait",
+        "reference": "76120",
+        "poids": "1",
+        "stock": "3",
+        "prixAchatHT": "0.5",
+        "idFournisseur": "1",
+        "idCategorieProduit": "8",
+        "idUniteDeMesure": "6",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "11",
+        "libelle": "huile d'olive",
+        "reference": "856421",
+        "poids": "1",
+        "stock": "1",
+        "prixAchatHT": "1.5",
+        "idFournisseur": "1",
+        "idCategorieProduit": "7",
+        "idUniteDeMesure": "6",
+        "dateCreation": "2021-04-19 09:49:03",
+        "dateModification": "2021-04-19 09:49:03"
+    },
+    {
+        "idProduit": "12",
+        "libelle": "Persil",
+        "reference": "856421",
+        "poids": "100",
+        "stock": "1",
+        "prixAchatHT": "0.5",
+        "idFournisseur": "1",
+        "idCategorieProduit": "7",
+        "idUniteDeMesure": "2",
+        "dateCreation": "2021-04-19 09:49:04",
+        "dateModification": "2021-04-19 09:49:04"
+    },
+    {
+        "idProduit": "13",
+        "libelle": "Vin",
+        "reference": "645210",
+        "poids": "1",
+        "stock": "1",
+        "prixAchatHT": "10",
+        "idFournisseur": "1",
+        "idCategorieProduit": "9",
+        "idUniteDeMesure": "6",
+        "dateCreation": "2021-04-19 09:49:04",
+        "dateModification": "2021-04-19 09:49:04"
+    }
+]
+
+
+
+  [
+    [
+        "1",
+        {
+            "idProduit": "1",
+            "libelle": "non renseign\u00e9e",
+            "reference": "1236451",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "2",
+        {
+            "idProduit": "2",
+            "libelle": "muscade",
+            "reference": "1236451",
+            "poids": "110",
+            "stock": "1",
+            "prixAchatHT": "3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "3",
+        {
+            "idProduit": "3",
+            "libelle": "sel",
+            "reference": "1236461",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "2",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "4",
+        {
+            "idProduit": "4",
+            "libelle": "poivre",
+            "reference": "769542",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "2",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "5",
+        {
+            "idProduit": "5",
+            "libelle": "potiron",
+            "reference": "7496213",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "2.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "6",
+        {
+            "idProduit": "6",
+            "libelle": "carotte",
+            "reference": "564210",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "1.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "7",
+        {
+            "idProduit": "7",
+            "libelle": "pomme de terre",
+            "reference": "164529",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "8",
+        {
+            "idProduit": "8",
+            "libelle": "ail",
+            "reference": "548625",
+            "poids": "10",
+            "stock": "1",
+            "prixAchatHT": "3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "7",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "9",
+        {
+            "idProduit": "9",
+            "libelle": "oignon",
+            "reference": "9756241",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "2.3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "10",
+        {
+            "idProduit": "10",
+            "libelle": "lait",
+            "reference": "76120",
+            "poids": "1",
+            "stock": "3",
+            "prixAchatHT": "0.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "8",
+            "idUniteDeMesure": "6",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "11",
+        {
+            "idProduit": "11",
+            "libelle": "huile d'olive",
+            "reference": "856421",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "1.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "7",
+            "idUniteDeMesure": "6",
+            "dateCreation": "2021-04-19 09:49:03",
+            "dateModification": "2021-04-19 09:49:03"
+        }
+    ],
+    [
+        "12",
+        {
+            "idProduit": "12",
+            "libelle": "Persil",
+            "reference": "856421",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "0.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "7",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-19 09:49:04",
+            "dateModification": "2021-04-19 09:49:04"
+        }
+    ],
+    [
+        "13",
+        {
+            "idProduit": "13",
+            "libelle": "Vin",
+            "reference": "645210",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "10",
+            "idFournisseur": "1",
+            "idCategorieProduit": "9",
+            "idUniteDeMesure": "6",
+            "dateCreation": "2021-04-19 09:49:04",
+            "dateModification": "2021-04-19 09:49:04"
+        }
+    ]
+]
+
+
+
+ [
+    [
+        {
+            "idProduit": "1",
+            "libelle": "non renseign\u00e9e",
+            "reference": "1236451",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "0",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-21 14:51:40",
+            "dateModification": "2021-04-21 14:51:40"
+        },
+        {
+            "idProduit": "2",
+            "libelle": "muscade",
+            "reference": "1236451",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "3",
+            "libelle": "sel",
+            "reference": "1236461",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "2",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "4",
+            "libelle": "poivre",
+            "reference": "769542",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "2",
+            "idFournisseur": "1",
+            "idCategorieProduit": "6",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "5",
+            "libelle": "potiron",
+            "reference": "7496213",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "2.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "6",
+            "libelle": "carotte",
+            "reference": "564210",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "1.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "7",
+            "libelle": "pomme de terre",
+            "reference": "164529",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "8",
+            "libelle": "ail",
+            "reference": "548625",
+            "poids": "10",
+            "stock": "1",
+            "prixAchatHT": "3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "7",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "9",
+            "libelle": "oignon",
+            "reference": "9756241",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "2.3",
+            "idFournisseur": "1",
+            "idCategorieProduit": "3",
+            "idUniteDeMesure": "5",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "10",
+            "libelle": "lait",
+            "reference": "76120",
+            "poids": "1",
+            "stock": "3",
+            "prixAchatHT": "0.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "8",
+            "idUniteDeMesure": "6",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "11",
+            "libelle": "huile d'olive",
+            "reference": "856421",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "1.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "7",
+            "idUniteDeMesure": "6",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "12",
+            "libelle": "Persil",
+            "reference": "856421",
+            "poids": "100",
+            "stock": "1",
+            "prixAchatHT": "0.5",
+            "idFournisseur": "1",
+            "idCategorieProduit": "7",
+            "idUniteDeMesure": "2",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        },
+        {
+            "idProduit": "13",
+            "libelle": "Vin",
+            "reference": "645210",
+            "poids": "1",
+            "stock": "1",
+            "prixAchatHT": "10",
+            "idFournisseur": "1",
+            "idCategorieProduit": "9",
+            "idUniteDeMesure": "6",
+            "dateCreation": "2021-04-21 14:51:41",
+            "dateModification": "2021-04-21 14:51:41"
+        }
+    ],
+    [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+    ]
+][
+    {
+        "idLigneCommande": "1",
+        "quantite": "1",
+        "prixVenteHT": "20",
+        "idProduit": null,
+        "idRecette": "1",
+        "idCommande": "1"
+    },
+    {
+        "idLigneCommande": "2",
+        "quantite": "1",
+        "prixVenteHT": "20",
+        "idProduit": "12",
+        "idRecette": null,
+        "idCommande": "2"
+    },
+    {
+        "idLigneCommande": "3",
+        "quantite": "1",
+        "prixVenteHT": "21.5",
+        "idProduit": "12",
+        "idRecette": null,
+        "idCommande": "2"
+    },
+    {
+        "idLigneCommande": "4",
+        "quantite": "1",
+        "prixVenteHT": "1",
+        "idProduit": null,
+        "idRecette": "1",
+        "idCommande": "4"
+    },
+    {
+        "idLigneCommande": "5",
+        "quantite": "1",
+        "prixVenteHT": "1",
+        "idProduit": null,
+        "idRecette": "1",
+        "idCommande": "5"
+    },
+    {
+        "idLigneCommande": "6",
+        "quantite": "1",
+        "prixVenteHT": "1",
+        "idProduit": null,
+        "idRecette": "1",
+        "idCommande": "6"
+    },
+    {
+        "idLigneCommande": "7",
+        "quantite": "1",
+        "prixVenteHT": "1",
+        "idProduit": null,
+        "idRecette": "1",
+        "idCommande": "6"
+    }
+]

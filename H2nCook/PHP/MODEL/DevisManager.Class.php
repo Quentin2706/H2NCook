@@ -54,4 +54,20 @@ class DevisManager
 		}
 		return $liste;
 	}
+
+	public static function findByIdCommande($id)
+	{
+		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT * FROM Devis WHERE idCommande =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Devis($results);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

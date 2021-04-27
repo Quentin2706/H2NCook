@@ -71,4 +71,37 @@ class ProduitsManager
 		return $liste;
 	}
 
+	public static function APIgetList()
+	{
+ 		$db=DbConnect::getDb();
+		$json = [];
+		$q = $db->query("SELECT * FROM Produits");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$json[] = $donnees;
+				$idListe[] = $donnees["idProduit"];
+			}
+		}
+		return [$json, $idListe];
+	}
+
+
+	public static function APIFindById($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT * FROM Produits WHERE idProduit =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return $results;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 }

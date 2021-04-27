@@ -4,7 +4,7 @@
         <hr>
       </div>
     </a>
-    <a href="presentation.html">
+    <a href="index.php?page=ListePlats">
       <div class="center boutons colonne">Les plats proposés
         <hr>
       </div>
@@ -17,8 +17,8 @@
       </div>
     </a>';
     }?>
-    <a href="presentation.html">
-      <div class="center boutons colonne">Les actualités
+    <a href="index.php?page=AvisClients">
+      <div class="center boutons colonne">Donnez votre avis !
         <hr>
       </div>
     </a>

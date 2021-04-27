@@ -165,7 +165,7 @@ function creerPDFRecette($idRecette)
 
     }
 
-    $pdf->Write(6, "Cout de revient de la recette : " . $coutRevient . " " . chr(128) . " HT");
+    $pdf->Write(6, "Cout de revient de la recette : " . round($coutRevient,2) . " " . chr(128) . " HT");
     $pdf->Ln(6);
     $ligne = 40;
 

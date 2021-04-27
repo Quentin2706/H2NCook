@@ -68,6 +68,7 @@ if (empty($objets)) {
                                     } else {
                                         echo '<div class="contenu">' . appelGet($unObjet, $infos[$i]) . '</div>';
                                     }
+                        
                                 } else {
                                     echo '<div class="contenu">' . appelGet($unObjet, $infos[$i]) . '</div>';
                                 }
@@ -79,7 +80,10 @@ if (empty($objets)) {
                     { echo'
                     <a class="modif" href="index.php?page=FormRecette&mode=modif&id=' . $id . '"><div><img src="./IMG/modif.png" alt="modifier"></div></a>
                     <a class="suppr" href="index.php?page=FormRecette=' . $table . '&mode=delete&id=' . $id . '"><div><img src="./IMG/suppr.png" alt="supprimer"></div></a>';
-                    } else {
+                    } else if ($table == "Commandes"){
+                        echo'<a class="modif" href="index.php?page=FormCommande&mode=modif&id=' . $id . '"><div><img src="./IMG/modif.png" alt="modifier"></div></a>
+                        <a class="suppr" href="index.php?page=FormCommande&mode=delete&id=' . $id . '"><div><img src="./IMG/suppr.png" alt="supprimer"></div></a>';
+                    }else {
                         echo'<a class="modif" href="index.php?page=Form&table=' . $table . '&mode=modif&id=' . $id . '"><div><img src="./IMG/modif.png" alt="modifier"></div></a>
                         <a class="suppr" href="index.php?page=Form&table=' . $table . '&mode=delete&id=' . $id . '"><div><img src="./IMG/suppr.png" alt="supprimer"></div></a>';
                     }

@@ -35,7 +35,7 @@ p {
     margin-block-end: 0.5em;
 }
 
-.center {
+.center, .centrer {
     justify-content: center;
     align-items: center;
 }
@@ -283,6 +283,10 @@ form label {
     justify-content: center;
 }
 
+.inForm {
+    margin: 1em 0;
+}
+
 /* =================  CALENDRIER =================== */ 
 
 .case {
@@ -394,15 +398,13 @@ form label {
 .fois5 h3 {
     margin-block-end : 0.5em;
 }
-
+.fois3 {
+    flex: 3;
+}
 .appreciation {
     text-align: justify;
 }
 
-.centrer {
-    justify-content: center;
-    align-items: center;
-}
 
 .mgTop3 {
     margin-top: 3em;
@@ -418,6 +420,10 @@ div > .row {
 
 form > div {
     margin : 0.5em 0;
+}
+
+.mgLF1 {
+    margin: 0 1em;
 }
 
 

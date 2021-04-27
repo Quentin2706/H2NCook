@@ -30,6 +30,7 @@ switch ($_GET['mode']) {
                 $composition->setIdUniteDeMesure($_POST["idUniteDeMesure" . $cpt]);
                 $composition->setIdRecette($idRecette->getIdRecette());
                 CompositionsManager::add($composition);
+                var_dump($composition);
                 $cpt++;
             }
             $cpt = 2;
@@ -118,4 +119,4 @@ switch ($_GET['mode']) {
         }
 }
 
-//header("location:index.php?page=default");
+header("location:index.php?page=default");

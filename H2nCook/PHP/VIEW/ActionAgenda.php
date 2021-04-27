@@ -14,7 +14,7 @@ switch ($_GET['mode']) {
             $numCommande = rand(0,99999999);
             AgendasManager::add($agenda);
             $idAgenda = AgendasManager::findLast();
-            $commandeObj = new Commandes(["numero" => $numCommande, "idUser" => $_POST["idUser"], "idRemise" => 1, "idAgenda" => $idAgenda->getIdAgenda()]);
+            $commandeObj = new Commandes(["numero" => $numCommande, "idUser" => $_POST["idUser"], "idRemise" => 1, "idAgenda" => $idAgenda->getIdAgenda(), "etat" => "en cours"]);
             CommandesManager::add($commandeObj);
             break;
         }

@@ -75,4 +75,19 @@ class RecettesManager
 			return false;
 		}
 	}
+
+	public static function getListByCategorieRecette()
+	{
+		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * FROM Recettes ORDER BY idCategorieRecette");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new Recettes($donnees);
+			}
+		}
+		return $liste;
+	}
 }

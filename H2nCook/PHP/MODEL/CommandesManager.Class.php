@@ -5,23 +5,25 @@ class CommandesManager
 	public static function add(Commandes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("INSERT INTO Commandes (numero,idUser,idRemise,idAgenda) VALUES (:numero,:idUser,:idRemise,:idAgenda)");
+		$q=$db->prepare("INSERT INTO Commandes (numero,idUser,idRemise,idAgenda,etat) VALUES (:numero,:idUser,:idRemise,:idAgenda,:etat)");
 		$q->bindValue(":numero", $obj->getNumero());
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":idRemise", $obj->getIdRemise());
 		$q->bindValue(":idAgenda", $obj->getIdAgenda());
+		$q->bindValue(":etat", $obj->getEtat());
 		$q->execute();
 	}
 
 	public static function update(Commandes $obj)
 	{
  		$db=DbConnect::getDb();
-		$q=$db->prepare("UPDATE Commandes SET idCommande=:idCommande,numero=:numero,idUser=:idUser,idRemise=:idRemise,idAgenda=:idAgenda WHERE idCommande=:idCommande");
+		$q=$db->prepare("UPDATE Commandes SET idCommande=:idCommande,numero=:numero,idUser=:idUser,idRemise=:idRemise,idAgenda=:idAgenda,etat=:etat WHERE idCommande=:idCommande");
 		$q->bindValue(":idCommande", $obj->getIdCommande());
 		$q->bindValue(":numero", $obj->getNumero());
 		$q->bindValue(":idUser", $obj->getIdUser());
 		$q->bindValue(":idRemise", $obj->getIdRemise());
 		$q->bindValue(":idAgenda", $obj->getIdAgenda());
+		$q->bindValue(":etat", $obj->getEtat());
 		$q->execute();
 	}
 	public static function delete(Commandes $obj)
@@ -58,7 +60,7 @@ class CommandesManager
 		}
 		return $liste;
 	}
-
+	
 	public static function APIFindUserByAgendaInCommandes($id)
 	{
 		$db=DbConnect::getDb();
@@ -121,5 +123,20 @@ class CommandesManager
 			}
 		}
 		return $liste;
+	}
+
+	public static function findLast()
+	{
+ 		$db=DbConnect::getDb();
+		$q=$db->query("SELECT * FROM `Commandes` ORDER BY `idCommande` DESC LIMIT 1");
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return new Commandes($results);
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

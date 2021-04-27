@@ -4,17 +4,18 @@ class Commandes
 {
 
 	/*****************Attributs***************** */
-	private static $listeAttributs=["Commandes","idCommande","numero","idRemise","idUser","idAgenda"];
-	private static $listeTypeInput = ["","","text","select","select","select"];
-	private static $listeClass =["","","","remises","clients","agendas"];
-	private static $listeLabel = ["","","Numéro de commande","Remise liée","Client concerné","Rendez-vous"];
-	private static $nbColonne= 6;
+	private static $listeAttributs=["Commandes","idCommande","numero","idRemise","idUser","idAgenda", "etat"];
+	private static $listeTypeInput = ["","","text","select","select","select", "text"];
+	private static $listeClass =["","","","remises","clients","agendas",""];
+	private static $listeLabel = ["","","Numéro de commande","Remise liée en %","Client concerné","Rendez-vous","Etat" ];
+	private static $nbColonne= 7;
 
 	private $_idCommande;
 	private $_numero;
 	private $_idUser;
 	private $_idRemise;
 	private $_idAgenda;
+	private $_etat;
 
 	private $_user;
 	private $_remise;
@@ -134,6 +135,17 @@ class Commandes
 	{
 		return $this->getNumero();
 	}
+
+	public function getEtat()
+	{
+		return $this->_etat;
+	}
+
+	public function setEtat($etat)
+	{
+		$this->_etat=$etat;
+	}
+
 
 	/*****************Constructeur***************** */
 

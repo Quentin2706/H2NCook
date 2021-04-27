@@ -62,15 +62,21 @@
         "ActionConnexion" => ["PHP/VIEW/", "ActionConnexion", "", false],
         "FormConnexion" => ["PHP/VIEW/", "FormConnexion", "", false],
 
+        "FormCommande" => ["PHP/VIEW/", "FormCommande", "Ajouter une commande", false],
+        "ActionCommande" => ["PHP/VIEW/", "ActionCommande", "", false],
+
 
         "ApiReservations" => ["PHP/MODEL/", "ApiReservations", "api", true],
         "ApiFormRecette" => ["PHP/MODEL/", "ApiFormRecette", "api", true],
         "ApiAvisClients" => ["PHP/MODEL/", "ApiAvisClients", "api", true],
         "ApiFormTemoignage" => ["PHP/MODEL/", "ApiFormTemoignage", "api", true],
+        "ApiFormCommande" => ["PHP/MODEL/", "ApiFormCommande", "api", true],
 
         "PDFGenerator" => ["PHP/VIEW/", "PDFGenerator", "", false],
 
         "AvisClients" => ["PHP/VIEW/", "AvisClients", "Avis des clients", false],
+
+        "ListePlats"=> ["PHP/VIEW/", "ListePlats", "Avis des clients", false],
     ];
 
     if (isset($_GET["page"])) {

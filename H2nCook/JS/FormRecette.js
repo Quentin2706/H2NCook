@@ -171,17 +171,70 @@ function supprLigne(e) {
     }
     tableau = caseSuppr.parentNode;
 
-    console.log(caseSuppr.previousElementSibling);
-    if (caseSuppr.previousElementSibling.hasAttribute("entete")) {
-        ajouterLigne(caseSuppr);
-        caseSuppr.remove();
-    } else {
+    let idLigne = caseSuppr.getAttribute("id");
+    cpt = idLigne.substring(3, idLigne.length);
+    let caseSupprSave = caseSuppr;
+    if (tableau != tableau2)
+    {
+        let idLigne = caseSuppr.getAttribute("id");
+    cpt = idLigne.substring(3, idLigne.length);
+    while (caseSuppr.nextElementSibling) {
+        caseSupprAfter = caseSuppr.nextElementSibling;
+        let idLigne = caseSupprAfter.getAttribute("id");
+        let tabInput = document.getElementsByClassName("input" + idLigne);
+
+        caseSupprAfter.setAttribute("id", "ing" + cpt);
+
+        let h = 0;
+        let cptAtt=0;
+        let compteur = tabInput.length;
+        let tabAttribut = ["quantite", "idProduit", "idUniteDeMesure"]
+        while (h < compteur) {
+                tabInput[h].setAttribute("name", tabAttribut[cptAtt]+cpt);
+                tabInput[h].setAttribute("class", "inputing" + cpt);
+                cptAtt++;
+                compteur--;
+        }
+
+        caseSuppr = caseSupprAfter;
+        cpt++;
+    }
+} else {
+    let idLigne = caseSuppr.getAttribute("id");
+    cpt2 = idLigne.substring(5, idLigne.length);
+    while (caseSuppr.nextElementSibling) {
+        caseSupprAfter = caseSuppr.nextElementSibling;
+        let idLigne = caseSupprAfter.getAttribute("id");
+        let tabInput = document.getElementsByClassName("input" + idLigne);
+
+        caseSupprAfter.setAttribute("id", "etape" + cpt2);
+
+        let h = 0;
+        let cptAtt=0;
+        let compteur = tabInput.length;
+        let tabAttribut = ["ordre", "titre", "description"]
+        while (h < compteur) {
+                tabInput[h].setAttribute("name", tabAttribut[cptAtt]+cpt2);
+                tabInput[h].setAttribute("class", "inputetape" + cpt2);
+                cptAtt++;
+                compteur--;
+        }
+
+        caseSuppr = caseSupprAfter;
+        cpt2++;
+    }
+}
+
+    if (caseSupprSave.previousElementSibling.hasAttribute("entete")) {
         if (tableau != tableau2) {
             cpt--;
         } else {
             cpt2--;
         }
-        caseSuppr.remove();
+        ajouterLigne(caseSupprSave);
+        caseSupprSave.remove();
+    } else {
+        caseSupprSave.remove();
     }
 }
 

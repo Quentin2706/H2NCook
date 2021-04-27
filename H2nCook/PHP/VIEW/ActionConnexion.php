@@ -31,12 +31,12 @@ switch ($_GET['mode']) {
                     $_SESSION['utilisateur'] = $u;
                 } else {
                     echo 'le mot de passe est incorrect';
-                    header("refresh:3;url=index.php?codePage=FormConnexion");
+                    header("refresh:3;url=index.php?page=FormConnexion");
                 }
                 break;
             } else {
                 echo "le pseudo n'existe pas";
-                header("refresh:3;url=index.php?codePage=FormConnexion");
+                header("refresh:3;url=index.php?page=FormConnexion");
             }
         }
     case "Deconnexion":

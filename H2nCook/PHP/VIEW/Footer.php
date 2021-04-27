@@ -67,6 +67,9 @@ if (isset($_GET["page"])) {
             echo '<script type="text/javascript" src="./JS/AvisClients.js"></script>';
             break;
 
+        case 'FormCommande':
+            echo '<script type="text/javascript" src="./JS/FormCommande.js"></script>';
+            break;
         default:
 
             break;

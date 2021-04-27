@@ -60,4 +60,34 @@ class LignescommandeManager
 		}
 		return $liste;
 	}
+
+	public static function APIGetListByCommande()
+	{
+		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * FROM LignesCommande");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = $donnees;
+			}
+		}
+		return $liste;
+	}
+
+	public static function getListByCommande()
+	{
+		$db=DbConnect::getDb();
+		$liste = [];
+		$q = $db->query("SELECT * FROM LignesCommande");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new lignesCommande($donnees);
+			}
+		}
+		return $liste;
+	}
 }

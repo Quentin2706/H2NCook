@@ -121,7 +121,7 @@ INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`
 INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,6,1,2);
 INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,0.25,7,1,2);
 INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,0.125,9,1,2);
-INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,5,10,1,2);
+INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,5,10,1,7);
 
 INSERT INTO `Remises`(`idRemise`, `taux`) VALUES (null,0);
 INSERT INTO `Remises`(`idRemise`, `taux`) VALUES (null,5);
@@ -138,8 +138,8 @@ INSERT INTO `EtapesRecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) V
 INSERT INTO `EtapesRecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) VALUES (null,3,1,3);
 INSERT INTO `EtapesRecette`(`idEtapeRecette`, `ordre`, `idRecette`, `idEtape`) VALUES (null,4,1,4);
 
-INSERT INTO `Commandes`(`idCommande`, `numero`, `idUser`, `idRemise`, `idAgenda`) VALUES (null,"02151357",2,1,1);
-INSERT INTO `Commandes`(`idCommande`, `numero`, `idUser`, `idRemise`, `idAgenda`) VALUES (null,"02659892",3,2,2);
+INSERT INTO `Commandes`(`idCommande`, `numero`, `idUser`, `idRemise`, `idAgenda`, `etat`) VALUES (null,"02151357",2,1,1, "en cours");
+INSERT INTO `Commandes`(`idCommande`, `numero`, `idUser`, `idRemise`, `idAgenda`, `etat`) VALUES (null,"02659892",3,2,2, "terminée");
 
 INSERT INTO `LignesCommande` (`idLigneCommande`, `quantite`, `prixVenteHT`, `idProduit`, `idRecette`, `idCommande`) VALUES (NULL, 1, 20, NULL, 1, 1);
 INSERT INTO `LignesCommande` (`idLigneCommande`, `quantite`, `prixVenteHT`, `idProduit`, `idRecette`, `idCommande`) VALUES (NULL, 1, 20, 12, NULL, 2);

@@ -52,4 +52,20 @@ class UnitesdemesureManager
 		}
 		return $liste;
 	}
+
+	public static function APIFindById($id)
+	{
+ 		$db=DbConnect::getDb();
+		$id = (int) $id;
+		$q=$db->query("SELECT * FROM Unitesdemesure WHERE idUniteDeMesure =".$id);
+		$results = $q->fetch(PDO::FETCH_ASSOC);
+		if($results != false)
+		{
+			return $results;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
