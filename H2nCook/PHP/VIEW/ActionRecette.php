@@ -1,18 +1,16 @@
 <?php
 
-
 $tab = [];
 
-        if (is_uploaded_file($_FILES["cheminImage"]["tmp_name"])) {
-            $tmp_name = $_FILES["cheminImage"]["tmp_name"];
-            // basename() peut empêcher les attaques "filesystem traversal";
-            // une autre validation/nettoyage du nom de fichier peux être appropriée
-            move_uploaded_file($tmp_name, "./IMG/RECETTES/" . $_FILES["cheminImage"]["name"]);
-
-            $cheminImage = "./IMG/RECETTES/" . $_FILES["cheminImage"]["name"];
-
+if ($_GET["mode"] != "suppr") {
+    if (is_uploaded_file($_FILES["cheminImage"]["tmp_name"])) {
+        $tmp_name = $_FILES["cheminImage"]["tmp_name"];
+        // basename() peut empêcher les attaques "filesystem traversal";
+        // une autre validation/nettoyage du nom de fichier peux être appropriée
+        move_uploaded_file($tmp_name, "./IMG/RECETTES/" . $_FILES["cheminImage"]["name"]);
+        $cheminImage = "./IMG/RECETTES/" . $_FILES["cheminImage"]["name"];
+    }
 }
-
 
 switch ($_GET['mode']) {
     case "ajout":
@@ -30,7 +28,6 @@ switch ($_GET['mode']) {
                 $composition->setIdUniteDeMesure($_POST["idUniteDeMesure" . $cpt]);
                 $composition->setIdRecette($idRecette->getIdRecette());
                 CompositionsManager::add($composition);
-                var_dump($composition);
                 $cpt++;
             }
             $cpt = 2;
@@ -47,7 +44,6 @@ switch ($_GET['mode']) {
                 EtapesRecetteManager::add($etapeRecette);
                 $cpt++;
             }
-            header("location:index.php?page=PDFGenerator&idRecette=".$idRecette->getIdRecette());
             break;
         }
     case "modif":
@@ -96,27 +92,41 @@ switch ($_GET['mode']) {
         }
     case "suppr":
         {
-            $user = UsersManager::findById($_POST["idUser"]);
-            $client = ClientsManager::findById($_POST["idUser"]);
-            $temoignages = TemoignagesManager::findByClient($_POST["idUser"]);
-            $commandes = CommandesManager::findByClient($_POST["idUser"]);
-            if (!empty($temoignages)) {
-                foreach ($temoignages as $untemoignage) {
-                    $untemoignage->setIdUser(1);
-                    TemoignagesManager::update($untemoignage);
+            $recette = RecettesManager::findById($_GET["id"]);
+
+            $compositions = CompositionsManager::getListByRecette($_GET["id"]);
+
+            $lignesCommande = LignesCommandeManager::getListByRecette($_GET["id"]);
+
+            $etapesRecettes = EtapesRecetteManager::getListByRecette($_GET["id"]);
+
+            if (!empty($compositions)) {
+                foreach ($compositions as $elt) {
+                    CompositionsManager::delete($elt);
+                }
+            }
+            if (!empty($lignesCommande)) {
+                foreach ($lignesCommande as $elt) {
+                    $elt->setIdRecette(1);
+                    LignesCommandeManager::update($elt);
+                }
+            }
+            if (!empty($etapesRecettes)) {
+                foreach ($etapesRecettes as $elt) {
+                    $etape = EtapesManager::findById($elt->getIdEtape());
+                    EtapesRecetteManager::delete($elt);
+                    EtapesManager::delete($etape);
                 }
             }
 
-            if (!empty($commandes)) {
-                foreach ($commandes as $uneCommande) {
-                    $uneCommande->setIdUser(1);
-                    CommandesManager::update($uneCommande);
-                }
-            }
-            ClientsManager::delete($client);
-            UsersManager::delete($user);
+            RecettesManager::delete($recette);
             break;
         }
 }
-
-header("location:index.php?page=default");
+header("location:index.php?page=Liste&table=Recettes");
+//  if ($_GET["mode"] != "suppr")
+// {
+//     header("location:index.php?page=PDFGenerator&idRecette=" . $idRecette->getIdRecette());
+// } else {
+//     header("location:index.php?page=Liste&table=Recettes");
+// }

@@ -10,6 +10,7 @@ INSERT INTO `users` (`idUser`, `identifiant`, `motDePasse`, `adresseMail`, `idRo
 INSERT INTO `Clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (1,"H","client","supprimé","1987-03-25 09:34:35","11 bis rue du longchamp","0618802737","65421","QuelquePart");
 INSERT INTO `Clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (2,"H","dupont","toto","1987-03-25 09:34:35","11 bis rue du longchamp","0618802737","65421","QuelquePart");
 INSERT INTO `Clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (3,"F","beauchamp","tutu","1975-09-14 09:34:35","24 rue de l'église","0646219514","71950","auboutdumonde");
+INSERT INTO `Clients`(`idUser`, `genre`, `nom`, `prenom`, `DDN`, `adressePostale`, `numTel`, `codePostal`, `ville`) VALUES (4,"H","balair","quentin","1975-09-14 09:34:35","24 rue de l'église","0646219514","71950","auboutdumonde");
 
 
 INSERT INTO `Agendas` (`idAgenda`, `dateEvent`, `horaireDebut`, `horaireFin`, `motif`, `infoComp`) VALUES (NULL, '2021-03-25 09:34:35', '2021-03-24 14:00:00', '2021-03-24 15:00:00', 'Prestation à domicile', "Je n'ai pas de cuisine équipée veuillez venir avec votre matériel svp.");
@@ -111,7 +112,8 @@ INSERT INTO `CategoriesRecettes`(`idCategorieRecette`, `libelle`) VALUES (null,"
 INSERT INTO `CategoriesRecettes`(`idCategorieRecette`, `libelle`) VALUES (null,"automne");
 INSERT INTO `CategoriesRecettes`(`idCategorieRecette`, `libelle`) VALUES (null,"printemps");
 
-INSERT INTO `Recettes`(`idRecette`, `libelle`, `nbPortion`, `cheminImage`, `descriptionClient`, `idCategorieRecette`) VALUES (null,"Velouté de Potiron et Carottes",1,"./IMAGES/Recettes/veloutecarotte.jpg","Une recette qui va ravir vos papilles !<br> Un velouté constitué de carotte de pomme de terre etc .. Vous allez aimé nous en sommes sur !",1);
+INSERT INTO `Recettes`(`idRecette`, `libelle`, `nbPortion`, `cheminImage`, `descriptionClient`, `idCategorieRecette`) VALUES (null,"Recette supprimée",1,"./IMG/logo.png","Recette",1);
+INSERT INTO `Recettes`(`idRecette`, `libelle`, `nbPortion`, `cheminImage`, `descriptionClient`, `idCategorieRecette`) VALUES (null,"Velouté de Potiron et Carottes",1,"./IMG/RECETTES/photo_aliment.jpg","Une recette qui va ravir vos papilles !<br> Un velouté constitué de carotte de pomme de terre etc .. Vous allez aimé nous en sommes sur !",1);
 
 INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,1,1,2);
 INSERT INTO `Compositions`(`idComposition`, `quantite`, `idProduit`, `idRecette`, `idUniteDeMesure`) VALUES (null,1,2,1,2);

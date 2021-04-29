@@ -156,8 +156,13 @@ switch ($mode) {
             echo '<div>';
         }
 }
+if ($mode != "suppr" && $mode !="ajout")
+{
+    echo '<div class="row jstfend"><a href="index.php?page=FormAgenda&mode=suppr&id='.$id.'"><button type="button" class="boutonForm">Supprimer</button></a></div>';
+}
 // dans tous les cas, on met le bouton annuler
-echo '<a href="index.php?page=Reservations"><button type="button" class="boutonForm">Annuler</button></a>
+echo '
+<a href="index.php?page=Reservations"><button type="button" class="boutonForm">Annuler</button></a>
 </div>';
 
 echo '</form>

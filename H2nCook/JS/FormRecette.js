@@ -252,6 +252,13 @@ function modifInputFunction(e) {
     for (let i = 0; i < tabInput.length; i++) {
         tabInput[i].value = ligneB.children[i].children[0].value;
     }
+    if (parametres.get("mode") == "detail" || parametres.get("mode") == "surpp") {
+        let inputs = document.getElementsByTagName("INPUT");
+        for (let i = 0; i < inputs.length; i++) {
+            console.log(inputs[i]);
+            inputs[i].setAttribute("disabled", "");
+        }
+    }
 }
 
 const requ = new XMLHttpRequest();

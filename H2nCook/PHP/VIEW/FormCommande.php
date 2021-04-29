@@ -59,7 +59,7 @@ if (isset($_SESSION["utilisateur"])) {
 
 <div>
     <label for="idUser"> Client concerné : </label>
-    <select name="idUser"';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}
+    <select name="idUser"';if ($mode == "detail" || $mode == "suppr") {echo "disabled";}
     echo '>';
 
     for ($i = 1; $i < count($listeUser); $i++) {
@@ -83,7 +83,7 @@ if (isset($_SESSION["utilisateur"])) {
 
 <div>
     <label for="idRemise"> Remise : </label>
-    <select name="idRemise"';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}
+    <select name="idRemise"';if ($mode == "detail" || $mode == "suppr") {echo "disabled";}
     echo '>';
 
     for ($i = 1; $i < count($listeRemise); $i++) {
@@ -117,7 +117,7 @@ if (isset($_SESSION["utilisateur"])) {
             <input type="text">
         </div>
         <div class="contenu">
-        <select ';if ($mode == "edit" || $mode == "suppr") {echo "disabled";}
+        <select ';if ($mode == "detail" || $mode == "suppr") {echo "disabled";}
     echo '>';
 
     for ($i = 0; $i < count($listeRecettes); $i++) {
@@ -186,12 +186,26 @@ if (isset($_SESSION["utilisateur"])) {
 
         default:
             {
-                echo '<div>';
+                echo '<div class="row centera">';
             }
     }
 // dans tous les cas, on met le bouton annuler
-    echo '<a href="index.php?page=Liste&table=Commandes"><button type="button" class="boutonForm">Annuler</button></a>
-</div>';
+    echo '<a href="index.php?page=Liste&table=Commandes"><button type="button" class="boutonForm">Annuler</button></a>';
+    if ($mode != "ajout") {
+        echo '<a href="index.php?page=PDFGenerator&devis=' . $commande->getNumero() . '&id=' . $commande->getIdCommande() . ' "><button type="button" class="boutonForm">Accéder au devis</button></a>';
+        if ($mode == "detail") {
+            $lignesCommande = LignesCommandeManager::getListByCommande($id);
+            $somme = 0;
+            foreach ($lignesCommande as $uneLigne) {
+                $recette = RecettesManager::findById($uneLigne->getIdRecette());
+                $somme += round((float) $uneLigne->getPrixVenteHT() * (float) $uneLigne->getQuantite(), 2);
+            }
+            $total = $somme - round($somme * ((float) $remise->getTaux() / 100), 2);
+
+            echo '<a href="index.php?page=Reglement&id=' . $commande->getIdCommande() . '&total=' . $total . '"><button type="button" class="boutonForm">Régler maintenant</button></a>';
+        }
+    }
+    echo '</div>';
 
     echo '</form>
 <div></div>

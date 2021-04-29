@@ -9,7 +9,7 @@
         <hr>
       </div>
     </a>
-    <?php if(isset($_SESSION["utilisateur"]))
+    <?php if(isset($_SESSION["utilisateur"]) && $_SESSION["utilisateur"]->getIdRole() ==1)
     {
     echo'<a href="index.php?page=Reservations">
       <div class="center boutons colonne">Prendre rendez-vous
@@ -22,6 +22,15 @@
         <hr>
       </div>
     </a>
+    <?php if(isset($_SESSION["utilisateur"]) && $_SESSION["utilisateur"]->getIdRole() ==1)
+    {
+    echo'<a href="index.php?page=ListeAdmin">
+      <div class="center boutons colonne">Les listes
+        <hr>
+      </div>
+    </a>';
+    }?>
+
     <?php if(!isset($_SESSION["utilisateur"]))
     {
     echo'<a href="index.php?page=FormInscription">

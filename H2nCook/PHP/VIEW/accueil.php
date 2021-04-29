@@ -5,7 +5,7 @@ echo '<div>
 ';
 if(isset($_SESSION["utilisateur"]) && $_SESSION["utilisateur"]->getIdRole() == 1)
 {
-    echo'admin';
+
 } else {
     echo'user';
 }

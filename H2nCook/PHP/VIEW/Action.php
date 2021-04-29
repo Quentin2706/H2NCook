@@ -14,7 +14,7 @@ if (isset($_SESSION['utilisateur']) && $_SESSION['utilisateur']->getIdRole() == 
                     $manager::update($p); 
                     break;
                 }
-            case "delete":
+            case "suppr":
                 {
 
                     $manager::delete($p); 

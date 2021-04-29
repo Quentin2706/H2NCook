@@ -152,6 +152,13 @@ function modifInputFunction(e) {
     for (let i = 0; i < tabInput.length; i++) {
         tabInput[i].value = ligneB.children[i].children[0].value;
     }
+    if (parametres.get("mode") == "detail" || parametres.get("mode") == "surpp") {
+        let inputs = document.getElementsByTagName("INPUT");
+        for (let i = 0; i < inputs.length; i++) {
+            console.log(inputs[i]);
+            inputs[i].setAttribute("disabled", "");
+        }
+    }
 }
 
 
@@ -257,20 +264,19 @@ if (parametres.get("mode") != "ajout") {
     requ4.open('POST', './index.php?page=ApiFormCommande', true);
     requ4.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     requ4.send("idCommande=" + parametres.get("id"));
-
     requ4.onreadystatechange = function (e) {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
-                reponse = JSON.parse(this.responseText);
-                for (let i = 0; i < reponse.length; i++)
-                {
-                    tableau.children[i+3].children[0].children[0].value = reponse[i].quantite;
-                    tableau.children[i+3].children[1].children[0].value = reponse[i].idRecette;
-                    tableau.children[i+3].children[2].children[0].value = reponse[i].prixVenteHT;
-                    ajouterLigne(tableau.children[i+3]);
-                    modifInputFunction(tableau.children[i+3]);
+                let reponse2 = JSON.parse(this.responseText);
+                for (let i = 0; i < reponse2.length; i++) {
+                    tableau.children[i + 3].children[0].children[0].value = reponse2[i].quantite;
+                    tableau.children[i + 3].children[1].children[0].value = reponse2[i].idRecette;
+                    tableau.children[i + 3].children[2].children[0].value = reponse2[i].prixVenteHT;
+                    ajouterLigne(tableau.children[i + 3]);
+                    modifInputFunction(tableau.children[i + 3]);
                 }
             }
         }
     }
 }
+

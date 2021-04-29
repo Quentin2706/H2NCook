@@ -100,7 +100,7 @@ function optionSelect($valeur, $table, $nomId, $mode)
     // $lib = $obj->$rLib();
     // $ref=["$nom"=>["id"=> $id ,"libelle"=>$lib]];
     $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
-    if ($mode == "detail" || $mode == "delete") {
+    if ($mode == "detail" || $mode == "suppr") {
         $select .= " disabled ";
     }
     $select .= '>';
@@ -217,5 +217,104 @@ function creerPDFRecette($idRecette)
     }
     $pdf->Output("F", "./RECETTES/" . str_replace(" ","_",$recette->getLibelle()) . "_" . $idRecette . ".pdf");
     $route = './RECETTES/' . str_replace(" ","_",$recette->getLibelle()) . "_" . $idRecette . '.pdf';
+    header("location:".$route);
+}
+
+function creerPDFDevis($num,$id)
+{
+
+
+    $path = "./COMMANDES/".$num;
+    if (!is_dir($path))
+    {
+        mkdir($path, 0777, true);
+    }
+    $commande = CommandesManager::findById($id);
+    $client = ClientsManager::findById($commande->getIdUser());
+    $user = UsersManager::findById($commande->getIdUser());
+    $agenda = AgendasManager::findById($commande->getIdAgenda());
+    $remise = RemisesManager::findById($commande->getIdRemise());
+    $lignesCommande = LignesCommandeManager::getListByCommande($id);
+
+    $date=new DateTime($agenda->getDateEvent());
+    date_timezone_set ($date, new DateTimeZone('Europe/Paris'));
+    $date=$date->format('\L\e d/m/Y');
+
+    $pdf = new FPDF("P", "mm", "A4");
+    $pdf->AddPage();
+
+    $pdf->Image("./IMG/LogoPDF.jpg", 20, 10, 30, 30);
+    $pdf->Ln(35);
+    $pdf->SetFont("Helvetica", "B", 12);
+    $pdf->write(6,"H2n COOK'");
+    $pdf->Ln(5);
+    $pdf->SetFont("Helvetica", "", 9);
+    $pdf->write(6,"CUISINIER A DOMICILE");
+    $pdf->Ln(5);
+    $pdf->write(6,"Port. : +33 6 46 70 90 96");
+    $pdf->Ln(5);
+    $pdf->write(6,"H2NCook@gmail.com");
+    $pdf->Ln(5);
+    $pdf->write(6,utf8_decode("N° SIRET : 88307325600017"));
+    $pdf->SetFont("Helvetica", "", 15);
+    $pdf->Ln(6);
+    $pdf->write(6,utf8_decode("DEVIS N° ".$num));
+    $pdf->Ln(6);
+    $pdf->SetFont("Helvetica", "", 10);
+    $pdf->write(6,utf8_decode($date));
+    $pdf->SetFont("Helvetica", "", 9);
+    if ($client->getGenre() == "H")
+    {
+        $pdf->Text(110,50, "Monsieur ". utf8_decode(strtoupper($client->getNom()))." ".utf8_decode(ucFirst($client->getPrenom())));
+    } else {
+        $pdf->Text(110,50, "Madame ".utf8_decode(strtoupper($client->getNom()))." ".utf8_decode(ucFirst($client->getPrenom())));
+    }
+    $ligne = 50;
+    $pdf->Text(110,$ligne+=5,utf8_decode("Tel : ".$client->getNumTel()));
+    $pdf->Text(110,$ligne+=5,utf8_decode("Adresse mail : ".$user->getAdresseMail()));
+    $pdf->Text(110,$ligne+=5,utf8_decode("Adresse postale : ".$client->getAdressePostale()));
+    $pdf->Text(110,$ligne+=5,utf8_decode($client->getCodePostal()." ".$client->getVille()));
+    $pdf->rect(10,$ligne+=20,190,10);
+    $pdf->Text(20,$ligne+6,utf8_decode("Désignation"));
+    $pdf->Text(129,$ligne+6,utf8_decode("Quantité"));
+    $pdf->Text(158,$ligne+6,utf8_decode("PU"));
+    $pdf->Text(175,$ligne+6,utf8_decode("Sous-total HT"));
+    $nbligne=0;
+    $pdf->SetFont("Helvetica", "", 7);
+    $ligneB = $ligne+15;
+    $somme= 0;
+    foreach ($lignesCommande as $uneLigne) {
+        $recette = RecettesManager::findById($uneLigne->getIdRecette());
+        $pdf->Text(15,$ligneB,utf8_decode($recette->getLibelle()));
+        $pdf->Text(133,$ligneB,utf8_decode($uneLigne->getQuantite()));
+        $pdf->Text(158,$ligneB,utf8_decode(round($uneLigne->getPrixVenteHT(),2))." ".chr(128));
+        $pdf->Text(182,$ligneB,utf8_decode(round((float) $uneLigne->getPrixVenteHT()*(float) $uneLigne->getQuantite(),2))." ".chr(128));
+        $somme += round((float) $uneLigne->getPrixVenteHT()*(float) $uneLigne->getQuantite(),2);
+        $nbligne+=10;
+        $ligneB+=10;
+    }
+
+    $pdf->rect(120,$ligne,0,$nbligne+10);
+    $pdf->rect(150,$ligne,0,$nbligne+10);
+    $pdf->rect(170,$ligne,0,$nbligne+10);
+
+    $pdf->rect(10,$ligne+10,0,$nbligne);
+    $pdf->rect(200,$ligne+10,0,$nbligne);
+    $pdf->rect(10,$ligne+$nbligne+10,190,0);
+    $ligne = $ligneB;
+    $pdf->SetFont("Helvetica", "", 10);
+    $pdf->Text(130,$ligne+=6,utf8_decode("Total HT"));
+    $pdf->Text(180,$ligne,utf8_decode(round($somme,2))." ".chr(128));
+    $pdf->Text(130,$ligne+=6,utf8_decode("Remise (".$remise->getTaux()." %)"));
+    $pdf->Text(180,$ligne,utf8_decode(round($somme*((float) $remise->getTaux()/100),2))." ".chr(128));
+    $pdf->Text(130,$ligne+=6,utf8_decode("TVA (0 %)"));
+    $pdf->Text(180,$ligne,utf8_decode("0 ").chr(128));
+    $pdf->Text(130,$ligne+=6,utf8_decode("Total TTC"));
+    $pdf->Text(180,$ligne,utf8_decode($somme - round($somme*((float) $remise->getTaux()/100),2))." ".chr(128));
+    $pdf->rect(120,$ligneB,80,26);
+
+
+    $route = "./COMMANDES/".$num."/"  . "DEVIS". "_" . $num .".pdf";
+    $pdf->Output("F", $route);
     header("location:".$route);
 }

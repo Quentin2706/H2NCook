@@ -76,7 +76,11 @@
 
         "AvisClients" => ["PHP/VIEW/", "AvisClients", "Avis des clients", false],
 
-        "ListePlats"=> ["PHP/VIEW/", "ListePlats", "Avis des clients", false],
+        "ListePlats"=> ["PHP/VIEW/", "ListePlats", "Les plats", false],
+
+        "Reglement"=> ["PHP/VIEW/", "Reglement", "Reglement", false],
+
+        "ListeAdmin" => ["PHP/VIEW/", "ListeAdmin", "Les différentes listes", false],
     ];
 
     if (isset($_GET["page"])) {

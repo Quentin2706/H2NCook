@@ -103,6 +103,20 @@ nav a:hover hr {
     background-color: white;
 }
 
+nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--couleurPrincipale);
+}
+
+.supprLigne img {
+    width: 2em;
+}
+
+.supprLigne {
+    cursor: pointer;
+}
+
 /* ===== LE TITRE DE LA PAGE DE PRESENTATION ===== */
 .presentationTitre {
     font-size : 3em;
@@ -287,6 +301,15 @@ form label {
     margin: 1em 0;
 }
 
+.centera a {
+    justify-content: center;
+    align-items: center;
+}
+
+.jstfend {
+    justify-content: end;
+}
+
 /* =================  CALENDRIER =================== */ 
 
 .case {
@@ -405,7 +428,9 @@ form label {
     text-align: justify;
 }
 
-
+.mgL1 {
+    margin-left: 1em;
+}
 .mgTop3 {
     margin-top: 3em;
 }
@@ -425,6 +450,20 @@ form > div {
 .mgLF1 {
     margin: 0 1em;
 }
+
+.fois2 {
+    flex: 5;
+}
+.menuAdmin {
+    padding: 2em;
+    background-color: var(--couleurEntreprise);
+    border: 2px solid var(--couleurSecondaire);
+    border-radius: 1em;
+    color: white;
+    margin: 1em;
+    cursor: pointer;
+}
+
 
 
 /* ==========   MEDIA QUERY   ========== */

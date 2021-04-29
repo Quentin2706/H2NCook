@@ -11,7 +11,6 @@ switch ($_GET['mode']) {
                 $userBDD = UsersManager::findLast();
                 $client = new Clients($_POST);
                 $client->setIdUser($userBDD->getIdUser());
-                var_dump($client);
                 ClientsManager::add($client);
                 header("location:index.php?page=FormConnexion");
             } else {

@@ -51,4 +51,4 @@ switch ($_GET['mode']) {
         }
 }
 
-header("location:index.php?page=default");
+header("location:index.php?page=Liste&table=Clients");

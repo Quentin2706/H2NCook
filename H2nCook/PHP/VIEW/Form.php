@@ -24,7 +24,7 @@ if (isset($_SESSION["utilisateur"])) {
 <div></div>';
 
     if (isset($_GET['trace'])) { // Si on vient de créé un client ou modifier pendant une vente
-            echo '<form action="index.php?page=Action&table=' . $table . '&mode=' . $mode . '&trace="'.$_GET['trace'].' method="POST" class="colonne">';
+        echo '<form action="index.php?page=Action&table=' . $table . '&mode=' . $mode . '&trace="' . $_GET['trace'] . ' method="POST" class="colonne">';
     } else {
         echo '<form action="index.php?page=Action&table=' . $table . '&mode=' . $mode . '" method="POST" class="colonne">';
     }
@@ -62,7 +62,7 @@ if (isset($_SESSION["utilisateur"])) {
                 }
             }
             // Insertions des données si on n'est pas dans ajout
-            if ($mode == "detail" || $mode == "delete") {
+            if ($mode == "detail" || $mode == "suppr") {
                 echo ' disabled';
             }
             // Désactivation des champs pour le mode détail et supprimer
@@ -75,8 +75,10 @@ if (isset($_SESSION["utilisateur"])) {
             break;
         case "modif":echo '<div class="row spacearnd"><button class="boutonForm centrer" type="submit">Modifier</button>';
             break;
-        case "delete":echo '<div class="row spacearnd"><button class="boutonForm centrer" type="submit">Supprimer</button>';
+        case "suppr":echo '<div class="row spacearnd"><button class="boutonForm centrer" type="submit">Supprimer</button>';
             break;
+        default:
+            echo '<div>';
     }
 
     echo '<a href="index.php?page=default"><button class="boutonForm centrer" type="submit">Annuler</button></a>

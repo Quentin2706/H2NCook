@@ -61,11 +61,12 @@ class LignescommandeManager
 		return $liste;
 	}
 
-	public static function APIGetListByCommande()
+	public static function APIGetListByCommande($id)
 	{
 		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM LignesCommande");
+		$id = (int) $id;
+		$q = $db->query("SELECT * FROM LignesCommande WHERE idCommande=".$id);
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
@@ -76,11 +77,28 @@ class LignescommandeManager
 		return $liste;
 	}
 
-	public static function getListByCommande()
+	public static function getListByCommande($id)
 	{
 		$db=DbConnect::getDb();
 		$liste = [];
-		$q = $db->query("SELECT * FROM LignesCommande");
+		$id = (int) $id;
+		$q = $db->query("SELECT * FROM LignesCommande WHERE idCommande=".$id);
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			if($donnees != false)
+			{
+				$liste[] = new lignesCommande($donnees);
+			}
+		}
+		return $liste;
+	}
+
+	public static function getListByRecette($id)
+	{
+		$db=DbConnect::getDb();
+		$liste = [];
+		$id = (int) $id;
+		$q = $db->query("SELECT * FROM LignesCommande WHERE idRecette=".$id);
 		while($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
 			if($donnees != false)
