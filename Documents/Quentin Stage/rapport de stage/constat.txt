@@ -1,0 +1,10 @@
+Ce qui fonctionne globalement : 
+On ne peut pas modifier une recette mais on peut faire le reste.
+
+Une table basique comme produit fonctionne a 100%.
+Pour les tables liées faut pas essayer. 
+
+
+Ajouter un commentaire dans les avis ça fonctionne.
+
+INSCRIPTION CONNEXION ET DECONNEXION FONCTIONNENT

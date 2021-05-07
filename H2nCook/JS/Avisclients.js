@@ -104,8 +104,6 @@ function chargement() {
 
                     let divEspace2 = document.createElement("div");
                     divAvis.appendChild(divEspace2);
-                    console.log(idUser);
-                    console.log(reponse[i].idUser);
                     if (idUser == reponse[i].idUser || idRole == 1) {
                         let divFois5 = document.createElement("div");
                         divFois5.setAttribute("class", "fois2");

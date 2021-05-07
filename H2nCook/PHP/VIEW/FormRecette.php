@@ -34,12 +34,12 @@ switch ($mode) {
         }
     case "modif":
         {
-            echo '<form action="index.php?page=ActionRecette&mode=modif&id='.$id.'" method="POST" class="colonne">';
+            echo '<form action="index.php?page=ActionRecette&mode=modif&id='.$id.'" method="POST" enctype="multipart/form-data" class="colonne">';
             break;
         }
     case "suppr":
         {
-            echo '<form action="index.php?page=ActionRecette&mode=suppr&id='.$id.'" method="POST" class="colonne">';
+            echo '<form action="index.php?page=ActionRecette&mode=suppr&id='.$id.'" method="POST" enctype="multipart/form-data" class="colonne">';
             break;
         }
 

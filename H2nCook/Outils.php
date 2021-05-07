@@ -92,13 +92,6 @@ function appelFindById($nomTable, $id)
  */
 function optionSelect($valeur, $table, $nomId, $mode)
 {
-    // $nom = ucfirst($nom);
-    // $rId = "getId".$nom;
-    // $id = $obj->$rId();
-    // $listeInfos = $obj->getListeInfos();
-    // $rLib = "getLib".$nom;
-    // $lib = $obj->$rLib();
-    // $ref=["$nom"=>["id"=> $id ,"libelle"=>$lib]];
     $select = '<select id="' . $nomId . '" name="' . $nomId . '"';
     if ($mode == "detail" || $mode == "suppr") {
         $select .= " disabled ";
@@ -110,9 +103,6 @@ function optionSelect($valeur, $table, $nomId, $mode)
         $select .= '<option value="" SELECTED>Choisir une valeur</option>';
     }
     foreach ($liste as $elt) {
-        // var_dump($code);
-        // echo $code;
-        // var_dump($elt->$rId());
 
         if ($valeur == appelGet($elt, $nomId)) //appel de la methode stockée dans $method
         { // si le code entré en paramètre est égale à l'élément alors c'est celui qui est selectionné
